@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Avalonia.Sta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTAppFramework.Avalonia.AdminViewModel", "ZTAppFramework.Avalonia.AdminViewModel\ZTAppFramework.Avalonia.AdminViewModel.csproj", "{67CAA1F5-94EA-4D88-B003-E13BCF336663}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTAppFramework.Avalonia.Application", "ZTAppFramework.Avalonia.Application\ZTAppFramework.Avalonia.Application.csproj", "{ABFB34C8-E9AE-4213-A575-6F43911CC28C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTAppFramework.Avalonia.Sqlite", "ZTAppFramework.Avalonia.Sqlite\ZTAppFramework.Avalonia.Sqlite.csproj", "{90A180E2-CB32-4016-A806-ED651E9B2A82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{67CAA1F5-94EA-4D88-B003-E13BCF336663}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67CAA1F5-94EA-4D88-B003-E13BCF336663}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67CAA1F5-94EA-4D88-B003-E13BCF336663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABFB34C8-E9AE-4213-A575-6F43911CC28C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABFB34C8-E9AE-4213-A575-6F43911CC28C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABFB34C8-E9AE-4213-A575-6F43911CC28C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABFB34C8-E9AE-4213-A575-6F43911CC28C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A180E2-CB32-4016-A806-ED651E9B2A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A180E2-CB32-4016-A806-ED651E9B2A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A180E2-CB32-4016-A806-ED651E9B2A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A180E2-CB32-4016-A806-ED651E9B2A82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
