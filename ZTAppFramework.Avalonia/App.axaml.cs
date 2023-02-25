@@ -11,6 +11,7 @@ using Prism.Modularity;
 using ReactiveUI;
 using ZTAppFramework.Avalonia.Admin;
 using ZTAppFramework.Avalonia.AdminViewModel;
+using ZTAppFramework.Template.Fonts;
 
 namespace ZTAppFramework.Avalonia
 {
@@ -20,11 +21,10 @@ namespace ZTAppFramework.Avalonia
         {
             AvaloniaXamlLoader.Load(this);
             base.Initialize();
-
-           
         }
         public override void RegisterServices()
         {
+            AvaloniaLocator.CurrentMutable.Bind<IFontManagerImpl>().ToConstant(new CustomFontManagerImpl());
             base.RegisterServices();
         }
         protected override IAvaloniaObject CreateShell()

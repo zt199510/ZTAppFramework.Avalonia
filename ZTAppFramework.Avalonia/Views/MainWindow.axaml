@@ -9,6 +9,7 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     Classes="ZTWindow"
+    FontFamily="avares://ZTAppFramework.Avalonia/Assets/Fonts/微软雅黑.ttf#Microsoft YaHei"
     mc:Ignorable="d">
     <Zt:ZTTitleBar>
         <Zt:ZTTitleBar.HeaderContent>

@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Media;
 using System;
 
 namespace ZTAppFramework.Avalonia
@@ -12,6 +13,7 @@ namespace ZTAppFramework.Avalonia
         // yet and stuff might break.
         [STAThread]
         public static void Main(string[] args) => BuildAvaloniaApp()
+          
             .StartWithClassicDesktopLifetime(args);
 
         // Avalonia configuration, don't remove; also used by visual designer.
