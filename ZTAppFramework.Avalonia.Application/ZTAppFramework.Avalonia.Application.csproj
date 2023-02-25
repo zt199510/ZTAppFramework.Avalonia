@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Prism.DryIoc.Avalonia" Version="8.1.97.2" />
-  </ItemGroup>
-
 </Project>

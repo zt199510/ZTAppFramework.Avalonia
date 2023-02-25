@@ -7,12 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="Prism.DryIoc.Avalonia" Version="8.1.97.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ZTAppFramework.Avalonia.AdminViewModel\ZTAppFramework.Avalonia.AdminViewModel.csproj" />
-    <ProjectReference Include="..\ZTAppFramework.Template\ZTAppFramework.Template.csproj" />
+    <Folder Include="Model\" />
+    <Folder Include="Validations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ZTAppFramework.Avalonia.Stared\ZTAppFramework.Avalonia.Stared.csproj" />
   </ItemGroup>
 
 </Project>

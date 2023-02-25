@@ -11,6 +11,9 @@
     <None Remove=".gitignore" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="DryIoc.Microsoft.DependencyInjection" Version="5.1.0" />
     <PackageReference Include="Prism.DryIoc.Avalonia" Version="8.1.97.2" />
     <PackageReference Include="XamlNameReferenceGenerator" Version="1.6.1" />
   </ItemGroup>

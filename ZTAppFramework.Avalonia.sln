@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Avalonia.Adm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Avalonia.Stared", "ZTAppFramework.Avalonia.Stared\ZTAppFramework.Avalonia.Stared.csproj", "{6473EDFF-9F97-4DE5-AF3D-AB37D3974F17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTAppFramework.Avalonia.AdminViewModel", "ZTAppFramework.Avalonia.AdminViewModel\ZTAppFramework.Avalonia.AdminViewModel.csproj", "{67CAA1F5-94EA-4D88-B003-E13BCF336663}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6473EDFF-9F97-4DE5-AF3D-AB37D3974F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6473EDFF-9F97-4DE5-AF3D-AB37D3974F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6473EDFF-9F97-4DE5-AF3D-AB37D3974F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67CAA1F5-94EA-4D88-B003-E13BCF336663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CAA1F5-94EA-4D88-B003-E13BCF336663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67CAA1F5-94EA-4D88-B003-E13BCF336663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67CAA1F5-94EA-4D88-B003-E13BCF336663}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

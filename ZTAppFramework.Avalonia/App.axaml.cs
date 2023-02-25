@@ -2,11 +2,15 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Avalonia.Platform;
+using DryIoc;
+using DryIoc.Microsoft.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Prism.DryIoc;
 using Prism.Ioc;
 using Prism.Modularity;
 using ReactiveUI;
 using ZTAppFramework.Avalonia.Admin;
+using ZTAppFramework.Avalonia.AdminViewModel;
 
 namespace ZTAppFramework.Avalonia
 {
@@ -37,5 +41,20 @@ namespace ZTAppFramework.Avalonia
         {
             moduleCatalog.AddModule<AdminModule>();
         }
+
+
+        protected override IContainerExtension CreateContainerExtension()
+        {
+
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddAutoMapper(config =>
+            {
+                config.AddProfile<AdminMapper>();
+            });
+            return new DryIocContainerExtension(new Container(CreateContainerRules()).WithDependencyInjectionAdapter(serviceCollection));
+
+        }
+
+
     }
 }
