@@ -1,0 +1,186 @@
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:zt="clr-namespace:ZTAppFramework.Template.Controls;assembly=ZTAppFramework.Template">
+    <Design.PreviewWith>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <zt:ZTButton
+                    Margin="2"
+                    Content="默认按钮"
+                    Foreground="Red"
+                    Type="Default" />
+                <zt:ZTButton
+                    Margin="2"
+                    Content="百搭按钮"
+                    Type="Normal" />
+                <zt:ZTButton
+                    Margin="2"
+                    Content="暖色按钮"
+                    Type="Warm" />
+                <zt:ZTButton
+                    Margin="2"
+                    Content="警告按钮"
+                    Type="Danger" />
+                <zt:ZTButton
+                    Margin="2"
+                    Content="禁用按钮"
+                    IsEnabled="False" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <zt:ZTButton Margin="2" Content="原始按钮" />
+                <zt:ZTButton
+                    Margin="2"
+                    Classes="Default"
+                    Content="主色按钮" />
+                <zt:ZTButton
+                    Margin="2"
+                    Classes="Normal"
+                    Content="百搭按钮" />
+                <zt:ZTButton
+                    Margin="2"
+                    Classes="Warm"
+                    Content="暖色按钮" />
+                <zt:ZTButton
+                    Margin="2"
+                    Classes="Danger"
+                    Content="警告按钮" />
+                <zt:ZTButton
+                    Margin="2"
+                    Classes="Link"
+                    Content="超链接"
+                    Uri="https://space.bilibili.com/48808444" />
+            </StackPanel>
+        </StackPanel>
+
+    </Design.PreviewWith>
+    <Style Selector="zt|ZTButton">
+        <Setter Property="CornerRadius" Value="2" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Padding" Value="16 8" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border x:Name="PART_BorderBody" CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid>
+                            <Border
+                                Name="PART_Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+                            <Border ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
+                                <ContentPresenter
+                                    Name="PART_ContentPresenter"
+                                    Padding="{TemplateBinding Padding}"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            </Border>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style Selector="zt|ZTButton:pointerover/template/ Border#PART_Border">
+        <Setter Property="Opacity" Value="0.6" />
+    </Style>
+
+    <Style Selector="zt|ZTButton:pressed/template/ Border#PART_Border">
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style Selector="zt|ZTButton[Type=Primary]">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource LightBlack}" />
+        <Setter Property="TextBlock.Foreground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=BorderBrush}" />
+    </Style>
+
+    <Style Selector="zt|ZTButton[Type=Primary].Default">
+        <Setter Property="BorderBrush" Value="Green" />
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Primary].Normal">
+        <Setter Property="BorderBrush" Value="Blue" />
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Primary].Warm">
+        <Setter Property="BorderBrush" Value="Orange" />
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Primary].Danger">
+        <Setter Property="BorderBrush" Value="Red" />
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Default]">
+        <Setter Property="Background" Value="Green" />
+        <Setter Property="TextBlock.Foreground" Value="Black" />
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Normal]">
+        <Setter Property="Background" Value="Blue" />
+        <Setter Property="TextBlock.Foreground" Value="White" />
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Warm]">
+        <Setter Property="Background" Value="Orange" />
+        <Setter Property="TextBlock.Foreground" Value="White" />
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Danger]">
+        <Setter Property="Background" Value="Red" />
+        <Setter Property="TextBlock.Foreground" Value="White" />
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Customize]">
+        <Setter Property="Background" Value="Green" />
+        <Setter Property="TextBlock.Foreground" Value="White" />
+    </Style>
+
+    <Style Selector="zt|ZTButton:disabled /template/ Border#PART_Border">
+        <Setter Property="Background" Value="Gray" />
+        <Setter Property="BorderBrush" Value="#33ABA0" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <Style Selector="zt|ZTButton:disabled /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="TextBlock.Foreground" Value="Gray" />
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Link]">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="TextBlock.Foreground" Value="#4007a2" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Name="PART_BorderBody" Background="Transparent">
+                        <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Padding="{TemplateBinding Padding}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <Grid
+                                Name="PART_Line"
+                                Height="1"
+                                Background="{TemplateBinding Foreground}" />
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Link]:not(:pointerover) /template/ Grid#PART_Line">
+        <Setter Property="Opacity" Value="0" />
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Link]:pointerover /template/ Grid#PART_Line">
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Link]:pressed /template/ Grid#PART_Line">
+        <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="zt|ZTButton[Type=Link]:disabled /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="TextBlock.Foreground" Value="Gray" />
+    </Style>
+</Styles>

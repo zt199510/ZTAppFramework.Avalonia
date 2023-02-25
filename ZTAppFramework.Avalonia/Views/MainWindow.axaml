@@ -1,0 +1,36 @@
+<Window
+    x:Class="ZTAppFramework.Avalonia.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Zt="using:ZTAppFramework.Template.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ZTAppFramework.Avalonia"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Classes="ZTWindow"
+    mc:Ignorable="d">
+    <Zt:ZTTitleBar>
+        <Zt:ZTTitleBar.HeaderContent>
+            <StackPanel IsHitTestVisible="false" Orientation="Horizontal">
+                <Image
+                    Width="20"
+                    Height="20"
+                    Margin="5,0"
+                    Stretch="Fill" />
+                <TextBlock VerticalAlignment="Center" Text="{Binding #mainWindow.Title, Mode=OneWay}" />
+            </StackPanel>
+        </Zt:ZTTitleBar.HeaderContent>
+        <StackPanel>
+            <Zt:ZTTextBox
+                Width="200"
+                InputType="Default"
+                Text="" />
+            <Zt:ZTTextBox
+                Width="200"
+                InputType="User"
+                Text="" />
+        </StackPanel>
+
+    </Zt:ZTTitleBar>
+</Window>
