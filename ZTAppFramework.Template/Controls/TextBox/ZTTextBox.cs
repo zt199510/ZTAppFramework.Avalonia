@@ -16,6 +16,8 @@ namespace ZTAppFramework.Template.Controls
 {
     public class ZTTextBox : TextBox
     {
+
+        private ZTButton PRAT_CloseButton = null;
         /// <summary>
         /// 是否聚焦
         /// </summary>
@@ -48,6 +50,16 @@ namespace ZTAppFramework.Template.Controls
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
+
+            PRAT_CloseButton = e.NameScope.Find<ZTButton>("PRAT_CloseButton");
+
+            if (PRAT_CloseButton != null) PRAT_CloseButton.Click -= PRAT_CloseButton_Click;
+            if (PRAT_CloseButton != null) PRAT_CloseButton.Click += PRAT_CloseButton_Click;
+        }
+
+        private void PRAT_CloseButton_Click(object? sender, RoutedEventArgs e)
+        {
+            Text = "";
         }
 
         protected override void OnTextInput(TextInputEventArgs e)

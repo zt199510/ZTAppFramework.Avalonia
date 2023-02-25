@@ -181,4 +181,11 @@
     <Style Selector="local|ZTTextBox:focus">
         <Setter Property="BorderBrush" Value="#323232" />
     </Style>
+    <Style Selector="local|ZTTextBox:pointerover /template/ local|ZTButton#PRAT_CloseButton">
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style Selector="local|ZTTextBox /template/ local|ZTButton#PRAT_CloseButton:not(:pressed)">
+        <Setter Property="Opacity" Value="0.5" />
+    </Style>
 </Styles>
