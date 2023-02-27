@@ -5,4 +5,5 @@
     <StyleInclude Source="avares://ZTAppFramework.Template/Styles/TitleBarStyle.axaml" />
     <StyleInclude Source="avares://ZTAppFramework.Template/Styles/TextBoxStyle.axaml" />
     <StyleInclude Source="avares://ZTAppFramework.Template/Styles/DialogHostStyle.axaml" />
+    <StyleInclude Source="avares://ZTAppFramework.Template/Styles/DialogWindowStyle.axaml" />
 </Styles>

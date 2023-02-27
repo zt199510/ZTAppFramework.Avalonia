@@ -116,6 +116,7 @@ namespace ZTAppFramework.Template.Dialog
                     ZTDialogHost host = DialogHosts[token];
                     if (host.Items == null) throw new Exception($"当前{nameof(ZTDialogHost)}元素尚未初始化完成");
                     host.TaskCompletion = new TaskCompletionSource<object>();
+                    
                     //创建内容视图
                     var view = Activator.CreateInstance(DialogViews[dialogName]) as UserControl;
                     //检查VM初始化被注入情况
@@ -124,6 +125,7 @@ namespace ZTAppFramework.Template.Dialog
                         //创建VM
                         view.DataContext = Activator.CreateInstance(DialogViewModels[dialogName]);
                     }
+
                     //创建弹窗
                     ZTDialogWindow dialogView = new ZTDialogWindow(callback, host)
                     {
@@ -140,7 +142,6 @@ namespace ZTAppFramework.Template.Dialog
                 }
                 catch (Exception ex)
                 {
-
                     throw ex;
                 }
             });
