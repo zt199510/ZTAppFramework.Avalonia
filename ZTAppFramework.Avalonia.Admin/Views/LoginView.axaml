@@ -1,0 +1,73 @@
+<UserControl
+    x:Class="ZTAppFramework.Avalonia.Admin.Views.LoginView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Zt="using:ZTAppFramework.Template.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ext="using:ZTAppFramework.Template.Extends"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    Width="800"
+    Height="500"
+    MinWidth="800"
+    MinHeight="500"
+    MaxWidth="800"
+    MaxHeight="500"
+    Margin="5"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    FontFamily="avares://ZTAppFramework.Avalonia/Assets/Fonts/微软雅黑.ttf#Microsoft YaHei"
+    mc:Ignorable="d">
+    <Zt:ZTTitleBar HeaderForeground="#323232" TitleBarType="Login">
+        <Zt:ZTTitleBar.HeaderContent>
+            <StackPanel IsHitTestVisible="false" Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="{Binding #mainWindow.Title, Mode=OneWay}" />
+            </StackPanel>
+        </Zt:ZTTitleBar.HeaderContent>
+        <Grid ColumnDefinitions="*,*">
+            <Image
+                Height="260"
+                ext:ImageHelper.Source="assembly://Assets/Background_login2.png"
+                Stretch="Uniform" />
+            <Grid
+                Grid.Column="1"
+                Width="350"
+                Height="300"
+                VerticalAlignment="Center"
+                RowDefinitions="*,* ">
+                <Border
+                    Grid.RowSpan="2"
+                    Background="LightGray"
+                    BorderBrush="#323232"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    Opacity="0.1" />
+                <TextBlock
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Center"
+                    FontSize="24"
+                    FontWeight="DemiBold"
+                    Text="登  入" />
+                <StackPanel
+                    Grid.Row="1"
+                    Margin="40,0,40,80"
+                    VerticalAlignment="Top">
+                    <Zt:ZTTextBox
+                        Height="40"
+                        InputType="User"
+                        Watermark="请输入用户名" />
+                    <Zt:ZTTextBox
+                        Height="40"
+                        Margin="0,10,0,0"
+                        InputType="User"
+                        Watermark="请输入密码" />
+                    <Zt:ZTButton
+                        Margin="0,2,0,0"
+                        Background="BlueViolet"
+                        Content="登录"
+                        Foreground="White" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Zt:ZTTitleBar>
+
+</UserControl>

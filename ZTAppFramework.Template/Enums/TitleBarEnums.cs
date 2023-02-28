@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZTAppFramework.Avalonia.ViewModel
+namespace ZTAppFramework.Template.Enums
 {
-    public class MainWindowViewModel
+    public enum TitleBarEnums
     {
-
-
+       Default,
+       Login,
+       Message
     }
 }

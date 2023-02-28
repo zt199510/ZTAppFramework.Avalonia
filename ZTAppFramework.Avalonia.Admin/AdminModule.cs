@@ -1,10 +1,9 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ZTAppFramework.Avalonia.Admin.Views;
+using ZTAppFramework.Avalonia.Admin.Windows;
+using ZTAppFramework.Avalonia.AdminViewModel.ViewModel;
+using ZTAppFramework.Avalonia.Stared;
 
 namespace ZTAppFramework.Avalonia.Admin
 {
@@ -15,9 +14,15 @@ namespace ZTAppFramework.Avalonia.Admin
             
         }
 
-        public void RegisterTypes(IContainerRegistry containerRegistry)
+        public void RegisterTypes(IContainerRegistry services)
         {
+            services.RegisterSingleton<AppStartService>();
+           
+            services.RegisterForNavigation<MainWindow, MainWindowViewModel>(AppViews.MainName);
+
+            services.RegisterDialogWindow<DefaultWindow>("DefaultWindow");
             
+            services.RegisterDialog<LoginView, LoginViewModel>(AppViews.LoginName);
         }
     }
 }

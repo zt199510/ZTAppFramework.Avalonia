@@ -34,6 +34,22 @@ namespace ZTAppFramework.Template.Controls
         private Panel PART_WindowButtonGrid = null;
         private CompositeDisposable _disposables;
 
+
+
+        /// <summary>
+        /// Defines the <see cref="TitleBarType"/> property.
+        /// </summary>
+        public static readonly StyledProperty<TitleBarEnums> TitleBarTypeProperty =
+            AvaloniaProperty.Register<ZTTitleBar, TitleBarEnums>(nameof(TitleBarType), TitleBarEnums.Default);
+
+        /// <summary>
+        /// Comment
+        /// </summary>
+        public TitleBarEnums TitleBarType
+        {
+            get { return GetValue(TitleBarTypeProperty); }
+            set { SetValue(TitleBarTypeProperty, value); }
+        }
         /// <summary>
         /// 顶部标题栏文字颜色
         /// </summary>
@@ -145,6 +161,11 @@ namespace ZTAppFramework.Template.Controls
                             PseudoClasses.Set(":maximized", x == WindowState.Maximized);
                             PseudoClasses.Set(":fullscreen", x == WindowState.FullScreen);
                         }),
+                      window.GetObservable(Window.SizeToContentProperty)
+                        .Subscribe(delegate(SizeToContent x)
+                        {
+                           
+                        }),
                 };
 
                 
@@ -212,6 +233,7 @@ namespace ZTAppFramework.Template.Controls
         private void PART_HeaderBody_DoubleTapped(object sender, global::Avalonia.Interactivity.RoutedEventArgs e)
         {
             if (e.Source != PART_HeaderBody) return;
+            if (TitleBarType != TitleBarEnums.Default) return;
             if (VisualRoot is Window window)
             {
                 if (window.WindowState == WindowState.Normal) window.WindowState = WindowState.Maximized;

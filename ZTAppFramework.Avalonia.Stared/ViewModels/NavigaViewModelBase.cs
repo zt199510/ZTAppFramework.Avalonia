@@ -32,11 +32,11 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
         /// <summary>
         /// VM基类
         /// </summary>
-        public NavigaViewModelBase(IContainerExtension container)
+        public NavigaViewModelBase()
         {
-            this.Region = container.Resolve<IRegionManager>();
-            this.Dialog = container.Resolve<IDialogService>();
-            this.Event = container.Resolve<IEventAggregator>();
+            this.Region = ContainerLocator.Container.Resolve<IRegionManager>();
+            this.Dialog = ContainerLocator.Container.Resolve<IDialogService>();
+            this.Event = ContainerLocator.Container.Resolve<IEventAggregator>();
         }
         private DelegateCommand _LoadedCommand;
         public DelegateCommand LoadedCommand =>

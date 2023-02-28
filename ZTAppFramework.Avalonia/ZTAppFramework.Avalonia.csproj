@@ -9,10 +9,20 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove=".gitignore" />
+    <None Remove="Assets\Background_login.png" />
+    <None Remove="Assets\Background_login2.png" />
     <None Remove="Assets\Fonts\微软雅黑.ttf" />
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Include="Assets\Fonts\微软雅黑.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Background_login.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Background_login2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
