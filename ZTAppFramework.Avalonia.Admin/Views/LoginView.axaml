@@ -65,6 +65,8 @@
                         Background="BlueViolet"
                         Content="登录"
                         Foreground="White" />
+
+                    <CheckBox Content="记住密码" />
                 </StackPanel>
             </Grid>
         </Grid>
