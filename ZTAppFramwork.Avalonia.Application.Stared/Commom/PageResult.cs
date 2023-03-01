@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZTAppFramework.Application_Stared.Commom
+namespace ZTAppFramework.ApplicationService.Stared.Commom
 {
     public class PageResult<T>
     {

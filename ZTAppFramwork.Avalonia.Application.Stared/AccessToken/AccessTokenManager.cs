@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ZTAppFramework.Application_Stared.HttpManager;
+using ZTAppFramework.ApplicationService.Stared.HttpManager;
 
-namespace ZTAppFramework.Application_Stared
+namespace ZTAppFramework.ApplicationService.Stared
 {
     public class AccessTokenManager
     {

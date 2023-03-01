@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZTAppFramework.Application_Stared.HttpManager
+namespace ZTAppFramework.ApplicationService.Stared.HttpManager
 {
     public class ApiClientBase : IDisposable
     {

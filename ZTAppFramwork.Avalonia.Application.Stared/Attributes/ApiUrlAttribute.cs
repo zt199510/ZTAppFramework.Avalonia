@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZTAppFramework.Application_Stared.Attributes
+namespace ZTAppFramework.ApplicationService.Stared.Attributes
 {
     public class ApiUrlAttribute : Attribute
     {

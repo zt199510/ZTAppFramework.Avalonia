@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZTAppFramework.Application_Stared.Operator.Dto
+namespace ZTAppFramework.ApplicationService.Stared.Operator.Dto
 {
     public class OperatorWordDto
     {

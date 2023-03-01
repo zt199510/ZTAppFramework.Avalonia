@@ -1,16 +1,8 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ZTAppFramework.Avalonia.Stared;
 using Prism.Ioc;
 using Prism.Regions;
-using ZTAppFramework.Avalonia.Admin.Views;
-using Prism.Services.Dialogs;
-using ZTAppFramework.Avalonia.Admin.Windows;
 using Avalonia.Controls.ApplicationLifetimes;
 
 namespace ZTAppFramework.Avalonia.Admin
