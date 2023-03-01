@@ -26,6 +26,7 @@ namespace ZTAppFramework.Template.Extends
         {
             if (obj.Sender is Image image)
             {
+                return;
                 Uri uri = null;
                 if (obj.NewValue is string rawUri)
                 {

@@ -25,18 +25,26 @@
             <Grid ColumnDefinitions="60,auto,*" IsHitTestVisible="false">
                 <Border Background="#222B44" />
                 <Image />
+                <Border
+                    Grid.Column="1"
+                    Width="60"
+                    BorderBrush="#222B44"
+                    BorderThickness="0.3" />
                 <TextBlock
                     Grid.Column="1"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontSize="18"
-                    Text="test" />
-                <StackPanel
-                    Grid.Column="2"
-                    Background="Transparent"
-                    IsHitTestVisible="false"
-                    Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="12313132" />
+                    Text="系统" />
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Text="主页" />
                 </StackPanel>
+
             </Grid>
 
         </Zt:ZTTitleBar.HeaderContent>
