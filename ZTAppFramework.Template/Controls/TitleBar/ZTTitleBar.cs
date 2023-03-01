@@ -4,6 +4,7 @@ using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Media;
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -149,6 +150,8 @@ namespace ZTAppFramework.Template.Controls
             base.OnApplyTemplate(e);
             if (VisualRoot is Window window)
             {
+
+                window.CanResize = false;
                 //创建一个新的 CompositeDisposable 对象，并添加一个订阅者，用于监听 window 的 WindowStateProperty 属性的变化。当属性发生变化时，执行一个委托函数，根据不同的窗口状态，设置控件的伪类，使用 CompositeDisposable 可以方便地管理多个可释放的对象，比如订阅者或者定时器。当你不再需要这些对象时，你可以一次性地释放它们，避免内存泄漏或者资源浪费。当控件被移除时直接调用CompositeDisposable.Dispose() 帮助释放对象
                 _disposables = new CompositeDisposable
                 {
@@ -161,11 +164,15 @@ namespace ZTAppFramework.Template.Controls
                             PseudoClasses.Set(":maximized", x == WindowState.Maximized);
                             PseudoClasses.Set(":fullscreen", x == WindowState.FullScreen);
                         }),
-                      window.GetObservable(Window.SizeToContentProperty)
-                        .Subscribe(delegate(SizeToContent x)
+
+                    this.WhenAnyValue(x => x.TitleBarType).Subscribe(x =>
+                    {
+                        if(x!=TitleBarEnums.Default)
                         {
-                           
-                        }),
+                            window.CanResize=false;
+                        }
+                    })
+                   
                 };
 
                 

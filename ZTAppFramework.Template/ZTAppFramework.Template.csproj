@@ -20,4 +20,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Styles\ComboBoxStyle.axaml" />
+  </ItemGroup>
+
 </Project>

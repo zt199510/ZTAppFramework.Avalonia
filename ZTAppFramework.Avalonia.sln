@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Avalonia.Adm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Sqlite", "ZTAppFramework.Avalonia.Sqlite\ZTAppFramework.Sqlite.csproj", "{90A180E2-CB32-4016-A806-ED651E9B2A82}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Avalonia.Web", "ZTAppFramework.Avalonia.Web\ZTAppFramework.Avalonia.Web.csproj", "{19C2CE88-8BBC-431E-9B04-879BC8DACF81}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.ApplicationService.Stared", "ZTAppFramwork.Avalonia.Application.Stared\ZTAppFramework.ApplicationService.Stared.csproj", "{6102F0B4-BB08-4DB7-867D-7081DCEFDA80}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "服务", "服务", "{06D6BE78-74F4-4A8C-8577-097290A2161B}"
@@ -53,10 +51,6 @@ Global
 		{90A180E2-CB32-4016-A806-ED651E9B2A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90A180E2-CB32-4016-A806-ED651E9B2A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90A180E2-CB32-4016-A806-ED651E9B2A82}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19C2CE88-8BBC-431E-9B04-879BC8DACF81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19C2CE88-8BBC-431E-9B04-879BC8DACF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19C2CE88-8BBC-431E-9B04-879BC8DACF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19C2CE88-8BBC-431E-9B04-879BC8DACF81}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6102F0B4-BB08-4DB7-867D-7081DCEFDA80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6102F0B4-BB08-4DB7-867D-7081DCEFDA80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6102F0B4-BB08-4DB7-867D-7081DCEFDA80}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -70,6 +64,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{90A180E2-CB32-4016-A806-ED651E9B2A82} = {06D6BE78-74F4-4A8C-8577-097290A2161B}
 		{6102F0B4-BB08-4DB7-867D-7081DCEFDA80} = {06D6BE78-74F4-4A8C-8577-097290A2161B}
 		{A8D12D07-6190-4C3C-B84E-005C360A19F5} = {06D6BE78-74F4-4A8C-8577-097290A2161B}
 	EndGlobalSection

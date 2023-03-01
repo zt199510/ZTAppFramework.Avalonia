@@ -3,32 +3,46 @@ using Prism.Mvvm;
 using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZTAppFramework.Avalonia.AdminViewModel.Model.Login;
 using ZTAppFramework.Avalonia.Stared.ViewModels;
 
 namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
 {
-    public class LoginViewModel : BindableBase, IDialogAware
+    public class LoginViewModel : DialogViewModelBase
     {
-        public string Title { get; set; }
-
-        public event Action<IDialogResult> RequestClose;
-
-        public bool CanCloseDialog()
+        #region UI
+        private ObservableCollection<LoginModel> _AccountList;
+        private LoginModel _Login;
+        private bool _IsSavePwd;
+        public ObservableCollection<LoginModel> AccountList
         {
-            return true;
+            get { return _AccountList; }
+            set { SetProperty(ref _AccountList, value); }
         }
 
-        public void OnDialogClosed()
+        public LoginModel Login
         {
-            
+            get { return _Login; }
+            set { SetProperty(ref _Login, value); }
         }
 
-        public void OnDialogOpened(IDialogParameters parameters)
+        public bool IsSavePwd
         {
-            
+            get { return _IsSavePwd; }
+            set { SetProperty(ref _IsSavePwd, value); }
+        }
+
+        #endregion
+
+        public override void OnDialogOpened(IDialogParameters parameters)
+        {
+            base.OnDialogOpened(parameters);
+            AccountList=new ObservableCollection<LoginModel>();
+            AccountList.Add(new LoginModel() { UserName = "1231231", Password = "1231231" });
         }
     }
 }

@@ -11,12 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="Validations\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ZTAppFramework.Avalonia.Application\ZTAppFramework.Application.csproj" />
+    <ProjectReference Include="..\ZTAppFramework.ApplicationService\ZTAppFramework.ApplicationService.csproj" />
     <ProjectReference Include="..\ZTAppFramework.Avalonia.Stared\ZTAppFramework.Avalonia.Stared.csproj" />
   </ItemGroup>
 

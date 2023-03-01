@@ -1,0 +1,240 @@
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ZTAppFramework.Template.Controls;assembly=ZTAppFramework.Template">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!--  Add Controls for Previewer Here  -->
+            <local:ZTComboBox
+                Width="200"
+                Height="40"
+                Margin="10"
+                VerticalAlignment="Bottom" />
+        </Border>
+    </Design.PreviewWith>
+
+
+    <Style Selector="local|ZTComboBox">
+        <Setter Property="PlaceholderText" Value="请选择" />
+        <Setter Property="CornerRadius" Value="2" />
+        <Setter Property="PlaceholderForeground" Value="LawnGreen" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="5 2" />
+        <Setter Property="Cursor" Value="Hand" />
+    </Style>
+
+    <Style Selector="local|ZTComboBox[ComboBoxType=Default]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Name="PART_Border"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid Name="PART_Body" Background="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Name="PART_PlaceholderText"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontStyle="{TemplateBinding FontStyle}"
+                            FontWeight="{TemplateBinding FontWeight}"
+                            Foreground="{TemplateBinding PlaceholderForeground}"
+                            Text="{TemplateBinding PlaceholderText}"
+                            TextTrimming="WordEllipsis" />
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding ItemTemplate}"
+                            TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                            TextBlock.FontSize="{TemplateBinding FontSize}"
+                            TextBlock.FontStyle="{TemplateBinding FontStyle}" />
+                        <Grid Grid.Column="1">
+                            <Path
+                                Name="PART_Icon"
+                                Width="10"
+                                Height="10"
+                                Margin="10,0"
+                                Data="M863.232 432.128l-314.368 314.368c-20.48 20.48-53.248 20.48-73.728 0L160.768 432.128C128 399.36 151.04 343.04 197.632 343.04h628.736c46.592 0 69.632 56.32 36.864 89.088z"
+                                Fill="{TemplateBinding BorderBrush}"
+                                Stretch="Fill">
+                                <!--  设定动画时间  -->
+                                <Path.Transitions>
+                                    <Transitions>
+                                        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.3" />
+                                    </Transitions>
+                                </Path.Transitions>
+                            </Path>
+                        </Grid>
+                        <Popup
+                            Name="PART_Popup"
+                            MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                            IsLightDismissEnabled="True"
+                            IsOpen="{TemplateBinding IsDropDownOpen,
+                                                     Mode=TwoWay}"
+                            PlacementTarget="{Binding ElementName=PART_Border}"
+                            UseLayoutRounding="True"
+                            WindowManagerAddShadowHint="False">
+                            <ScrollViewer Name="PART_ScrollViewer" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                <Grid HorizontalAlignment="Stretch">
+                                    <Border
+                                        Margin="1,5"
+                                        Padding="0,5"
+                                        HorizontalAlignment="Stretch"
+                                        Background="White"
+                                        BoxShadow="0 0 2 0 #9b9a9a"
+                                        CornerRadius="{TemplateBinding CornerRadius}">
+                                        <ItemsPresenter
+                                            Name="PART_ItemsPresenter"
+                                            ItemTemplate="{TemplateBinding ItemTemplate}"
+                                            Items="{TemplateBinding Items}"
+                                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                                            VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                                    </Border>
+                                </Grid>
+                            </ScrollViewer>
+                        </Popup>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+
+    <Style Selector="local|ZTComboBox[ComboBoxType=Input]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Name="PART_Border"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid Name="PART_Body" Background="Transparent">
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <local:ZTTextBox
+                            Name="PART_PlaceholderTextbox"
+                            Margin="{TemplateBinding Padding}"
+                            Padding="0"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontStyle="{TemplateBinding FontStyle}"
+                            FontWeight="{TemplateBinding FontWeight}"
+                            Foreground="{TemplateBinding PlaceholderForeground}"
+                            InputType="User"
+                            Text="{TemplateBinding TextContent}"
+                            Watermark="{TemplateBinding PlaceholderText}" />
+
+                        <!--<ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding ItemTemplate}"
+                            TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                            TextBlock.FontSize="{TemplateBinding FontSize}"
+                            TextBlock.FontStyle="{TemplateBinding FontStyle}" />-->
+                        <Grid Grid.Column="1">
+                            <Path
+                                Name="PART_Icon"
+                                Width="10"
+                                Height="10"
+                                Margin="10,0"
+                                Data="M863.232 432.128l-314.368 314.368c-20.48 20.48-53.248 20.48-73.728 0L160.768 432.128C128 399.36 151.04 343.04 197.632 343.04h628.736c46.592 0 69.632 56.32 36.864 89.088z"
+                                Fill="{TemplateBinding BorderBrush}"
+                                Stretch="Fill">
+                                <!--  设定动画时间  -->
+                                <Path.Transitions>
+                                    <Transitions>
+                                        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.3" />
+                                    </Transitions>
+                                </Path.Transitions>
+                            </Path>
+                        </Grid>
+                        <Popup
+                            Name="PART_Popup"
+                            MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                            IsLightDismissEnabled="True"
+                            IsOpen="{TemplateBinding IsDropDownOpen,
+                                                     Mode=TwoWay}"
+                            PlacementTarget="{Binding ElementName=PART_Border}"
+                            UseLayoutRounding="True"
+                            WindowManagerAddShadowHint="False">
+                            <ScrollViewer Name="PART_ScrollViewer" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                <Grid HorizontalAlignment="Stretch">
+                                    <Border
+                                        Margin="1,5"
+                                        Padding="0,5"
+                                        HorizontalAlignment="Stretch"
+                                        Background="White"
+                                        BoxShadow="0 0 2 0 #9b9a9a"
+                                        CornerRadius="{TemplateBinding CornerRadius}">
+                                        <ItemsPresenter
+                                            Name="PART_ItemsPresenter"
+                                            ItemTemplate="{TemplateBinding ItemTemplate}"
+                                            Items="{TemplateBinding Items}"
+                                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                                            VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                                    </Border>
+                                </Grid>
+                            </ScrollViewer>
+                        </Popup>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+
+    <!--  指定当前下拉菜单图标未展开时旋转角度  -->
+    <Style Selector="local|ZTComboBox[IsDropDownOpen=false] /template/ Path#PART_Icon">
+        <Setter Property="RenderTransform" Value="rotate(0deg)" />
+    </Style>
+    <!--  指定当前下拉菜单图标展开时旋转角度  -->
+    <Style Selector="local|ZTComboBox[IsDropDownOpen=true] /template/ Path#PART_Icon">
+        <Setter Property="RenderTransform" Value="rotate(180deg)" />
+    </Style>
+    <!--  设定提示信息默认显示效果  -->
+    <!--
+    <Style Selector="local|ZTComboBox /template/ TextBlock#PART_PlaceholderText">
+        <Setter Property="IsVisible" Value="false" />
+    </Style>
+    -->
+    <!--  设定提示信息默认显示效果  -->
+    <!--
+    <Style Selector="local|ZTComboBox[SelectedIndex=-1] /template/ TextBlock#PART_PlaceholderText">
+        <Setter Property="IsVisible" Value="true" />
+    </Style>-->
+    <!--  指定当前控件被集中状态  -->
+    <Style Selector="local|ZTComboBox:focus">
+        <Setter Property="BorderBrush" Value="Black" />
+    </Style>
+
+
+</Styles>

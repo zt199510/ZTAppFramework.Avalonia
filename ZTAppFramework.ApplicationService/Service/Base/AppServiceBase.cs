@@ -11,7 +11,7 @@ using ZTAppFramework.ApplicationService.Stared.HttpManager;
 
 namespace ZTAppFramework.ApplicationService
 {
-    internal class AppServiceBase
+    public class AppServiceBase
     {
         protected ApiClinetRepository _apiClinet;
 

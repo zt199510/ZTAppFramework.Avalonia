@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ZTAppFramework.Avalonia.Sqlite\ZTAppFramework.Sqlite.csproj" />
     <ProjectReference Include="..\ZTAppFramwork.Avalonia.Application.Stared\ZTAppFramework.ApplicationService.Stared.csproj" />
   </ItemGroup>
 
