@@ -163,7 +163,6 @@
     </Style>
     <Style Selector="zt|ZTTitleBar[TitleBarType=Login] /template/ zt|ZTButton#winCnangeBtn">
         <Setter Property="IsVisible" Value="False" />
-
     </Style>
 
     <Style Selector="zt|ZTTitleBar[TitleBarType=Login]">

@@ -19,9 +19,12 @@ namespace ZTAppFramework.Avalonia.Admin
             services.RegisterSingleton<AppStartService>();
            
             services.RegisterForNavigation<MainWindow, MainWindowViewModel>(AppViews.MainName);
+            services.RegisterForNavigation<Home, HomeViewModel>(AppPages.HomePage);
+
+
+
 
             services.RegisterDialogWindow<DefaultWindow>("DefaultWindow");
-            
             services.RegisterDialog<LoginView, LoginViewModel>(AppViews.LoginName);
         }
     }

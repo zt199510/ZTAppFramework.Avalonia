@@ -8,6 +8,7 @@ namespace ZTAppFramework.Avalonia.Admin.Windows
         public DefaultWindow()
         {
             InitializeComponent();
+            
         }
 
         public IDialogResult Result { get ; set ; }

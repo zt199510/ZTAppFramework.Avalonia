@@ -12,7 +12,7 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
     {
         public string Title { get; set; }
 
-        public event Action<IDialogResult> RequestClose;
+        public event Action<IDialogResult>? RequestClose;
 
         public bool CanCloseDialog()
         {
@@ -27,6 +27,11 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
         public virtual void OnDialogOpened(IDialogParameters parameters)
         {
 
+        }
+
+        public virtual void RaiseRequestClose(IDialogResult dialogResult)
+        {
+            RequestClose?.Invoke(dialogResult);
         }
     }
 }

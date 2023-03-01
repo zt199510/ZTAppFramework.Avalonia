@@ -1,7 +1,9 @@
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Avalonia.Platform;
+using Avalonia.Threading;
 using DryIoc;
 using DryIoc.Microsoft.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +13,8 @@ using Prism.Modularity;
 using Prism.Services.Dialogs;
 using ReactiveUI;
 using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
 using ZTAppFramework.Avalonia.Admin;
 using ZTAppFramework.Avalonia.Admin.Views;
 using ZTAppFramework.Avalonia.Admin.Windows;
@@ -28,6 +32,7 @@ namespace ZTAppFramework.Avalonia
         {
             AvaloniaXamlLoader.Load(this);
             base.Initialize();
+          
         }
 
         public override void RegisterServices()
@@ -57,14 +62,13 @@ namespace ZTAppFramework.Avalonia
             });
             return new DryIocContainerExtension(new Container(CreateContainerRules()).WithDependencyInjectionAdapter(serviceCollection));
         }
-
+        
         protected override  void OnInitialized()
         {
-           
             var dialogService = ContainerLocator.Container.Resolve<IDialogService>();
             dialogService.Show(AppViews.LoginName, new DialogParameters(), r =>
             {
-                if (r.Result==ButtonResult.Yes)
+                if (r.Result == ButtonResult.Yes)
                 {
                     var appStart = Container.Resolve<AppStartService>();
                     InitializeShell(appStart.CreateShell(this));
@@ -76,11 +80,15 @@ namespace ZTAppFramework.Avalonia
                     AppStartService.ExitApplication();
                 }
             }, "DefaultWindow");
-        
-          
-       
-
         }
 
+        public override void OnFrameworkInitializationCompleted()
+        {
+            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+            {
+                desktop.ShutdownMode = ShutdownMode.OnExplicitShutdown;
+            }
+            base.OnFrameworkInitializationCompleted();
+        }
     }
 }

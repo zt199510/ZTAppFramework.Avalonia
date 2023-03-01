@@ -112,15 +112,26 @@ namespace ZTAppFramework.Template.Controls
                 {
                     if(item!=GetDisplayName())
                         this.SelectedIndex=-1;
+                    if (string.IsNullOrEmpty(item))
+                             IsDropDownOpen = true;
 
                 }),
                this.WhenAnyValue(x => x.SelectionBoxItem).Where(x =>x!=null).Subscribe(item =>
                 {
-                   PART_PlaceholderTextbox.Text=GetDisplayName();
+                   TextContent=GetDisplayName();
                 }),
+
+
             };
+            PART_PlaceholderTextbox.LostFocus -= PART_PlaceholderTextbox_LostFocus;
+            PART_PlaceholderTextbox.LostFocus += PART_PlaceholderTextbox_LostFocus;
         }
 
+        private void PART_PlaceholderTextbox_LostFocus(object? sender, RoutedEventArgs e)
+        {
+            IsDropDownOpen = false;
+            this.Focusable = false;
+        }
 
         string GetDisplayName()
         {
@@ -147,6 +158,7 @@ namespace ZTAppFramework.Template.Controls
         protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
         {
             base.OnDetachedFromVisualTree(e);
+            PART_PlaceholderTextbox.LostFocus -= PART_PlaceholderTextbox_LostFocus;
             _disposables?.Dispose();//释放
 
         }

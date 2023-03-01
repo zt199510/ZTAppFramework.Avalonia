@@ -4,6 +4,7 @@ using ZTAppFramework.Avalonia.Stared;
 using Prism.Ioc;
 using Prism.Regions;
 using Avalonia.Controls.ApplicationLifetimes;
+using ZTAppFramework.Avalonia.Admin.Views;
 
 namespace ZTAppFramework.Avalonia.Admin
 {
@@ -21,8 +22,13 @@ namespace ZTAppFramework.Avalonia.Admin
          
             var container = ContainerLocator.Container;
             var shell = container.Resolve<object>(AppViews.MainName);
-            if (shell is Window view)
+            if (shell is MainWindow view)
             {
+                IRegionManager? regionManager = container.Resolve<IRegionManager>();
+                RegionManager.SetRegionName(view.RegionPage, AppPages.Nav_MainContent);
+                RegionManager.SetRegionManager(view.RegionPage, regionManager);
+                RegionManager.UpdateRegions();
+                regionManager.Regions[AppPages.Nav_MainContent].RequestNavigate(AppPages.HomePage);
                 if (view.DataContext is INavigationAware navigationAware)
                 {
                     navigationAware.OnNavigatedTo(null);
@@ -32,14 +38,7 @@ namespace ZTAppFramework.Avalonia.Admin
             return null;
         }
 
-        public static void Authorization()
-        {
-          
-            if (Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime ApplicationLifetime)
-            {
-             
-            }
-        }
+    
         public static void ExitApplication() => Environment.Exit(0);
 
 

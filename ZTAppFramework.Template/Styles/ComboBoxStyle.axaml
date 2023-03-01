@@ -147,7 +147,8 @@
                             FontWeight="{TemplateBinding FontWeight}"
                             Foreground="{TemplateBinding PlaceholderForeground}"
                             InputType="User"
-                            Text="{TemplateBinding TextContent}"
+                            Text="{TemplateBinding TextContent,
+                                                   Mode=TwoWay}"
                             Watermark="{TemplateBinding PlaceholderText}" />
 
                         <!--<ContentPresenter

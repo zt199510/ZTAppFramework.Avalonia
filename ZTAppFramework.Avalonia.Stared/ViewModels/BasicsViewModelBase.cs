@@ -14,6 +14,18 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
     /// </summary>
     public class BasicsViewModelBase: BindableBase
     {
+        private bool isBusy;
+        public bool IsBusy
+        {
+            get => isBusy;
+            set
+            {
+                isBusy = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged(nameof(IsNotBusy));
+            }
+        }
+        public bool IsNotBusy => !IsBusy;
 
         private readonly IMapper mapper;
         public BasicsViewModelBase()
@@ -29,6 +41,18 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
         /// <returns></returns>
         public T Map<T>(object model) => mapper.Map<T>(model);
 
+        public virtual async Task SetBusyAsync(Func<Task> func)
+        {
+            IsBusy = true;
+            try
+            {
+                await func();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
 
         #region 深拷贝
         public T DeepCopy<T>(T obj)

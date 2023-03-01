@@ -168,9 +168,10 @@ namespace ZTAppFramework.Template.Controls
                     this.WhenAnyValue(x => x.TitleBarType).Subscribe(x =>
                     {
                         if(x!=TitleBarEnums.Default)
-                        {
                             window.CanResize=false;
-                        }
+
+                        else
+                            window.CanResize=true;
                     })
                    
                 };
@@ -224,6 +225,7 @@ namespace ZTAppFramework.Template.Controls
                                 break;
                             case WindowButtonType.Closed:
                                 window.Close();
+                                Environment.Exit(0);
                                 break;
                             default:
                                 break;

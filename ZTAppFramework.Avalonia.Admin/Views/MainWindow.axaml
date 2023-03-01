@@ -4,36 +4,44 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Zt="using:ZTAppFramework.Template.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dialog="using:ZTAppFramework.Template.Dialog"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
+    xmlns:res="using:ZTAppFramework.Avalonia.Stared"
     Title="MainWindow"
+    MinWidth="600"
+    MinHeight="400"
     d:DesignHeight="450"
     d:DesignWidth="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
     Classes="ZTWindow"
     FontFamily="avares://ZTAppFramework.Avalonia/Assets/Fonts/微软雅黑.ttf#Microsoft YaHei"
     mc:Ignorable="d">
-    <Zt:ZTTitleBar>
+    <Zt:ZTTitleBar
+        HeaderBackground="#F2F2F2F2"
+        HeaderForeground="#323232"
+        HeaderHeight="50">
         <Zt:ZTTitleBar.HeaderContent>
-            <StackPanel IsHitTestVisible="false" Orientation="Horizontal">
-                <Image
-                    Width="20"
-                    Height="20"
-                    Margin="5,0"
-                    Stretch="Fill" />
-                <TextBlock VerticalAlignment="Center" Text="{Binding #mainWindow.Title, Mode=OneWay}" />
-            </StackPanel>
-        </Zt:ZTTitleBar.HeaderContent>
-        <StackPanel>
-            <Zt:ZTTextBox
-                Width="200"
-                InputType="Default"
-                Text="" />
-            <Zt:ZTTextBox
-                Width="200"
-                InputType="User"
-                Text="" />
-        </StackPanel>
+            <Grid ColumnDefinitions="60,auto,*" IsHitTestVisible="false">
+                <Border Background="#222B44" />
+                <Image />
+                <TextBlock
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    FontSize="18"
+                    Text="test" />
+                <StackPanel
+                    Grid.Column="2"
+                    Background="Transparent"
+                    IsHitTestVisible="false"
+                    Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="12313132" />
+                </StackPanel>
+            </Grid>
 
+        </Zt:ZTTitleBar.HeaderContent>
+        <Zt:ZTDialogHost dialog:ZTDialog.Token="RootDialog">
+            <ContentControl x:Name="RegionPage" />
+        </Zt:ZTDialogHost>
     </Zt:ZTTitleBar>
 </Window>

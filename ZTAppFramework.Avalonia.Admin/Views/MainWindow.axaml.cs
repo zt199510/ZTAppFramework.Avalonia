@@ -1,4 +1,9 @@
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
+using Prism.Regions;
+using Prism.Ioc;
+using ZTAppFramework.Avalonia.Stared;
+using Avalonia.Controls.Presenters;
 
 namespace ZTAppFramework.Avalonia.Admin.Views
 {
@@ -7,8 +12,6 @@ namespace ZTAppFramework.Avalonia.Admin.Views
         public MainWindow()
         {
             InitializeComponent();
-
-           
         }
     }
 }

@@ -5,6 +5,5 @@
     <Application.Styles>
         <FluentTheme Mode="Light" />
         <StyleInclude Source="avares://ZTAppFramework.Template/Template/DefaultStyle.axaml" />
-
     </Application.Styles>
 </Application>
