@@ -11,13 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Avalonia.Adm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Avalonia.Stared", "ZTAppFramework.Avalonia.Stared\ZTAppFramework.Avalonia.Stared.csproj", "{6473EDFF-9F97-4DE5-AF3D-AB37D3974F17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTAppFramework.Avalonia.AdminViewModel", "ZTAppFramework.Avalonia.AdminViewModel\ZTAppFramework.Avalonia.AdminViewModel.csproj", "{67CAA1F5-94EA-4D88-B003-E13BCF336663}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Avalonia.AdminViewModel", "ZTAppFramework.Avalonia.AdminViewModel\ZTAppFramework.Avalonia.AdminViewModel.csproj", "{67CAA1F5-94EA-4D88-B003-E13BCF336663}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTAppFramework.Avalonia.Application", "ZTAppFramework.Avalonia.Application\ZTAppFramework.Avalonia.Application.csproj", "{ABFB34C8-E9AE-4213-A575-6F43911CC28C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Application", "ZTAppFramework.Avalonia.Application\ZTAppFramework.Application.csproj", "{ABFB34C8-E9AE-4213-A575-6F43911CC28C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTAppFramework.Avalonia.Sqlite", "ZTAppFramework.Avalonia.Sqlite\ZTAppFramework.Avalonia.Sqlite.csproj", "{90A180E2-CB32-4016-A806-ED651E9B2A82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Sqlite", "ZTAppFramework.Avalonia.Sqlite\ZTAppFramework.Sqlite.csproj", "{90A180E2-CB32-4016-A806-ED651E9B2A82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTAppFramework.Avalonia.Web", "ZTAppFramework.Avalonia.Web\ZTAppFramework.Avalonia.Web.csproj", "{19C2CE88-8BBC-431E-9B04-879BC8DACF81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Avalonia.Web", "ZTAppFramework.Avalonia.Web\ZTAppFramework.Avalonia.Web.csproj", "{19C2CE88-8BBC-431E-9B04-879BC8DACF81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTAppFramework.Application.Stared", "ZTAppFramwork.Avalonia.Application.Stared\ZTAppFramework.Application.Stared.csproj", "{6102F0B4-BB08-4DB7-867D-7081DCEFDA80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "服务", "服务", "{06D6BE78-74F4-4A8C-8577-097290A2161B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,9 +61,17 @@ Global
 		{19C2CE88-8BBC-431E-9B04-879BC8DACF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19C2CE88-8BBC-431E-9B04-879BC8DACF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19C2CE88-8BBC-431E-9B04-879BC8DACF81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6102F0B4-BB08-4DB7-867D-7081DCEFDA80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6102F0B4-BB08-4DB7-867D-7081DCEFDA80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6102F0B4-BB08-4DB7-867D-7081DCEFDA80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6102F0B4-BB08-4DB7-867D-7081DCEFDA80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ABFB34C8-E9AE-4213-A575-6F43911CC28C} = {06D6BE78-74F4-4A8C-8577-097290A2161B}
+		{6102F0B4-BB08-4DB7-867D-7081DCEFDA80} = {06D6BE78-74F4-4A8C-8577-097290A2161B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {67A2D57F-4350-4A3B-9E91-59C7F6BA519B}

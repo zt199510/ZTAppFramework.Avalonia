@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ZTAppFramework.Avalonia.Sqlite\ZTAppFramework.Avalonia.Sqlite.csproj" />
-  </ItemGroup>
-
 </Project>

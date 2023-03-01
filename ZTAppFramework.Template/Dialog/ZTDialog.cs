@@ -133,7 +133,6 @@ namespace ZTAppFramework.Template.Dialog
                         //创建VM
                         view.DataContext = Activator.CreateInstance(DialogViewModels[dialogName]);
                     }
-
                     //创建弹窗
                     ZTDialogWindow dialogView = new ZTDialogWindow(callback, host)
                     {
