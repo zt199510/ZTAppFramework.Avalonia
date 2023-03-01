@@ -42,6 +42,7 @@ namespace ZTAppFramework.Avalonia.Admin
 
         public static void Authorization()
         {
+          
             if (Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime ApplicationLifetime)
             {
              

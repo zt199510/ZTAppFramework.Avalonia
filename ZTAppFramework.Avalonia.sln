@@ -13,13 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Avalonia.Sta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Avalonia.AdminViewModel", "ZTAppFramework.Avalonia.AdminViewModel\ZTAppFramework.Avalonia.AdminViewModel.csproj", "{67CAA1F5-94EA-4D88-B003-E13BCF336663}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Application", "ZTAppFramework.Avalonia.Application\ZTAppFramework.Application.csproj", "{ABFB34C8-E9AE-4213-A575-6F43911CC28C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Sqlite", "ZTAppFramework.Avalonia.Sqlite\ZTAppFramework.Sqlite.csproj", "{90A180E2-CB32-4016-A806-ED651E9B2A82}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Avalonia.Web", "ZTAppFramework.Avalonia.Web\ZTAppFramework.Avalonia.Web.csproj", "{19C2CE88-8BBC-431E-9B04-879BC8DACF81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTAppFramework.Application.Stared", "ZTAppFramwork.Avalonia.Application.Stared\ZTAppFramework.Application.Stared.csproj", "{6102F0B4-BB08-4DB7-867D-7081DCEFDA80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Application_Stared", "ZTAppFramwork.Avalonia.Application.Stared\ZTAppFramework.Application_Stared.csproj", "{6102F0B4-BB08-4DB7-867D-7081DCEFDA80}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "服务", "服务", "{06D6BE78-74F4-4A8C-8577-097290A2161B}"
 EndProject
@@ -49,10 +47,6 @@ Global
 		{67CAA1F5-94EA-4D88-B003-E13BCF336663}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67CAA1F5-94EA-4D88-B003-E13BCF336663}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67CAA1F5-94EA-4D88-B003-E13BCF336663}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ABFB34C8-E9AE-4213-A575-6F43911CC28C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABFB34C8-E9AE-4213-A575-6F43911CC28C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABFB34C8-E9AE-4213-A575-6F43911CC28C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABFB34C8-E9AE-4213-A575-6F43911CC28C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{90A180E2-CB32-4016-A806-ED651E9B2A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{90A180E2-CB32-4016-A806-ED651E9B2A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90A180E2-CB32-4016-A806-ED651E9B2A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -70,7 +64,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{ABFB34C8-E9AE-4213-A575-6F43911CC28C} = {06D6BE78-74F4-4A8C-8577-097290A2161B}
 		{6102F0B4-BB08-4DB7-867D-7081DCEFDA80} = {06D6BE78-74F4-4A8C-8577-097290A2161B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

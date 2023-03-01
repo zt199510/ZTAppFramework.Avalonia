@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ZTAppFramwork.Avalonia.Application.Stared\ZTAppFramework.Application.Stared.csproj" />
+    <ProjectReference Include="..\ZTAppFramwork.Avalonia.Application.Stared\ZTAppFramework.Application_Stared.csproj" />
   </ItemGroup>
 
 </Project>

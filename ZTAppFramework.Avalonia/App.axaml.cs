@@ -67,7 +67,7 @@ namespace ZTAppFramework.Avalonia
                 if (r.Result==ButtonResult.Yes)
                 {
                     var appStart = Container.Resolve<AppStartService>();
-                    InitializeShell(appStart.CreateShell(this));
+                    InitializeShell(appStart.CreateShell());
                     OnFrameworkInitializationCompleted();
                     base.OnInitialized();
                 }
