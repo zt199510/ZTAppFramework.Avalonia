@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZTAppFramework.ApplicationService.Service;
-using ZTAppFramework.Avalonia.AdminViewModel.Model.Login;
+using ZTAppFramework.ApplicationService.Stared;
 using ZTAppFramework.Avalonia.Stared.ViewModels;
 
 namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
@@ -48,12 +48,13 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
         #endregion
         #region 服务
         private readonly AdminService _userLoginService;
+        private readonly CaptchaService _captchaService;
         #endregion
 
-        public LoginViewModel(AdminService userLoginService)
+        public LoginViewModel(AdminService userLoginService, CaptchaService captchaService)
         {
             _userLoginService = userLoginService;
-            //_captchaService = captchaService;
+            _captchaService = captchaService;
         }
         #region Command事件
          void Execute(string Parm)
@@ -61,7 +62,6 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
             switch (Parm)
             {
                 case "Login":
-
                      LoginUserAsync();
                     break;
                 default:
@@ -69,9 +69,30 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
             }
         }
 
-        private  void LoginUserAsync()
+        private  async void LoginUserAsync()
         {
-            RaiseRequestClose(new DialogResult(ButtonResult.Yes));
+          
+            await SetBusyAsync(async () =>
+            {
+                var res = await _captchaService.GetCaptchaAsync(Login.CodeKey);
+                if (res.Success)
+                    Login.Code = res.data;
+                else
+                {
+                   // ShowDialog("消息", res.Message);
+                    return;
+                }
+             //   if (!Verify(Login).IsValid) return;
+                res = await _userLoginService.LoginServer(Map<LoginParam>(Login));
+                if (!res.Success)
+                {
+                  //  ShowDialog("消息", res.Message);
+                    return;
+                }
+                await _userLoginService.SaveLocalAccountInfo(IsSavePwd, Map<LoginParam>(Login));
+                RaiseRequestClose(new DialogResult(ButtonResult.Yes));
+            });
+           
         }
         #endregion
 

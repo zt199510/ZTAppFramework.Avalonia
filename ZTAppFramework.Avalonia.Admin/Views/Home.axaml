@@ -8,14 +8,138 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <Grid ColumnDefinitions="60,auto,*" IsHitTestVisible="false">
+    <Grid ColumnDefinitions="60,auto,*">
         <Border Background="#222B44" />
+        <!--  Items="{Binding MenuList}"  -->
+        <TabStrip Padding="0" Items="{Binding MenuList}">
+            <TabStrip.Styles>
+                <Style Selector="TabStripItem:selected > Border">
+                    <Setter Property="BorderBrush" Value="#17a1e6" />
+                    <Setter Property="Background" Value="#4173F9" />
+                </Style>
+            </TabStrip.Styles>
+            <TabStrip.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel
+                        Margin="0"
+                        Orientation="Vertical"
+                        Spacing="0" />
+                </ItemsPanelTemplate>
+            </TabStrip.ItemsPanel>
+            <TabStrip.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <Grid RowDefinitions="*,auto">
+                            <Path
+                                Width="20"
+                                Height="20"
+                                Data="M170.666667 938.666667a341.333333 341.333333 0 0 1 682.666666 0H170.666667z m341.333333-384c-141.44 0-256-114.56-256-256s114.56-256 256-256 256 114.56 256 256-114.56 256-256 256z"
+                                Fill="White"
+                                Stretch="Fill" />
+                            <TextBlock
+                                Grid.Row="1"
+                                HorizontalAlignment="Center"
+                                FontSize="14"
+                                Foreground="White"
+                                Text="{Binding name}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </TabStrip.ItemTemplate>
+        </TabStrip>
         <Border
             Grid.Column="1"
             Width="60"
-            Background="#f2f2f2"
             BorderBrush="#222B44"
             BorderThickness="0.3,0,0.3,0.3" />
 
+        <TabStrip
+            Grid.Column="1"
+            Width="60"
+            Items="{Binding PageList}">
+            <TabStrip.Styles>
+                <Style Selector="TabStripItem:selected > Border">
+                    <Setter Property="BorderBrush" Value="#17a1e6" />
+                    <Setter Property="Background" Value="#E7F2FC" />
+                </Style>
+            </TabStrip.Styles>
+            <TabStrip.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel
+                        Margin="0"
+                        Orientation="Vertical"
+                        Spacing="0" />
+                </ItemsPanelTemplate>
+            </TabStrip.ItemsPanel>
+            <TabStrip.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <Grid RowDefinitions="*,auto">
+                            <Path
+                                Width="20"
+                                Height="20"
+                                Data="M170.666667 938.666667a341.333333 341.333333 0 0 1 682.666666 0H170.666667z m341.333333-384c-141.44 0-256-114.56-256-256s114.56-256 256-256 256 114.56 256 256-114.56 256-256 256z"
+                                Fill="Gray"
+                                Stretch="Fill" />
+                            <TextBlock
+                                Grid.Row="1"
+                                HorizontalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Gray"
+                                Text="{Binding name}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </TabStrip.ItemTemplate>
+        </TabStrip>
     </Grid>
+
+    <UserControl.Styles>
+
+
+        <Style Selector="TabStrip">
+            <Setter Property="Margin" Value="0,0,0,0" />
+            <Setter Property="Width" Value="64" />
+        </Style>
+
+
+
+        <Style Selector="TabStripItem">
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Height" Value="70" />
+        </Style>
+
+
+
+        <Style Selector="TabStripItem > Border">
+            <Setter Property="BorderThickness" Value="0,0,0,0" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="TabStripItem > TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+
+        <Style Selector="TabStripItem:pressed">
+            <Setter Property="Background" Value="#000" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+
+
+        <Style Selector="TabStripItem:selected">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+
+        <Style Selector="TabStripItem /template/ Border#PART_SelectedPipe, TabItem[TabStripPlacement=Bottom] /template/ Border#PART_SelectedPipe">
+            <Setter Property="Height" Value="0" />
+            <Setter Property="Margin" Value="0,0,0,0" />
+        </Style>
+
+    </UserControl.Styles>
 </UserControl>

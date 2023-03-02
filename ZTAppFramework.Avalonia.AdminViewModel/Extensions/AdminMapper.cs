@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZTAppFramework.ApplicationService.Stared;
-using ZTAppFramework.Avalonia.AdminViewModel.Model.Login;
 using ZTAppFramework.Avalonia.Stared.ViewModels;
+using ZTAppFramewrok.Application.Stared;
 
 namespace ZTAppFramework.Avalonia.AdminViewModel
 {
@@ -18,6 +18,8 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
               .ForMember(X => X.Account, opt => opt.MapFrom(str => str.UserName))
               .ForMember(X => X.Password, opt => opt.MapFrom(str => str.Password))
               .ReverseMap();
+
+            CreateMap<MenuModel, SysMenuDto>().ReverseMap();
         }
     }
 }

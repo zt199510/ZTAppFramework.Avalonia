@@ -15,9 +15,10 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
         public static void RegisterApplicationManager(this IContainerRegistry services)
         {
             services.RegisterScoped<AdminService>();
-            //services.RegisterScoped<MenuService>();
+            services.RegisterScoped<CaptchaService>();
+            services.RegisterScoped<MenuService>();
             //services.RegisterScoped<OrganizeService>();
-            //services.RegisterScoped<CaptchaService>();
+
             //services.RegisterScoped<OperatorService>();
             //services.RegisterScoped<RoleService>();
             //services.RegisterScoped<SysPostService>();

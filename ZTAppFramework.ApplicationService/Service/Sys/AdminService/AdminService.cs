@@ -91,6 +91,7 @@ namespace ZTAppFramework.ApplicationService.Service
                 if (api.Code == 200)
                 {
                     res.Success = true;
+                    res.Message = "登入成功";
                     var info = await _userLocalSerivce.GetModelAsync(x => x.Name == user.Account);
                     if (info.data == null)
                     {
