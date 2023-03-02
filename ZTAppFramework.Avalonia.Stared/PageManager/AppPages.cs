@@ -16,8 +16,10 @@ namespace ZTAppFramework.Avalonia.Stared
         /// ManWindow导航容器名称
         /// </summary>
         public static string Nav_MainContent = "Nav_MainContent";
-
+        public static string Nav_HomeContent = "Nav_HomeContent";
 
         public static string HomePage = "HomePage";
+
+        public static string WorkbenchPage = "WorkbenchPage";
     }
 }

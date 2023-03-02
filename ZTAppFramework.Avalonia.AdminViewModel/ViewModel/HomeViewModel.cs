@@ -59,30 +59,34 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
             {
                 if (SetProperty(ref _SelectPage, value))
                 {
-                    //switch (value.name)
-                    //{
-                    //    case "个人信息":
-                    //        _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.UserCenterName); break;
-                    //    case "工作台":
-                    //        _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.WorkbenchName); break;
-                    //    case "机构管理":
-                    //        _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.OrganizeName); break;
-                    //    case "角色管理":
-                    //        _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.RoleName); break;
-                    //    case "职位管理":
-                    //        _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysPostName); break;
-                    //    case "用户管理":
-                    //        _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysAdminName); break;
-                    //    case "资源管理":
-                    //        _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysMenuName); break;
-                    //    case "权限设置":
-                    //        _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysAuthorizeName); break;
-                    //    case "系统日志":
-                    //        _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysLogsName); break;
-                    //    default:
-                    //        _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.UserPerferfabName); break;
+                    switch (value.name)
+                    {
+                        case "个人信息":
+                           //_RegionManager?.Regions[AppPages.Nav_HomeContent]?.RequestNavigate(AppPages.UserCenterName);
+                            
+                            break;
+                        case "工作台":
+                            _RegionManager?.Regions[AppPages.Nav_HomeContent]?.RequestNavigate(AppPages.WorkbenchPage); break;
+                        //case "机构管理":
+                        //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.OrganizeName); break;
+                        //case "角色管理":
+                        //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.RoleName); break;
+                        //case "职位管理":
+                        //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysPostName); break;
+                        //case "用户管理":
+                        //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysAdminName); break;
+                        //case "资源管理":
+                        //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysMenuName); break;
+                        //case "权限设置":
+                        //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysAuthorizeName); break;
+                        //case "系统日志":
+                        //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysLogsName); break;
+                        default:
+                            //_RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.UserPerferfabName); 
+                            
+                            break;
 
-                    //}
+                    }
                     //if (DisplayMenus == null)
                     //    DisplayMenus = new DisplayMenuModel();
 

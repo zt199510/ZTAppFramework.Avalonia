@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZTAppFramework.ApplicationService.Stared;
+using ZTAppFramework.Avalonia.AdminViewModel.Model;
 using ZTAppFramework.Avalonia.Stared.ViewModels;
 using ZTAppFramewrok.Application.Stared;
 
@@ -20,6 +21,8 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
               .ReverseMap();
 
             CreateMap<MenuModel, SysMenuDto>().ReverseMap();
+            CreateMap<DeviceUseModel, DeviceUseDto>().ReverseMap();
+            CreateMap<MachineInfoModel, MachineInfoDto>().ReverseMap();
         }
     }
 }

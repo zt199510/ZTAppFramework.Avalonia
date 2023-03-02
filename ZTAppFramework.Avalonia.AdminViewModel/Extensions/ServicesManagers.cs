@@ -17,7 +17,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
             services.RegisterScoped<AdminService>();
             services.RegisterScoped<CaptchaService>();
             services.RegisterScoped<MenuService>();
-            //services.RegisterScoped<OrganizeService>();
+            services.RegisterScoped<WorkbenchService>();
 
             //services.RegisterScoped<OperatorService>();
             //services.RegisterScoped<RoleService>();

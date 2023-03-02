@@ -27,7 +27,7 @@
                 <Image />
                 <Border
                     Grid.Column="1"
-                    Width="60"
+                    Width="120"
                     BorderBrush="#222B44"
                     BorderThickness="0.3" />
                 <TextBlock
@@ -35,14 +35,14 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontSize="18"
-                    Text="系统" />
+                    Text="" />
                 <StackPanel Grid.Column="2" Orientation="Horizontal">
 
                     <TextBlock
                         Margin="10,0,0,0"
                         VerticalAlignment="Center"
                         FontSize="18"
-                        Text="主页" />
+                        Text="" />
                 </StackPanel>
 
             </Grid>
