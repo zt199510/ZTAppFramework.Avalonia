@@ -8,4 +8,6 @@
     <StyleInclude Source="avares://ZTAppFramework.Template/Styles/ComboBoxStyle.axaml" />
     <StyleInclude Source="avares://ZTAppFramework.Template/Styles/DialogHostStyle.axaml" />
     <StyleInclude Source="avares://ZTAppFramework.Template/Styles/DialogWindowStyle.axaml" />
+    <StyleInclude Source="avares://ZTAppFramework.Template/Styles/ProgressBar/CircularProgressStyle.axaml" />
+    <StyleInclude Source="avares://ZTAppFramework.Template/Styles/ProgressBar/ProgressBarStyle.axaml" />
 </Styles>

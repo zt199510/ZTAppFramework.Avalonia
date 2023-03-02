@@ -1,0 +1,29 @@
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ZTAppFramework.Template.Controls;assembly=ZTAppFramework.Template" >
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!--  Add Controls for Previewer Here  -->
+
+            <StackPanel>
+                <local:ZTProgressBar
+                    Margin="5"
+                    ProgressBarType="Default"
+                    Value="10" />
+
+                <ProgressBar Value="50" />
+            </StackPanel>
+
+
+        </Border>
+    </Design.PreviewWith>
+    <Style Selector="local|ZTProgressBar[ProgressBarType=Default]">
+        <Setter Property="Background" Value="Green" />
+        <Setter Property="Foreground" Value="Blue" />
+        <Setter Property="Height" Value="6" />
+        <Setter Property="CornerRadius" Value="3" />
+      
+    </Style>
+    <!--  Add Styles Here  -->
+</Styles>
