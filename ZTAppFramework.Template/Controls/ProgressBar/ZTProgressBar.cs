@@ -26,5 +26,22 @@ namespace ZTAppFramework.Template.Controls
             get { return GetValue(ProgressBarTypeProperty); }
             set { SetValue(ProgressBarTypeProperty, value); }
         }
+
+
+
+        /// <summary>
+        /// Defines the <see cref="IsVisibleProgressValue"/> property.
+        /// </summary>
+        public static readonly StyledProperty<bool> IsVisibleProgressValueProperty =
+            AvaloniaProperty.Register<ZTProgressBar, bool>(nameof(IsVisibleProgressValue), false);
+
+        /// <summary>
+        /// Comment
+        /// </summary>
+        public bool IsVisibleProgressValue
+        {
+            get { return GetValue(IsVisibleProgressValueProperty); }
+            set { SetValue(IsVisibleProgressValueProperty, value); }
+        }
     }
 }

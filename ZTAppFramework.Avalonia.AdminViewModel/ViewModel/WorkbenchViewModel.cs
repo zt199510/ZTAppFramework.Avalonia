@@ -36,6 +36,13 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
             get { return _Machines; }
             set { SetProperty(ref _Machines, value); }
         }
+
+        private double _ColumnWidth;
+        public double ColumnWidth
+        {
+            get { return _ColumnWidth; }
+            set { SetProperty(ref _ColumnWidth, value); }
+        }
         #endregion
 
         #region 服务

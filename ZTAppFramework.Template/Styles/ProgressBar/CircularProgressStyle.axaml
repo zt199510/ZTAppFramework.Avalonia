@@ -5,8 +5,62 @@
     <Design.PreviewWith>
         <Border Padding="20">
             <!--  Add Controls for Previewer Here  -->
+            <local:ZTCircularProgress
+                Width="100"
+                Height="100"
+                ProgressValue="100"
+                StrokeThickness="1" />
         </Border>
     </Design.PreviewWith>
 
+    <Style Selector="local|ZTCircularProgress">
+        <Setter Property="StrokeThickness" Value="{TemplateBinding StrokeThickness}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid Background="{TemplateBinding Background}">
+                    <ContentPresenter
+                        HorizontalContentAlignment="Center"
+                        
+                        VerticalContentAlignment="Center"
+                        Background="Transparent"
+                        Content="{TemplateBinding ContentControl.Content}" />
+                    <Path
+                        Width="{TemplateBinding PathFigureWidth}"
+                        Height="{TemplateBinding PathFigureHeight}"
+                        Margin="{TemplateBinding PathFigureMargin}"
+                        RenderTransformOrigin="25,25"
+                        Stroke="{TemplateBinding StrokeBrush}"
+                        StrokeJoin="Bevel"
+                        StrokeLineCap="Flat"
+                        StrokeThickness="{TemplateBinding StrokeThickness}">
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathFigure IsClosed="False" StartPoint="{Binding PathFigureStartPoint, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <ArcSegment
+                                        IsLargeArc="{Binding ArcSegmentIsLargeArc, RelativeSource={RelativeSource TemplatedParent}}"
+                                        Point="{Binding ArcSegmentPoint, RelativeSource={RelativeSource TemplatedParent}}"
+                                        Size="{Binding ArcSegmentSize, RelativeSource={RelativeSource TemplatedParent}}"
+                                        SweepDirection="Clockwise" />
+                                </PathFigure>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="local|ZTCircularProgress[IsIndeterminate=True]">
+        <Style.Animations>
+            <Animation IterationCount="INFINITE" Duration="0:0:2">
+                <KeyFrame Cue="0%">
+                    <Setter Property="RotateTransform.Angle" Value="0" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="RotateTransform.Angle" Value="360" />
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
     <!--  Add Styles Here  -->
 </Styles>

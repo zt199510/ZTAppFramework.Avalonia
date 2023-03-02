@@ -1,29 +1,165 @@
 ﻿<Styles
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:ZTAppFramework.Template.Controls;assembly=ZTAppFramework.Template" >
+    xmlns:assists="clr-namespace:ZTAppFramework.Template.Assists;assembly=ZTAppFramework.Template"
+    xmlns:converters="clr-namespace:ZTAppFramework.Template.Converters;assembly=ZTAppFramework.Template"
+    xmlns:local="clr-namespace:ZTAppFramework.Template.Controls;assembly=ZTAppFramework.Template">
     <Design.PreviewWith>
         <Border Padding="20">
             <!--  Add Controls for Previewer Here  -->
-
             <StackPanel>
                 <local:ZTProgressBar
-                    Margin="5"
-                    ProgressBarType="Default"
-                    Value="10" />
+                    HorizontalAlignment="Left"
+                    CornerRadius="2"
+                    Foreground="Red"
+                    IsIndeterminate="True"
+                    IsVisibleProgressValue="True"
+                    Value="50" />
 
-                <ProgressBar Value="50" />
+                <local:ZTProgressBar
+                    HorizontalAlignment="Left"
+                    CornerRadius="2"
+                    Foreground="Red"
+                    Value="50" />
             </StackPanel>
-
-
         </Border>
     </Design.PreviewWith>
+
+    <Styles.Resources>
+        <converters:ControlWidthToBoxShadowConverter x:Key="ControlWidthToBoxShadowConverter" />
+        <converters:HeightToCornerRadiusConverter x:Key="HeightToCornerRadiusConverter" />
+        <converters:WidthToCustomValueConverter x:Key="WidthToCustomValueConverter" />
+    </Styles.Resources>
     <Style Selector="local|ZTProgressBar[ProgressBarType=Default]">
-        <Setter Property="Background" Value="Green" />
+        <Setter Property="Background" Value="#32323232" />
         <Setter Property="Foreground" Value="Blue" />
-        <Setter Property="Height" Value="6" />
-        <Setter Property="CornerRadius" Value="3" />
-      
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+
+        <Setter Property="Height" Value="16" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border
+                        Name="PART_RootBorder"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        ClipToBounds="True"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid>
+                            <Panel
+                                Name="PART_RootPanel"
+                                HorizontalAlignment="Left"
+                                ClipToBounds="True">
+                                <Panel.RenderTransform>
+                                    <ScaleTransform />
+                                </Panel.RenderTransform>
+                                <Canvas
+                                    Name="PART_Container"
+                                    Height="{TemplateBinding Height}"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top">
+                                    <Border
+                                        Name="PART_First"
+                                        Height="{TemplateBinding Height}"
+                                        Background="{TemplateBinding Foreground}"
+                                        CornerRadius="{TemplateBinding CornerRadius}" />
+                                    <Border
+                                        Name="PART_Second"
+                                        Height="{TemplateBinding Height}"
+                                        Background="{TemplateBinding Foreground}"
+                                        CornerRadius="{TemplateBinding CornerRadius}" />
+                                </Canvas>
+                                <Border
+                                    Name="PART_Indicator"
+                                    Background="{TemplateBinding Foreground}"
+                                    ClipToBounds="False"
+                                    CornerRadius="{TemplateBinding CornerRadius}" />
+                            </Panel>
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="White"
+                                IsVisible="{TemplateBinding IsVisibleProgressValue}"
+                                Text="{Binding $parent[ProgressBar].Value, StringFormat={}{0}%}" />
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--  Transitions  -->
+    <Style Selector="local|ZTProgressBar:horizontal:not(.notransitions) /template/ Border#PART_Indicator">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition
+                    Easing="CubicEaseOut"
+                    Property="Width"
+                    Duration="0:0:0.5" />
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <Style Selector="local|ZTProgressBar:vertical:not(.notransitions) /template/ Border#PART_Indicator">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition
+                    Easing="CubicEaseOut"
+                    Property="Height"
+                    Duration="0:0:0.5" />
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <!--  进度条及其部分的默认语句设置器  -->
+    <Style Selector="local|ZTProgressBar /template/ Panel#PART_RootPanel">
+        <Setter Property="Opacity" Value="1" />
+        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+    </Style>
+
+    <Style Selector="local|ZTProgressBar:not(.Circle):horizontal /template/ Panel#PART_RootPanel">
+        <Setter Property="RenderTransformOrigin" Value="0.0, 0.5" />
+    </Style>
+
+    <Style Selector="local|ZTProgressBar:not(.Circle, .Outset):vertical">
+        <Setter Property="Width" Value="16" />
+    </Style>
+
+    <Style Selector="local|ZTProgressBar.Outset:not(.Circle):vertical">
+        <Setter Property="Width" Value="20" />
+    </Style>
+    <Style Selector="local|ZTProgressBar:indeterminate:horizontal:not(.Outset) /template/ Border#PART_First">
+        <Setter Property="IsVisible" Value="True" />
+        <Style.Animations>
+            <Animation IterationCount="INFINITE" Duration="0:0:2">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Canvas.Left" Value="{Binding Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource WidthToCustomValueConverter}, ConverterParameter=-10%}" />
+                    <Setter Property="Width" Value="{Binding Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource WidthToCustomValueConverter}, ConverterParameter=10%}" />
+                </KeyFrame>
+                <KeyFrame Cue="35%">
+                    <Setter Property="Canvas.Left" Value="{Binding Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource WidthToCustomValueConverter}, ConverterParameter=45%}" />
+                    <Setter Property="Width" Value="{Binding Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource WidthToCustomValueConverter}, ConverterParameter=60%}" />
+                </KeyFrame>
+                <KeyFrame Cue="60%">
+                    <Setter Property="Canvas.Left" Value="{Binding Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource WidthToCustomValueConverter}, ConverterParameter=100%}" />
+                    <Setter Property="Width" Value="{Binding Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource WidthToCustomValueConverter}, ConverterParameter=100%}" />
+                </KeyFrame>
+                <KeyFrame Cue="90%">
+                    <Setter Property="Canvas.Left" Value="{Binding Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource WidthToCustomValueConverter}, ConverterParameter=100%}" />
+                    <Setter Property="Width" Value="0" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Canvas.Left" Value="{Binding Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource WidthToCustomValueConverter}, ConverterParameter=100%}" />
+                    <Setter Property="Width" Value="0" />
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
     </Style>
     <!--  Add Styles Here  -->
 </Styles>

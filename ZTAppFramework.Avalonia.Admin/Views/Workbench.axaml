@@ -2,6 +2,7 @@
     x:Class="ZTAppFramework.Avalonia.Admin.Views.Workbench"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Zt="using:ZTAppFramework.Template.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
@@ -9,8 +10,198 @@
     d:DesignWidth="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
-  <Grid RowDefinitions="auto,*">
-  
-  
-  </Grid>
+    <Grid Background="#f2f2f2" RowDefinitions="auto,*">
+        <UniformGrid Columns="4">
+            <Zt:ZTCard
+                Height="120"
+                Background="#409EFF"
+                BorderThickness="1"
+                CornerRadius="2">
+                <StackPanel Margin="5">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Foreground="White"
+                        Text="时钟" />
+                    <TextBlock
+                        Height="60"
+                        FontSize="32"
+                        FontWeight="Black"
+                        Foreground="White"
+                        Text="{Binding CurrentTime, StringFormat={}{0:HH : mm : ss}}" />
+                    <TextBlock
+                        Grid.Row="1"
+                        FontSize="14"
+                        Foreground="LightGray"
+                        Text="{Binding CurrentTime, StringFormat={}{0:yyyy 年 MM 月 dd 日}}" />
+                </StackPanel>
+            </Zt:ZTCard>
+            <Zt:ZTCard
+                Height="120"
+                Background="#409EFF"
+                BorderThickness="1"
+                CornerRadius="2">
+                <StackPanel Margin="5">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Foreground="White"
+                        Text="服务器运行时间" />
+                    <TextBlock
+                        VerticalAlignment="Bottom"
+                        FontSize="28"
+                        Foreground="White"
+                        Text="{Binding DeviceUseModel.RunTime}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+            </Zt:ZTCard>
+            <Zt:ZTCard
+                Height="120"
+                Background="#409EFF"
+                BorderThickness="1"
+                CornerRadius="2">
+                <Grid Margin="5">
+                    <TextBlock
+                        VerticalAlignment="Top"
+                        FontSize="18"
+                        Foreground="White"
+                        Text="Cpu使用率" />
+                    <Zt:ZTProgressBar
+                        Width="{Binding ColumnWidth}"
+                        Height="40"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Background="#43c6f9"
+                        BorderBrush="#2e2e2e2e"
+                        CornerRadius="5"
+                        Foreground="#30c7ca"
+                        IsVisibleProgressValue="True"
+                        Value="{Binding DeviceUseModel.CpuRate}" />
+                </Grid>
+            </Zt:ZTCard>
+            <Zt:ZTCard
+                Height="120"
+                Background="#409EFF"
+                BorderThickness="1"
+                CornerRadius="2">
+                <Grid Margin="5">
+                    <TextBlock
+                        VerticalAlignment="Top"
+                        FontSize="18"
+                        Foreground="White"
+                        Text="硬盘使用率" />
+                    <!--  Text="{Binding $parent[ProgressBar].Value, StringFormat={}{0}%}"  -->
+                    <Zt:ZTProgressBar
+                        Width="{Binding ColumnWidth}"
+                        Height="40"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Background="#43c6f9"
+                        BorderBrush="#2e2e2e2e"
+                        CornerRadius="5"
+                        Foreground="#30c7ca"
+                        IsVisibleProgressValue="True"
+                        Value="{Binding DeviceUseModel.DiskRate}" />
+                </Grid>
+            </Zt:ZTCard>
+
+            <Zt:ZTCard
+                Height="120"
+                Background="#409EFF"
+                BorderThickness="1"
+                CornerRadius="2">
+                <Grid x:Name="OneGrid" Margin="5">
+                    <UniformGrid VerticalAlignment="Top">
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="内存大小:" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="{Binding DeviceUseModel.TotalRam}" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="使用率:" />
+                    </UniformGrid>
+
+                    <Zt:ZTProgressBar
+                        Width="{Binding ColumnWidth}"
+                        Height="40"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Background="#43c6f9"
+                        BorderBrush="#2e2e2e2e"
+                        CornerRadius="5"
+                        Foreground="#30c7ca"
+                        IsVisibleProgressValue="True"
+                        Value="{Binding DeviceUseModel.RamRate}" />
+                </Grid>
+            </Zt:ZTCard>
+        </UniformGrid>
+        <Grid Grid.Row="1">
+            <Zt:ZTCard
+                Background="White"
+                BorderBrush="Gray"
+                BorderThickness="0.3"
+                CornerRadius="2">
+                <Grid Margin="5" RowDefinitions="auto,*">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Foreground="Black"
+                        Text="设备信息" />
+
+                    <ItemsControl Grid.Row="1" Items="{Binding Machines}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock
+                                            Width="40"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="Gray"
+                                            Text="名称:" />
+                                        <TextBlock
+                                            Width="140"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="Gray"
+                                            Text="{Binding Key}" />
+                                        <TextBlock
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="Gray"
+                                            Text="{Binding Value}"
+                                            TextWrapping="Wrap" />
+
+                                    </StackPanel>
+                                    <Separator
+                                        Margin="0,5"
+                                        VerticalAlignment="Bottom"
+                                        Background="Gray" />
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </Zt:ZTCard>
+
+
+        </Grid>
+
+
+    </Grid>
 </UserControl>

@@ -24,8 +24,4 @@
     <UpToDateCheckInput Remove="Styles\ComboBoxStyle.axaml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Converters\" />
-  </ItemGroup>
-
 </Project>
