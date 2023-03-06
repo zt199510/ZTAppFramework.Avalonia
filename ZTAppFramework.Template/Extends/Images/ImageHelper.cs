@@ -22,11 +22,12 @@ namespace ZTAppFramework.Template.Extends
         {
             SourceProperty.Changed.Subscribe(OnSourceChanged);
         }
+
         private static async void OnSourceChanged(AvaloniaPropertyChangedEventArgs obj)
         {
+            if (Design.IsDesignMode) return;
             if (obj.Sender is Image image)
             {
-                return;
                 Uri uri = null;
                 if (obj.NewValue is string rawUri)
                 {

@@ -70,9 +70,11 @@
             Grid.Column="1"
             Margin="0"
             Padding="0">
-            <TabStrip Width="120" Items="{Binding PageList}">
+            <TabStrip
+                Width="120"
+                Items="{Binding PageList}"
+                SelectedItem="{Binding SelectPage, Mode=TwoWay}">
                 <TabStrip.Styles>
-
                     <Style Selector="TabStrip:pointerover > TextBlock">
                         <Setter Property="Foreground" Value="Red" />
                     </Style>

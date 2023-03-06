@@ -24,9 +24,14 @@ namespace ZTAppFramework.Avalonia.Admin
             services.RegisterSingleton<ApiClinetRepository>();
             services.RegisterApplicationManager();
             services.RegisterValidator();
+            
+            //页面
             services.RegisterForNavigation<MainWindow, MainWindowViewModel>(AppViews.MainName);
             services.RegisterForNavigation<Home, HomeViewModel>(AppPages.HomePage);
             services.RegisterForNavigation<Workbench, WorkbenchViewModel>(AppPages.WorkbenchPage);
+            services.RegisterForNavigation<PersonalInfo, PersonalInfoViewModel>(AppPages.PersonalInfoPage);
+            services.RegisterForNavigation<Organize, OrganizeViewModel>(AppPages.OrganizePage);
+            ///弹窗
             services.RegisterDialogWindow<DefaultWindow>("DefaultWindow");
             services.RegisterDialog<LoginView, LoginViewModel>(AppViews.LoginName);
         }

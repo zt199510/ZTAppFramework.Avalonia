@@ -37,17 +37,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                 if (SetProperty(ref _SelectMenu, value))
                 {
                     PageList = value.Childer;
-                    PageList.ForEach(x =>
-                    {
-                        if (SelectPage != null)
-                            if (x.name == SelectPage.name)
-                                x.IsSelected = true;
-                            else
-                                x.IsSelected = false;
-
-                    });
                 }
-
             }
         }
 
@@ -59,6 +49,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
             {
                 if (SetProperty(ref _SelectPage, value))
                 {
+                    if (value == null) return;
                     switch (value.name)
                     {
                         case "个人信息":
@@ -67,8 +58,9 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                             break;
                         case "工作台":
                             _RegionManager?.Regions[AppPages.Nav_HomeContent]?.RequestNavigate(AppPages.WorkbenchPage); break;
-                        //case "机构管理":
-                        //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.OrganizeName); break;
+                        case "机构管理":
+                            _RegionManager?.Regions[AppPages.Nav_HomeContent]?.RequestNavigate(AppPages.OrganizePage);
+                            break;
                         //case "角色管理":
                         //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.RoleName); break;
                         //case "职位管理":

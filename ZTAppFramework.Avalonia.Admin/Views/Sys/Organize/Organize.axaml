@@ -1,0 +1,86 @@
+<UserControl
+    x:Class="ZTAppFramework.Avalonia.Admin.Views.Organize"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Zt="using:ZTAppFramework.Template.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <!--<UserControl.Styles>
+        <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml" />
+        <StyleInclude Source="avares://Avalonia.Themes.Default/Accents/BaseLight.xaml" />
+
+    </UserControl.Styles>-->
+    <Grid RowDefinitions="auto,*">
+
+        <Grid Margin="0,5,0,0" ColumnDefinitions="*,*">
+            <StackPanel Orientation="Horizontal">
+                <Zt:ZTButton
+                    Margin="5,0,0,0"
+                    Background="#43c6f9"
+                    Content="添加"
+                    CornerRadius="2"
+                    Type="Normal" />
+                <Zt:ZTButton
+                    Margin="5,0,0,0"
+                    Content="删除"
+                    CornerRadius="2"
+                    Type="Danger" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Zt:ZTTextBox
+                    Width="200"
+                    BorderThickness="1"
+                    InputType="Default" />
+
+                <Zt:ZTButton
+                    Margin="5,0,5,0"
+                    Background="OliveDrab"
+                    Content="搜索"
+                    CornerRadius="2"
+                    Type="Normal" />
+            </StackPanel>
+        </Grid>
+        <DataGrid
+            Grid.Row="1"
+            Margin="5"
+            AutoGenerateColumns="False"
+            BorderBrush="Gray"
+            BorderThickness="0.5"
+            Items="{Binding People}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding FirstName}"
+                    Header="组织名称" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding LastName}"
+                    Header="组织编号" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding LastName}"
+                    Header="负责人" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding LastName}"
+                    Header="电话" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding LastName}"
+                    Header="状态" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding LastName}"
+                    Header="操作" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

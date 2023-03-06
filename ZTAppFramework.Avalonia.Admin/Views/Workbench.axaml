@@ -10,10 +10,9 @@
     d:DesignWidth="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
-    <Grid Background="#f2f2f2" RowDefinitions="auto,*">
+    <Grid Background="#f2f2f2" RowDefinitions="*,*">
         <UniformGrid Columns="4">
             <Zt:ZTCard
-                Height="120"
                 Background="#409EFF"
                 BorderThickness="1"
                 CornerRadius="2">
@@ -37,7 +36,6 @@
                 </StackPanel>
             </Zt:ZTCard>
             <Zt:ZTCard
-                Height="120"
                 Background="#409EFF"
                 BorderThickness="1"
                 CornerRadius="2">
@@ -56,7 +54,6 @@
                 </StackPanel>
             </Zt:ZTCard>
             <Zt:ZTCard
-                Height="120"
                 Background="#409EFF"
                 BorderThickness="1"
                 CornerRadius="2">
@@ -80,7 +77,6 @@
                 </Grid>
             </Zt:ZTCard>
             <Zt:ZTCard
-                Height="120"
                 Background="#409EFF"
                 BorderThickness="1"
                 CornerRadius="2">
@@ -106,7 +102,6 @@
             </Zt:ZTCard>
 
             <Zt:ZTCard
-                Height="120"
                 Background="#409EFF"
                 BorderThickness="1"
                 CornerRadius="2">
@@ -141,7 +136,37 @@
                 </Grid>
             </Zt:ZTCard>
         </UniformGrid>
-        <Grid Grid.Row="1">
+        <Grid
+            Grid.Row="1"
+            Margin="0,10,0,0"
+            ColumnDefinitions="*,*">
+            <Zt:ZTCard
+                Grid.Column="1"
+                Background="White"
+                BorderBrush="Gray"
+                BorderThickness="0.3"
+                CornerRadius="2">
+                <Grid Margin="5" RowDefinitions="auto,*">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="24"
+                        Foreground="Black"
+                        Text="欢迎使用ZTAdmin" />
+                    <StackPanel Grid.Row="1">
+
+                        <TextBlock
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Foreground="Gray"
+                            Text="更新日志:" />
+
+                    </StackPanel>
+
+
+                </Grid>
+            </Zt:ZTCard>
+
             <Zt:ZTCard
                 Background="White"
                 BorderBrush="Gray"
@@ -188,6 +213,7 @@
 
                                     </StackPanel>
                                     <Separator
+                                        Height="1"
                                         Margin="0,5"
                                         VerticalAlignment="Bottom"
                                         Background="Gray" />
@@ -198,7 +224,6 @@
                     </ItemsControl>
                 </Grid>
             </Zt:ZTCard>
-
 
         </Grid>
 
