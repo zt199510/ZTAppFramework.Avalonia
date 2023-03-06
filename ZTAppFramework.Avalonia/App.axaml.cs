@@ -20,6 +20,7 @@ using ZTAppFramework.Avalonia.Admin.Views;
 using ZTAppFramework.Avalonia.Admin.Windows;
 using ZTAppFramework.Avalonia.AdminViewModel;
 using ZTAppFramework.Avalonia.Stared;
+using ZTAppFramework.Template.Dialog;
 using ZTAppFramework.Template.Fonts;
 
 namespace ZTAppFramework.Avalonia
@@ -43,7 +44,7 @@ namespace ZTAppFramework.Avalonia
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterInstance<IZTDialogService>(new ZTDialogService());
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

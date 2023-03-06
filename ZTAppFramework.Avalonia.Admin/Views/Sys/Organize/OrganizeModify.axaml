@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+                xmlns:Zt="using:ZTAppFramework.Template.Controls"
+             x:Class="ZTAppFramework.Avalonia.Admin.Views.OrganizeModify">
+  <Zt:ZTTitleBar HeaderForeground="#323232" TitleBarType="Message">
+    <Zt:ZTTitleBar.HeaderContent>
+      <StackPanel IsHitTestVisible="false" Orientation="Horizontal">
+        <TextBlock VerticalAlignment="Center" Text="{Binding #mainWindow.Title, Mode=OneWay}" />
+      </StackPanel>
+    </Zt:ZTTitleBar.HeaderContent>
+    <Grid ColumnDefinitions="*,*">
+   
+      <Grid
+          Grid.Column="1"
+          Width="350"
+          Height="300"
+          VerticalAlignment="Center"
+          RowDefinitions="*,* ">
+       
+      
+      </Grid>
+    </Grid>
+  </Zt:ZTTitleBar>
+
+</UserControl>

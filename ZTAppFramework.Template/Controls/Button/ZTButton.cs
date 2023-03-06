@@ -41,19 +41,19 @@ namespace ZTAppFramework.Template.Controls
             set { SetValue(UriProperty, value); }
         }
 
-        protected override void OnClick()
-        {
-            base.OnClick();
-            if (this.Type==ButtonType.Link)
-            {
-                //点击调整网址
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = Uri,
-                    UseShellExecute = true
-                });
-            }
-        }
+        //protected override void OnClick()
+        //{
+        //    base.OnClick();
+        //    if (this.Type==ButtonType.Link)
+        //    {
+        //        //点击调整网址
+        //        Process.Start(new ProcessStartInfo
+        //        {
+        //            FileName = Uri,
+        //            UseShellExecute = true
+        //        });
+        //    }
+        //}
 
 
 

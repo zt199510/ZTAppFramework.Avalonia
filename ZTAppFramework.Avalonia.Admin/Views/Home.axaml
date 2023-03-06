@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Zt="using:ZTAppFramework.Template.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dialog="using:ZTAppFramework.Template.Dialog"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:res="using:ZTAppFramework.Avalonia.Stared"
@@ -123,25 +124,22 @@
                     </DataTemplate>
                 </TabStrip.ItemTemplate>
             </TabStrip>
-
         </ScrollViewer>
 
         <Border
             Grid.Column="2"
             BorderBrush="Gray"
             BorderThickness="0,1,0,0" />
-        <ContentControl Grid.Column="2" prism:RegionManager.RegionName="{Binding Source={x:Static res:AppPages.Nav_HomeContent}}" />
+        <Zt:ZTDialogHost Grid.Column="2" dialog:ZTDialog.Token="HooKDialog">
+            <ContentControl prism:RegionManager.RegionName="{Binding Source={x:Static res:AppPages.Nav_HomeContent}}" />
+        </Zt:ZTDialogHost>
     </Grid>
 
     <UserControl.Styles>
-
-
         <Style Selector="TabStrip">
             <Setter Property="Margin" Value="0,0,0,0" />
             <Setter Property="Width" Value="64" />
         </Style>
-
-
 
         <Style Selector="TabStripItem">
             <Setter Property="Margin" Value="0" />

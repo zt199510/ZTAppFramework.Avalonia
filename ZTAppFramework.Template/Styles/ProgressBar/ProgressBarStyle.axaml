@@ -35,7 +35,6 @@
         <Setter Property="Foreground" Value="Blue" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="HorizontalAlignment" Value="Left" />
-
         <Setter Property="Height" Value="16" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="Template">

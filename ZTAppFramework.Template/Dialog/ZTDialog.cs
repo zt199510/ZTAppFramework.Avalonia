@@ -54,7 +54,7 @@ namespace ZTAppFramework.Template.Dialog
             {
                 var token = GetToken(host);
                 if (token == null) token = Guid.NewGuid().ToString();
-                if (_DialogHosts.ContainsKey(token)) DialogHosts?.Remove(token);
+                if (DialogHosts.ContainsKey(token)) DialogHosts?.Remove(token);
                 host.GUID = Guid.NewGuid().ToString();
                 DialogHosts?.Add(token, host);
             }
@@ -140,10 +140,10 @@ namespace ZTAppFramework.Template.Dialog
                         DataContext = view.DataContext
                     };
                     //抓取当前需要传递的参数并且传递给对应视图的ViewModel
-                    if (!(view.DataContext is ILayDialogAware viewModel))
+                    if (!(view.DataContext is IZTDialogAware viewModel))
                         throw new NullReferenceException("对话框的 ViewModel 必须实现 IDialogAware 接口 ");
                     //给对应的ViewModel传值
-                    ViewAndViewModelAction<ILayDialogAware>(viewModel, d => d.OnDialogOpened(parameters));
+                    ViewAndViewModelAction<IZTDialogAware>(viewModel, d => d.OnDialogOpened(parameters));
                     dialogView.IsOpen = true;
                     await host.TaskCompletion.Task;
                 }

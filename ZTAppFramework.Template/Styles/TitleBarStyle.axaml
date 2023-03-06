@@ -169,4 +169,17 @@
         <Setter Property="HeaderBackground" Value="Transparent" />
     </Style>
 
+    <Style Selector="zt|ZTTitleBar[TitleBarType=Message] /template/ zt|ZTButton#winfullscreenBtn">
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="zt|ZTTitleBar[TitleBarType=Message] /template/ zt|ZTButton#winhidescreenBtn">
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="zt|ZTTitleBar[TitleBarType=Message] /template/ zt|ZTButton#winCnangeBtn">
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="zt|ZTTitleBar[TitleBarType=Message]">
+        <Setter Property="HeaderBackground" Value="Transparent" />
+    </Style>
 </Styles>

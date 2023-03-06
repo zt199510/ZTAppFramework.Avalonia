@@ -225,7 +225,8 @@ namespace ZTAppFramework.Template.Controls
                                 break;
                             case WindowButtonType.Closed:
                                 window.Close();
-                                Environment.Exit(0);
+                                if (TitleBarType!=TitleBarEnums.Message)
+                                    Environment.Exit(0);
                                 break;
                             default:
                                 break;

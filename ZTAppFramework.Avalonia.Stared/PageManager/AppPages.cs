@@ -23,6 +23,8 @@ namespace ZTAppFramework.Avalonia.Stared
         public const string WorkbenchPage = "WorkbenchPage";//工作台页面
         public const string PersonalInfoPage = "PersonalInfoPage";//个人信息页面
         public const string OrganizePage = "OrganizePage";//组织页面
-        
+        public const string OrganizeModifyPage = "OrganizeModifyPage";
+
+
     }
 }

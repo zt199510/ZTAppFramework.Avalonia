@@ -104,7 +104,6 @@ namespace ZTAppFramework.Template.Controls
                     {
                         if (IsDropDownOpen)
                              PART_PlaceholderTextbox.Focus();
-
                     }
                 }),
 
@@ -120,7 +119,7 @@ namespace ZTAppFramework.Template.Controls
                 {
                    TextContent=GetDisplayName();
                 }),
-
+              
 
             };
             PART_PlaceholderTextbox.LostFocus -= PART_PlaceholderTextbox_LostFocus;

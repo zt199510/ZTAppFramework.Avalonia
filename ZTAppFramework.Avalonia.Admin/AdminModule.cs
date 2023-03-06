@@ -7,14 +7,18 @@ using ZTAppFramework.Avalonia.Admin.Windows;
 using ZTAppFramework.Avalonia.AdminViewModel;
 using ZTAppFramework.Avalonia.AdminViewModel.ViewModel;
 using ZTAppFramework.Avalonia.Stared;
+using ZTAppFramework.Template.Dialog;
 
 namespace ZTAppFramework.Avalonia.Admin
 {
     public class AdminModule : IModule
     {
+        private IZTDialogService ZTDialog;
+
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            
+            ZTDialog = containerProvider.Resolve<IZTDialogService>();
+            ZTDialog.RegisterDialog<OrganizeModify>(AppPages.OrganizeModifyPage);
         }
 
         public void RegisterTypes(IContainerRegistry services)
@@ -31,9 +35,11 @@ namespace ZTAppFramework.Avalonia.Admin
             services.RegisterForNavigation<Workbench, WorkbenchViewModel>(AppPages.WorkbenchPage);
             services.RegisterForNavigation<PersonalInfo, PersonalInfoViewModel>(AppPages.PersonalInfoPage);
             services.RegisterForNavigation<Organize, OrganizeViewModel>(AppPages.OrganizePage);
+          //  
             ///弹窗
             services.RegisterDialogWindow<DefaultWindow>("DefaultWindow");
             services.RegisterDialog<LoginView, LoginViewModel>(AppViews.LoginName);
+            services.RegisterDialog<OrganizeModify, OrganizeModifyViewModel>(AppPages.OrganizeModifyPage);
         }
     }
 }

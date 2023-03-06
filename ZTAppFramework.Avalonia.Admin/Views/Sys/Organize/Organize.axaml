@@ -4,31 +4,31 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Zt="using:ZTAppFramework.Template.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ZTAppFramework.Avalonia.AdminViewModel.ViewModel"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <!--<UserControl.Styles>
-        <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml" />
-        <StyleInclude Source="avares://Avalonia.Themes.Default/Accents/BaseLight.xaml" />
 
-    </UserControl.Styles>-->
     <Grid RowDefinitions="auto,*">
-
         <Grid Margin="0,5,0,0" ColumnDefinitions="*,*">
             <StackPanel Orientation="Horizontal">
+
                 <Zt:ZTButton
                     Margin="5,0,0,0"
                     Background="#43c6f9"
+                    Command="{Binding AddCommand}"
                     Content="添加"
                     CornerRadius="2"
                     Type="Normal" />
+
                 <Zt:ZTButton
                     Margin="5,0,0,0"
                     Content="删除"
                     CornerRadius="2"
                     Type="Danger" />
+
             </StackPanel>
 
             <StackPanel
@@ -39,7 +39,6 @@
                     Width="200"
                     BorderThickness="1"
                     InputType="Default" />
-
                 <Zt:ZTButton
                     Margin="5,0,5,0"
                     Background="OliveDrab"
@@ -53,33 +52,90 @@
             Margin="5"
             AutoGenerateColumns="False"
             BorderBrush="Gray"
-            BorderThickness="0.5"
-            Items="{Binding People}">
+            BorderThickness="1"
+            Items="{Binding OrganizesList}">
             <DataGrid.Columns>
-                <DataGridTextColumn
-                    Width="*"
-                    Binding="{Binding FirstName}"
-                    Header="组织名称" />
-                <DataGridTextColumn
-                    Width="*"
-                    Binding="{Binding LastName}"
-                    Header="组织编号" />
-                <DataGridTextColumn
-                    Width="*"
-                    Binding="{Binding LastName}"
-                    Header="负责人" />
-                <DataGridTextColumn
-                    Width="*"
-                    Binding="{Binding LastName}"
-                    Header="电话" />
-                <DataGridTextColumn
-                    Width="*"
-                    Binding="{Binding LastName}"
-                    Header="状态" />
-                <DataGridTextColumn
-                    Width="*"
-                    Binding="{Binding LastName}"
-                    Header="操作" />
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <CheckBox HorizontalAlignment="Center" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock VerticalAlignment="Center" Text="组织名称" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock VerticalAlignment="Center" Text="组织编号" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Number}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock VerticalAlignment="Center" Text="负责人" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LeaderUser}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock VerticalAlignment="Center" Text="电话" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LeaderMobile}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock VerticalAlignment="Center" Text="状态" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Status}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock VerticalAlignment="Center" Text="操作" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Zt:ZTButton
+                                    Background="#409eff"
+                                    Content="修改"
+                                    Type="Link" />
+                                <Zt:ZTButton
+                                    Margin="10,0,0,0"
+                                    Background="#409eff"
+                                    Content="删除"
+                                    Type="Link" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

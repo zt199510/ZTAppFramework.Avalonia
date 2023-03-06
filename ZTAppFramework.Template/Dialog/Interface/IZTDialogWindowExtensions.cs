@@ -8,13 +8,13 @@ namespace ZTAppFramework.Template.Dialog.Interface
 {
     internal static class IZTDialogWindowExtensions
     {
-        internal static ILayDialogAware GetDialogViewModel(this IZTDialogWindow dialog)
+        internal static IZTDialogAware GetDialogViewModel(this IZTDialogWindow dialog)
         {
-            return (ILayDialogAware)dialog.DataContext;
+            return (IZTDialogAware)dialog.DataContext;
         }
-        internal static ILayDialogAware GetDialogView(this IZTDialogWindow dialog)
+        internal static IZTDialogAware GetDialogView(this IZTDialogWindow dialog)
         {
-            return (ILayDialogAware)dialog.Content;
+            return (IZTDialogAware)dialog.Content;
         }
     }
 }

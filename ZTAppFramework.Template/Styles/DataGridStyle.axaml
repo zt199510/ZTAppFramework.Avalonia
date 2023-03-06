@@ -1,0 +1,102 @@
+﻿<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <DataGrid
+                Grid.Row="1"
+                Width="400"
+                Margin="5"
+                AutoGenerateColumns="False"
+                BorderBrush="Gray"
+                BorderThickness="1">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock HorizontalAlignment="Center" Text="组织名称" />
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Text="{Binding Name}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Design.PreviewWith>
+    <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Default.xaml" />
+    <!--  DataGridColumnHeader  -->
+    <Style Selector="DataGridColumnHeader">
+        <Setter Property="BorderThickness" Value="0,0,0.3,1" />
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="Background" Value="#F2F2F2" />
+        <Setter Property="Padding" Value="13,0,13,0" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <Border
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            Content="{TemplateBinding Content}" />
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="DataGridRow">
+        <Setter Property="BorderThickness" Value="0,0,0.1,1" />
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    x:Name="RowBorder"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <DataGridCellsPresenter
+                        Name="PART_CellsPresenter"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="DataGridCell">
+        <Setter Property="BorderThickness" Value="0,0,0.5,0" />
+        <Setter Property="Margin" Value="-1,0,0,0" />
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    x:Name="RowBorder"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentPresenter
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="{TemplateBinding Content}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+    </Style>
+
+
+
+
+    <!--  Add Styles Here  -->
+</Styles>

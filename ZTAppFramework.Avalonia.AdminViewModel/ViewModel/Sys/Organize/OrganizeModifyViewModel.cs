@@ -7,8 +7,9 @@ using ZTAppFramework.Avalonia.Stared.ViewModels;
 
 namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
 {
-    public class OrganizeViewModel: NavigaViewModelBase
+    public class OrganizeModifyViewModel: DialogViewModelBase
     {
+
 
     }
 }

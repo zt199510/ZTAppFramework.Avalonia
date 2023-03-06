@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZTAppFramework.Template.Dialog
 {
-    public interface ILayDialogAware
+    public interface IZTDialogAware
     {
         event Action<IZTDialogResult> RequestClose;
         void OnDialogOpened(IZTDialogParameter parameters);
