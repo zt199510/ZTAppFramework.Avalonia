@@ -25,6 +25,7 @@ namespace ZTAppFramework.Avalonia.Stared
         public const string OrganizeModifyPage = "OrganizeModifyPage";//组织修改页面
         public const string MessagePage = "MessagePage";//消息提示页面
         public const string RolePage = "RolePage";//角色页面
+        public const string RoleModifyPage = "RoleModifyPage"; //角色修改页面
 
 
     }

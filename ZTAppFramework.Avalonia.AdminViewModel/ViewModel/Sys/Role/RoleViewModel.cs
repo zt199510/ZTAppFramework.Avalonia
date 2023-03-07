@@ -41,13 +41,13 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
         #endregion
 
         #region Command
-        public DelegateCommand AddCommand { get; }
+        public DelegateCommand AddCommand => new DelegateCommand(Add);
         public DelegateCommand DeleteSelectCommand { get; }
         public DelegateCommand CheckedAllCommand { get; }
         public DelegateCommand UnCheckedAllCommand { get; }
         public DelegateCommand QueryCommand { get; }
-        public DelegateCommand<SysRoleModel> ModifCommand { get; }
-        public DelegateCommand<SysRoleModel> DeleteSeifCommand { get; }
+        public DelegateCommand<SysRoleModel> ModifCommand => new DelegateCommand<SysRoleModel>(Modif);
+        public DelegateCommand<SysRoleModel> DeleteSeifCommand => new DelegateCommand<SysRoleModel>(DeleteSeif);
         public DelegateCommand<SysRoleModel> CheckedCommand { get; }
         public DelegateCommand<SysRoleModel> UncheckedCommand { get; }
         #endregion
@@ -65,12 +65,12 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
         }
 
         #region Execute
-        void Modif(SysOrganizeModel Param)
+        void Modif(SysRoleModel Param)
         {
             DialogParameters dialogParameter = new DialogParameters();
             dialogParameter.Add("Title", "编辑");
             dialogParameter.Add("Param", Param);
-            _DialogService.ShowDialog(AppPages.OrganizeModifyPage, dialogParameter, async r =>
+            _DialogService.ShowDialog(AppPages.RoleModifyPage, dialogParameter, async r =>
             {
                 if (r.Result == ButtonResult.Yes)
                 {
@@ -83,7 +83,8 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                 await GetRoleInfo();
             }, "DefaultWindow");
         }
-        void DeleteSeif(SysOrganizeModel Param)
+
+        void DeleteSeif(SysRoleModel Param)
         {
             ShowDialog("提示", "确定要删除码", async x =>
             {
@@ -113,7 +114,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
         void Add()
         {
 
-            _DialogService.ShowDialog(AppPages.OrganizeModifyPage, new DialogParameters(), async r =>
+            _DialogService.ShowDialog(AppPages.RoleModifyPage, new DialogParameters(), async r =>
             {
                 if (r.Result == ButtonResult.Yes)
                 {
