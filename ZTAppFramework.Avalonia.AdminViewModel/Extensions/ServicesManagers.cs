@@ -11,7 +11,6 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
 {
     public static class ServicesManagers
     {
-
         public static void RegisterApplicationManager(this IContainerRegistry services)
         {
             services.RegisterScoped<AdminService>();
@@ -20,11 +19,8 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
             services.RegisterScoped<WorkbenchService>();
             services.RegisterScoped<OrganizeService>();
             services.RegisterScoped<RoleService>();
-            //services.RegisterScoped<SysPostService>();
+            services.RegisterScoped<SysPostService>();
             //services.RegisterScoped<SysLogSerivce>();
         }
-
-   
-
     }
 }

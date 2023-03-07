@@ -16,10 +16,7 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
 
         public event Action<IZTDialogResult> RequestClose;
         public DelegateCommand SaveCommand { get; set; }
-
         public DelegateCommand CancelCommand { get; set; }
-
-
         public ZTDialogViewModelBase()
         {
             SaveCommand = new DelegateCommand(OnSave);

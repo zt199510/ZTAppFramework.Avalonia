@@ -25,11 +25,12 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
             CreateMap<DeviceUseModel, DeviceUseDto>().ReverseMap();
             CreateMap<MachineInfoModel, MachineInfoDto>().ReverseMap();
             CreateMap<OperatorWorkModel, OperatorWordDto>().ReverseMap();
-        //    CreateMap<UserEditPwdModel, OperatroPasswordParam>().ReverseMap();
             CreateMap<SysOrganizeModel, SysOrganizeDto>().ReverseMap();
             CreateMap<SysOrganizeModel, SysOrganizeParm>().ReverseMap();
             CreateMap<SysRoleModel, SysRoleDto>().ReverseMap();
             CreateMap<SysRoleModel, SysRoleParm>().ReverseMap();
+            CreateMap<SysPostModel, SysPostDto>().ReverseMap();
+            CreateMap<SysPostModel, SysPostParm>().ReverseMap();
         }
     }
 }

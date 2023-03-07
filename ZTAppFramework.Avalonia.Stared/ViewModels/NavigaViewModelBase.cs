@@ -77,9 +77,16 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
         /// 导航后
         /// </summary>
         /// <param name="navigationContext"></param>
-        public virtual void OnNavigatedTo(NavigationContext navigationContext)
+        public virtual async void OnNavigatedTo(NavigationContext navigationContext)
         {
-
+            await OnNavigatedToAsync(navigationContext);
         }
+
+
+        /// <summary>
+        /// 异步刷新方法,当页面导航到达时触发该方法
+        /// </summary>
+        /// <returns></returns>
+        public virtual async Task OnNavigatedToAsync(NavigationContext navigationContext = null) => await Task.CompletedTask;
     }
 }
