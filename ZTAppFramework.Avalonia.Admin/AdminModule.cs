@@ -37,7 +37,8 @@ namespace ZTAppFramework.Avalonia.Admin
             services.RegisterForNavigation<Workbench, WorkbenchViewModel>(AppPages.WorkbenchPage);
             services.RegisterForNavigation<PersonalInfo, PersonalInfoViewModel>(AppPages.PersonalInfoPage);
             services.RegisterForNavigation<Organize, OrganizeViewModel>(AppPages.OrganizePage);
-          //  
+            services.RegisterForNavigation<Role, RoleViewModel>(AppPages.RolePage);
+            //  
             ///弹窗
             services.RegisterDialogWindow<DefaultWindow>("DefaultWindow");
             services.RegisterDialog<LoginView, LoginViewModel>(AppViews.LoginName);

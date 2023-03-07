@@ -11,7 +11,7 @@ using ZTAppFramework.Avalonia.Stared;
 using ZTAppFramework.Avalonia.Stared.ViewModels;
 using ZTAppFramework.Template.Dialog;
 
-namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel.Sys.Role
+namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
 {
     public class RoleViewModel: NavigaViewModelBase
     {
@@ -64,7 +64,6 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel.Sys.Role
             _DialogService = DialogService;
         }
 
-   
         #region Execute
         void Modif(SysOrganizeModel Param)
         {

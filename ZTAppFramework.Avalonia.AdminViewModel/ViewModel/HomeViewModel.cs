@@ -54,15 +54,14 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                     {
                         case "个人信息":
                            //_RegionManager?.Regions[AppPages.Nav_HomeContent]?.RequestNavigate(AppPages.UserCenterName);
-                            
                             break;
                         case "工作台":
                             _RegionManager?.Regions[AppPages.Nav_HomeContent]?.RequestNavigate(AppPages.WorkbenchPage); break;
                         case "机构管理":
                             _RegionManager?.Regions[AppPages.Nav_HomeContent]?.RequestNavigate(AppPages.OrganizePage);
                             break;
-                        //case "角色管理":
-                        //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.RoleName); break;
+                        case "角色管理":
+                           _RegionManager?.Regions[AppPages.Nav_HomeContent]?.RequestNavigate(AppPages.RolePage); break;
                         //case "职位管理":
                         //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysPostName); break;
                         //case "用户管理":
