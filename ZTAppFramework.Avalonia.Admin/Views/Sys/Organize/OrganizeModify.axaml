@@ -14,13 +14,168 @@
                 <TextBlock VerticalAlignment="Center" Text="{Binding #mainWindow.Title, Mode=OneWay}" />
             </StackPanel>
         </Zt:ZTTitleBar.HeaderContent>
-        <Grid ColumnDefinitions="*,*">
-            <Grid
-                Grid.Column="1"
-                Width="350"
-                Height="300"
-                VerticalAlignment="Center"
-                RowDefinitions="*,* " />
+        <Grid Width="800" RowDefinitions="*,auto">
+            <StackPanel>
+                <StackPanel
+                    Width="700"
+                    Margin="0,10,0,0"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Width="100"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="所属机构" />
+                    <Zt:ZTComboBox
+                        Width="590"
+                        ComboBoxType="Default"
+                        DisplayMemberPath="Name"
+                        Items="{Binding OrganizesList}"
+                        PlaceholderForeground="Gray"
+                        PlaceholderText="请输入机构名称"
+                        SelectedItem="{Binding SelectedItem}" />
+                </StackPanel>
+
+                <StackPanel
+                    Width="700"
+                    Height="40"
+                    Margin="0,10,0,0"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Width="100"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="机构名称" />
+                    <Zt:ZTTextBox
+                        Width="200"
+                        VerticalContentAlignment="Center"
+                        Text="{Binding OrganizeModel.Name}"
+                        Watermark="请输入机构名称" />
+                    <TextBlock
+                        Width="100"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="机构编号" />
+                    <Zt:ZTTextBox
+                        Width="280"
+                        VerticalContentAlignment="Center"
+                        Text="{Binding OrganizeModel.Number}"
+                        Watermark="请输入机构编号" />
+                </StackPanel>
+
+                <StackPanel
+                    Width="700"
+                    Height=" 40"
+                    Margin="0,10,0,0"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Width="100"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="机构负责人" />
+                    <Zt:ZTTextBox
+                        Width="200"
+                        VerticalContentAlignment="Center"
+                        Text="{Binding OrganizeModel.LeaderUser}"
+                        Watermark="请输入机构负责人" />
+                    <TextBlock
+                        Width="100"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="联系电话" />
+                    <Zt:ZTTextBox
+                        Width="280"
+                        VerticalContentAlignment="Center"
+                        Text="{Binding OrganizeModel.LeaderMobile}"
+                        Watermark="请输入联系电话" />
+                </StackPanel>
+
+                <StackPanel
+                    Width="700"
+                    Height=" 40"
+                    Margin="0,10,0,0"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Width="100"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="联系邮箱" />
+                    <Zt:ZTTextBox
+                        Width="200"
+                        VerticalContentAlignment="Center"
+                        Text="{Binding OrganizeModel.LeaderEmail}"
+                        Watermark="请输入联系邮箱" />
+                    <TextBlock
+                        Width="100"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="状态" />
+                    <CheckBox IsChecked="{Binding OrganizeModel.Status}" />
+                    <!--<ui:ZTCheckBox
+                    Width="290"
+                    VerticalContentAlignment="Center"
+                    CheckBoxStyle="Switch2"
+                    CheckedBackground="#409eff"
+                    CheckedContent="(开)"
+                    Content="(关)"
+                    Cursor="Hand"
+                    Foreground="Gray"
+                    IsChecked="{Binding OrganizeModel.Status}" />-->
+                </StackPanel>
+
+                <StackPanel
+                    Width="700"
+                    Height=" 40"
+                    Margin="0,10,0,0"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Width="100"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="排序" />
+                    <Slider
+                        x:Name="SortSlider"
+                        Width="400"
+                        VerticalAlignment="Center"
+                        Cursor="Hand"
+                        IsSnapToTickEnabled="True"
+                        Maximum="100"
+                        Minimum="1"
+                        TickFrequency="1"
+                        Value="{Binding OrganizeModel.Sort}" />
+                    <TextBox
+                        Margin="10,12,0,0"
+                        FontSize="16"
+                        Text="{Binding ElementName=SortSlider, Path=Value}" />
+                </StackPanel>
+
+
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="1"
+                Margin="0,0,20,10"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Zt:ZTButton
+                    Margin="0,0,10,0"
+                    Background="#43c6f9"
+                    Classes="Normal"
+                    Command="{Binding CancelCommand}"
+                    Content="添加"
+                    CornerRadius="2" />
+
+
+
+                <Zt:ZTButton
+                    Background="#409eff"
+                    Classes="Normal"
+                    Command="{Binding SaveCommand}"
+                    Content="确认"
+                    Cursor="Hand" />
+            </StackPanel>
         </Grid>
     </Zt:ZTTitleBar>
 
