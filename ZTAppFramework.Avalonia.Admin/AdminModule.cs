@@ -19,7 +19,8 @@ namespace ZTAppFramework.Avalonia.Admin
         public void OnInitialized(IContainerProvider containerProvider)
         {
             ZTDialog = containerProvider.Resolve<IZTDialogService>();
-            ZTDialog.RegisterDialog<OrganizeModify>(AppPages.OrganizeModifyPage);
+          //  ZTDialog.RegisterDialog<OrganizeModify, OrganizeModifyViewModel>(AppPages.OrganizeModifyPage);
+            ZTDialog.RegisterDialog<Message,MessageViewModel>(AppPages.MessagePage);
         }
 
         public void RegisterTypes(IContainerRegistry services)
@@ -41,6 +42,7 @@ namespace ZTAppFramework.Avalonia.Admin
             services.RegisterDialogWindow<DefaultWindow>("DefaultWindow");
             services.RegisterDialog<LoginView, LoginViewModel>(AppViews.LoginName);
             services.RegisterDialog<OrganizeModify, OrganizeModifyViewModel>(AppPages.OrganizeModifyPage);
+            services.RegisterDialog<Message, PrismMessageViewModel>(AppPages.MessagePage);
         }
     }
 }

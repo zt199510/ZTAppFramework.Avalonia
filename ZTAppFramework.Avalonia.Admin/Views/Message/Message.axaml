@@ -1,0 +1,68 @@
+<UserControl
+    x:Class="ZTAppFramework.Avalonia.Admin.Views.Message"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Zt="using:ZTAppFramework.Template.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lang="clr-namespace:ZTAppFramework.Avalonia.Stared.Languages;assembly=ZTAppFramework.Avalonia.Stared"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <Zt:ZTTitleBar
+        Background="#409EFF"
+        HeaderForeground="#323232"
+        TitleBarType="Message">
+        <Zt:ZTTitleBar.HeaderContent>
+            <StackPanel IsHitTestVisible="false" Orientation="Horizontal">
+                <TextBlock
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="18"
+                    Foreground="White"
+                    Text="{Binding Title}" />
+            </StackPanel>
+        </Zt:ZTTitleBar.HeaderContent>
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid MinWidth="400">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Border
+                    Grid.Row="1"
+                    Background="White"
+                    CornerRadius=" 0 0 2 2" />
+                <StackPanel Margin="50" TextBlock.Foreground="White">
+                    <TextBlock Text="{Binding Title}" />
+                    <TextBlock
+                        Margin="0,10"
+                        Text="{Binding Message}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="1"
+                    Margin="10"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                    <Zt:ZTButton
+                        Height="40"
+                        Margin="5,0"
+                        Background="#409EFF"
+                        Command="{Binding SaveCommand}"
+                        Content="确定"
+                        CornerRadius="4"
+                        Type="Normal" />
+                    <Zt:ZTButton
+                        Height="40"
+                        Margin="5,0"
+                        Command="{Binding CancelCommand}"
+                        Content="取消"
+                        CornerRadius="4"
+                        Type="Danger" />
+                </StackPanel>
+            </Grid>
+
+        </Border>
+    </Zt:ZTTitleBar>
+</UserControl>

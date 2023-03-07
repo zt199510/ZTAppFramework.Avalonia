@@ -11,6 +11,7 @@ using System.Linq;
 using System.Reactive.Disposables;
 using System.Text;
 using System.Threading.Tasks;
+using ZTAppFramework.Template.Dialog;
 using ZTAppFramework.Template.Enums;
 
 namespace ZTAppFramework.Template.Controls

@@ -8,8 +8,9 @@ using ZTAppFramework.ApplicationService.Service;
 using ZTAppFramework.ApplicationService.Stared;
 using ZTAppFramework.Avalonia.AdminViewModel.Model;
 using ZTAppFramework.Avalonia.Stared.ViewModels;
+using ZTAppFramework.Template.Dialog;
 using ZTAppFramewrok.Application.Stared;
-
+using Prism.Ioc;
 namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
 {
     public class OrganizeModifyViewModel: DialogViewModelBase
@@ -68,11 +69,11 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
         public bool IsEdit { get; set; }
         #endregion
 
-
-        public OrganizeModifyViewModel(OrganizeService organizeService)
+        public OrganizeModifyViewModel()
         {
-            _OrganizeService = organizeService;
+            _OrganizeService = ContainerLocator.Container.Resolve<OrganizeService>(); ;
         }
+       
 
 
         #region Execute
@@ -107,15 +108,15 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
         }
         async Task<bool> Add()
         {
-            if (OrganizeModel.ParentIdList.Count() > 1)
-                OrganizeModel.ParentIdList.Remove("0");
+           
             var Version = Verify(Map<SysOrganizeParm>(OrganizeModel));
             if (!Version.IsValid)
             {
-                //Show("提示", string.Join('\n', Version.Errors));
+                Show("提示", string.Join('\n', Version.Errors));
                 return false;
             }
-
+            if (OrganizeModel.ParentIdList.Count() > 1)
+                OrganizeModel.ParentIdList.Remove("0");
 
             var r = await _OrganizeService.Add(Map<SysOrganizeParm>(OrganizeModel));
             if (r.Success)

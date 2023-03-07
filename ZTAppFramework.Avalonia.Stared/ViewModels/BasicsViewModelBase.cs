@@ -6,6 +6,8 @@ using System.Xml.Serialization;
 using Prism.Ioc;
 using ZTAppFramework.Avalonia.Stared.Validations;
 using FluentValidation.Results;
+using ZTAppFramework.Template.Dialog;
+using Prism.Services.Dialogs;
 
 namespace ZTAppFramework.Avalonia.Stared.ViewModels
 {
@@ -29,12 +31,35 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
 
         private readonly IMapper mapper;
         protected readonly GlobalValidator validator;
+        private IZTDialogService ZTDialog;
+        private IDialogService _DialogService;
+
         public BasicsViewModelBase()
         {
             mapper = ContainerLocator.Container.Resolve<IMapper>();
             validator = ContainerLocator.Container.Resolve<GlobalValidator>();
+            ZTDialog = ContainerLocator.Container.Resolve<IZTDialogService>();
+            _DialogService= ContainerLocator.Container.Resolve<IDialogService>(); 
         }
-
+        public void Show(IZTDialogParameter parameter, Action<IZTDialogResult> callback, string Token)
+        {
+            ZTDialog.Show(AppPages.MessagePage, parameter,callback, Token);
+        }
+     
+        public void Show(string Title,string Message)
+        {
+            DialogParameters Param = new DialogParameters();
+            Param.Add("Title", Title);
+            Param.Add("Message", Message);
+            _DialogService.ShowDialog(AppPages.MessagePage, Param, r => { }, "DefaultWindow");
+        }
+        public void ShowDialog(string Title, string Message,Action<IDialogResult> callback)
+        {
+            DialogParameters Param = new DialogParameters();
+            Param.Add("Title", Title);
+            Param.Add("Message", Message);
+            _DialogService.ShowDialog(AppPages.MessagePage, Param, callback, "DefaultWindow");
+        }
         /// <summary>
         /// 实体映射方法
         /// </summary>
@@ -95,5 +120,7 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
             return validationResult;
         }
         #endregion
+
+
     }
 }

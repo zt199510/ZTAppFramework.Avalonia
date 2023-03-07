@@ -41,6 +41,8 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
         public DelegateCommand CheckedAllCommand { get; }
         public DelegateCommand UnCheckedAllCommand { get; }
         public DelegateCommand QueryCommand { get; }
+        public DelegateCommand<SysOrganizeModel> ModifCommand => new DelegateCommand<SysOrganizeModel>(Modif);
+        public DelegateCommand<SysOrganizeModel> DeleteSeifCommand => new DelegateCommand<SysOrganizeModel>(DeleteSeif);
         #endregion
         #region 服务
         private readonly OrganizeService _OrganizeService;
@@ -52,23 +54,65 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
             _DialogService = DialogService;
         }
         #region Execute
-        void Add()
+        void Modif(SysOrganizeModel Param)
         {
-            //_DialogService.Show("Message", null, res =>
-            //{
-            //    var data = res;
-            //}, "HooKDialog");
-
-            _DialogService.ShowDialog(AppPages.OrganizeModifyPage, new DialogParameters(), r =>
+            DialogParameters dialogParameter = new DialogParameters();
+            dialogParameter.Add("Title", "编辑");
+            dialogParameter.Add("Param", Param);
+            _DialogService.ShowDialog(AppPages.OrganizeModifyPage, dialogParameter, async r =>
             {
                 if (r.Result == ButtonResult.Yes)
                 {
-                  
+                    await GetOrganizeInfo();
                 }
                 else
                 {
-                   
+
                 }
+                await GetOrganizeInfo();
+            }, "DefaultWindow");
+        }
+        void DeleteSeif(SysOrganizeModel Param)
+        {
+            ShowDialog("提示", "确定要删除码", async x =>
+            {
+                if (x.Result == ButtonResult.Yes)
+                {
+
+                    List<string> strings = new List<string>();
+                    var rd = OrganizesList.Where(x => x.ParentIdList.Contains(Param.Id.ToString()));
+                    if (rd != null)
+                    {
+                        foreach (var item in rd)
+                            strings.Add(item.Id.ToString());
+                    }
+                    strings.Add(Param.Id.ToString());
+                    string DelIdStr = string.Join(',', strings);
+                    var r = await _OrganizeService.Delete(DelIdStr);
+                    if (r.Success)
+                    {
+                        Show("消息", "删除成功!");
+                        await GetOrganizeInfo();
+                        return;
+                    }
+                }
+            });
+        }
+
+        void Add()
+        {
+
+            _DialogService.ShowDialog(AppPages.OrganizeModifyPage, new DialogParameters(), async r =>
+            {
+                if (r.Result == ButtonResult.Yes)
+                {
+
+                }
+                else
+                {
+
+                }
+                await GetOrganizeInfo();
             }, "DefaultWindow");
         }
         void DeleteSelect()

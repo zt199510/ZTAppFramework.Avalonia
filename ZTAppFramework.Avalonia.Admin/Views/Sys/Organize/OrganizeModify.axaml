@@ -8,7 +8,6 @@
     xmlns:prism="http://prismlibrary.com/"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
     <Zt:ZTTitleBar HeaderForeground="#323232" TitleBarType="Message">
         <Zt:ZTTitleBar.HeaderContent>
@@ -123,16 +122,6 @@
                         FontSize="16"
                         Text="状态" />
                     <CheckBox IsChecked="{Binding OrganizeModel.Status}" />
-                    <!--<ui:ZTCheckBox
-                    Width="290"
-                    VerticalContentAlignment="Center"
-                    CheckBoxStyle="Switch2"
-                    CheckedBackground="#409eff"
-                    CheckedContent="(开)"
-                    Content="(关)"
-                    Cursor="Hand"
-                    Foreground="Gray"
-                    IsChecked="{Binding OrganizeModel.Status}" />-->
                 </StackPanel>
 
                 <StackPanel

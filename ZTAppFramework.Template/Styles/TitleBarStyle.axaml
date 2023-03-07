@@ -103,6 +103,7 @@
                                         </zt:ZTButton>
 
                                         <zt:ZTButton
+                                            x:Name="winCloseBtn"
                                             Grid.Column="3"
                                             Width="{TemplateBinding HeaderHeight}"
                                             HorizontalAlignment="Stretch"
@@ -176,6 +177,10 @@
         <Setter Property="IsVisible" Value="False" />
     </Style>
     <Style Selector="zt|ZTTitleBar[TitleBarType=Message] /template/ zt|ZTButton#winCnangeBtn">
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="zt|ZTTitleBar[TitleBarType=Message] /template/ zt|ZTButton#winCloseBtn">
         <Setter Property="IsVisible" Value="False" />
     </Style>
 
