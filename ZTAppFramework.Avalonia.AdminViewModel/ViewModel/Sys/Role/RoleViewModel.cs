@@ -7,52 +7,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZTAppFramework.ApplicationService.Service;
-using ZTAppFramework.Avalonia.AdminViewModel.Model;
 using ZTAppFramework.Avalonia.Stared;
 using ZTAppFramework.Avalonia.Stared.ViewModels;
 using ZTAppFramework.Template.Dialog;
 
-namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
+namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel.Sys.Role
 {
-    public class OrganizeViewModel : NavigaViewModelBase
+    public class RoleViewModel: NavigaViewModelBase
     {
 
         #region UI
-        private List<SysOrganizeModel> _OrganizesList;
-        public List<SysOrganizeModel> OrganizesList
+        private List<SysRoleModel> _RoleList;
+        public List<SysRoleModel> RoleList
         {
-            get { return _OrganizesList; }
-            set { SetProperty(ref _OrganizesList, value); }
+            get { return _RoleList; }
+            set { SetProperty(ref _RoleList, value); }
         }
 
-        private List<SysOrganizeModel> _SelectList = new List<SysOrganizeModel>();
-        public List<SysOrganizeModel> SelectList
+        private List<SysRoleModel> _SelectList = new List<SysRoleModel>();
+        public List<SysRoleModel> SelectList
         {
             get { return _SelectList; }
             set { SetProperty(ref _SelectList, value); }
         }
 
+        private string _QueryStr;
 
-
+        public string QueryStr
+        {
+            get { return _QueryStr; }
+            set { SetProperty(ref _QueryStr, value); }
+        }
         #endregion
+
         #region Command
-        public DelegateCommand AddCommand => new DelegateCommand(Add);
-        public DelegateCommand DeleteSelectCommand => new DelegateCommand(DeleteSelect);
+        public DelegateCommand AddCommand { get; }
+        public DelegateCommand DeleteSelectCommand { get; }
         public DelegateCommand CheckedAllCommand { get; }
         public DelegateCommand UnCheckedAllCommand { get; }
         public DelegateCommand QueryCommand { get; }
-        public DelegateCommand<SysOrganizeModel> ModifCommand => new DelegateCommand<SysOrganizeModel>(Modif);
-        public DelegateCommand<SysOrganizeModel> DeleteSeifCommand => new DelegateCommand<SysOrganizeModel>(DeleteSeif);
+        public DelegateCommand<SysRoleModel> ModifCommand { get; }
+        public DelegateCommand<SysRoleModel> DeleteSeifCommand { get; }
+        public DelegateCommand<SysRoleModel> CheckedCommand { get; }
+        public DelegateCommand<SysRoleModel> UncheckedCommand { get; }
         #endregion
+
         #region 服务
-        private readonly OrganizeService _OrganizeService;
+        private readonly RoleService _RoleService;
         private readonly IDialogService _DialogService;
         #endregion
-        public OrganizeViewModel(OrganizeService organizeService, IDialogService DialogService)
+
+
+        public RoleViewModel(RoleService  roleService, IDialogService DialogService)
         {
-            _OrganizeService = organizeService;
+            _RoleService = roleService;
             _DialogService = DialogService;
         }
+
+   
         #region Execute
         void Modif(SysOrganizeModel Param)
         {
@@ -63,13 +75,13 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
             {
                 if (r.Result == ButtonResult.Yes)
                 {
-                    await GetOrganizeInfo();
+                    await GetRoleInfo();
                 }
                 else
                 {
 
                 }
-                await GetOrganizeInfo();
+                await GetRoleInfo();
             }, "DefaultWindow");
         }
         void DeleteSeif(SysOrganizeModel Param)
@@ -80,7 +92,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                 {
 
                     List<string> strings = new List<string>();
-                    var rd = OrganizesList.Where(x => x.ParentIdList.Contains(Param.Id.ToString()));
+                    var rd = RoleList.Where(x => x.ParentIdList.Contains(Param.Id.ToString()));
                     if (rd != null)
                     {
                         foreach (var item in rd)
@@ -88,15 +100,15 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                     }
                     strings.Add(Param.Id.ToString());
                     string DelIdStr = string.Join(',', strings);
-                    var r = await _OrganizeService.Delete(DelIdStr);
+                    var r = await _RoleService.Delete(DelIdStr);
                     if (r.Success)
                     {
                         Show("消息", "删除成功!");
-                        await GetOrganizeInfo();
+                        await GetRoleInfo();
                         return;
                     }
                 }
-            },Stared.Enums.MessageEnums.YesOrNO);
+            }, Stared.Enums.MessageEnums.YesOrNO);
         }
 
         void Add()
@@ -112,32 +124,32 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                 {
 
                 }
-                await GetOrganizeInfo();
+                await GetRoleInfo();
             }, "DefaultWindow");
         }
-        void DeleteSelect()
+        async Task GetRoleInfo(string Query = "")
         {
-
-        }
-        async Task GetOrganizeInfo(string Query = "")
-        {
-            var r = await _OrganizeService.GetList(Query);
+            var r = await _RoleService.GetList(Query);
             if (r.Success)
-                OrganizesList = Map<List<SysOrganizeModel>>(r.data).OrderBy(X => X.Sort).ToList();
+                RoleList = Map<List<SysRoleModel>>(r.data).OrderBy(X => X.Sort).ToList();
             SelectList.Clear();
         }
         #endregion
 
 
-     
-
         #region Override
-
         public override async void OnNavigatedTo(NavigationContext navigationContext)
         {
-            await GetOrganizeInfo();
+          
+            await GetRoleInfo();
         }
         #endregion
 
+
+
+
     }
+
+
+
 }

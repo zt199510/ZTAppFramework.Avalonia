@@ -8,6 +8,7 @@ using ZTAppFramework.Avalonia.Stared.Validations;
 using FluentValidation.Results;
 using ZTAppFramework.Template.Dialog;
 using Prism.Services.Dialogs;
+using ZTAppFramework.Avalonia.Stared.Enums;
 
 namespace ZTAppFramework.Avalonia.Stared.ViewModels
 {
@@ -53,11 +54,12 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
             Param.Add("Message", Message);
             _DialogService.ShowDialog(AppPages.MessagePage, Param, r => { }, "DefaultWindow");
         }
-        public void ShowDialog(string Title, string Message,Action<IDialogResult> callback)
+        public void ShowDialog(string Title, string Message,Action<IDialogResult> callback, MessageEnums enums=MessageEnums.Yes)
         {
             DialogParameters Param = new DialogParameters();
             Param.Add("Title", Title);
             Param.Add("Message", Message);
+            Param.Add("MessageEnums", enums);
             _DialogService.ShowDialog(AppPages.MessagePage, Param, callback, "DefaultWindow");
         }
         /// <summary>

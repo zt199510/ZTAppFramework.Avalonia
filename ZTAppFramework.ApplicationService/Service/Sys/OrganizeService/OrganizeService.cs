@@ -26,33 +26,14 @@ namespace ZTAppFramework.ApplicationService.Service
 
 
         }
-
-        [ApiUrl("")]
-        public async Task<AppliResult<bool>> Add(SysOrganizeParm Parmam)
+        public override Task<AppliResult<bool>> Modif<SysOrganizeDto>(SysOrganizeDto Param)
         {
-            AppliResult<bool> result = new AppliResult<bool>();
+            return base.Modif(Param);
+        }
 
-            var api = await _apiClinet.PostAsync<bool>(GetEndpoint(), Parmam);
-            if (api.success)
-            {
-                if (api.Code == 200)
-                {
-                    result.Success = true;
-                    result.Message = "添加成功";
-
-                }
-                else
-                {
-                    result.Success = false;
-                    result.Message = api.message;
-                }
-            }
-            else
-            {
-                result.Success = false;
-                result.Message = api.message;
-            }
-            return result;
+        public override Task<AppliResult<bool>> Add<SysOrganizeParm>(SysOrganizeParm Param)
+        {
+            return base.Add(Param);
         }
 
     }

@@ -159,6 +159,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                 if (!await Add())
                     return;
             }
+            OnDialogClosed(ButtonResult.No);
         }
 
         public override async void OnDialogOpened(IDialogParameters parameters)
@@ -177,7 +178,6 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                 OrganizeModel = DeepCopy<SysOrganizeModel>(Model);
                 SelectedItem = OrganizesList.FirstOrDefault(x => x.Id == OrganizeModel.ParentId);
             }
-
         }
 
         #endregion

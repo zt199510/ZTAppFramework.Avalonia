@@ -28,6 +28,8 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
         //    CreateMap<UserEditPwdModel, OperatroPasswordParam>().ReverseMap();
             CreateMap<SysOrganizeModel, SysOrganizeDto>().ReverseMap();
             CreateMap<SysOrganizeModel, SysOrganizeParm>().ReverseMap();
+            CreateMap<SysRoleModel, SysRoleDto>().ReverseMap();
+            CreateMap<SysRoleModel, SysRoleParm>().ReverseMap();
         }
     }
 }

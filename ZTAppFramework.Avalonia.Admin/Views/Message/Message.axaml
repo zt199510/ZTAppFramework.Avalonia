@@ -59,6 +59,7 @@
                         Command="{Binding CancelCommand}"
                         Content="取消"
                         CornerRadius="4"
+                        IsVisible="{Binding CanceVisibility}"
                         Type="Danger" />
                 </StackPanel>
             </Grid>

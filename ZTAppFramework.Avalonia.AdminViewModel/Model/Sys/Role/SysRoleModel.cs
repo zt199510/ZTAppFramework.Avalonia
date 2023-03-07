@@ -1,21 +1,22 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Regions;
+﻿using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ZTAppFramework.ApplicationService.Service;
-using ZTAppFramework.Avalonia.Stared;
 
 namespace ZTAppFramework.Avalonia.AdminViewModel
 {
     /// <summary>
-    /// 组织机构
+    ///********************************************
+    /// 创建人        ：  ZT
+    /// 创建时间    ：  2022/9/26 14:23:34 
+    /// Description   ：  角色管理模型
+    ///********************************************/
     /// </summary>
-    public class SysOrganizeModel : BindableBase
+    public class SysRoleModel : BindableBase
     {
+
         private bool _IsSelected;
 
         public bool IsSelected
@@ -24,31 +25,21 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
             set { SetProperty(ref _IsSelected, value); }
         }
 
+
         /// <summary>
         /// 唯一编号
         /// </summary>
-        private long _id;
+        private long _Id;
         public long Id
         {
-            get { return _id; }
-            set { SetProperty(ref _id, value); }
-        }
-        /// <summary>
-        /// 父节点
-        /// </summary>
-
-
-
-        private long _ParentId;
-        public long ParentId
-        {
-            get { return _ParentId; }
-            set { SetProperty(ref _ParentId, value); }
+            get { return _Id; }
+            set { SetProperty(ref _Id, value); }
         }
 
         /// <summary>
-        /// 部门名称
+        /// 角色名称
         /// </summary>
+
         private string _Name;
         public string Name
         {
@@ -57,17 +48,17 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
         }
 
         /// <summary>
-        /// 机构编码
+        /// 角色父节点
         /// </summary>
 
-        private string _Number;
-        public string Number
+        private long _ParentId;
+        public long ParentId
         {
-            get { return _Number; }
-            set { SetProperty(ref _Number, value); }
+            get { return _ParentId; }
+            set { SetProperty(ref _ParentId, value); }
         }
         /// <summary>
-        /// 父节点集合
+        /// 父节点结合
         /// </summary>
         private List<string> _ParentIdList;
         public List<string> ParentIdList
@@ -75,17 +66,44 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
             get { return _ParentIdList; }
             set { SetProperty(ref _ParentIdList, value); }
         }
-
         /// <summary>
-        /// 部门层级
+        /// 角色层级
         /// </summary>
 
-
-        private int _Layer = 0;
+        private int _Layer;
         public int Layer
         {
             get { return _Layer; }
             set { SetProperty(ref _Layer, value); }
+        }
+        /// <summary>
+        /// 角色编号
+        /// </summary>
+        private string _Number;
+        public string Number
+        {
+            get { return _Number; }
+            set { SetProperty(ref _Number, value); }
+        }
+        /// <summary>
+        /// 是否超级管理员
+        /// </summary>
+
+        private bool _IsSystem;
+        public bool IsSystem
+        {
+            get { return _IsSystem; }
+            set { SetProperty(ref _IsSystem, value); }
+        }
+
+        /// <summary>
+        /// 状态
+        /// </summary>
+        private bool _Status = true;
+        public bool Status
+        {
+            get { return _Status; }
+            set { SetProperty(ref _Status, value); }
         }
         /// <summary>
         /// 排序
@@ -97,54 +115,25 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
             set { SetProperty(ref _Sort, value); }
         }
         /// <summary>
-        /// 状态
+        /// 描述
         /// </summary>
 
+        private string _Summary = "";
+        public string Summary
+        {
+            get { return _Summary; }
+            set { SetProperty(ref _Summary, value); }
+        }
+        /// <summary>
+        /// 控制台
+        /// </summary>
+        private string _Console;
+        public string Console
+        {
+            get { return _Console; }
+            set { SetProperty(ref _Console, value); }
+        }
 
-        private bool _Status = true;
-        public bool Status
-        {
-            get { return _Status; }
-            set { SetProperty(ref _Status, value); }
-        }
-
-        /// <summary>
-        /// 删除状态
-        /// </summary>
-
-        private bool _IsDel = false;
-        public bool IsDel
-        {
-            get { return _IsDel; }
-            set { SetProperty(ref _IsDel, value); }
-        }
-        /// <summary>
-        /// 部门负责人
-        /// </summary>
-        private string _LeaderUser;
-        public string LeaderUser
-        {
-            get { return _LeaderUser; }
-            set { SetProperty(ref _LeaderUser, value); }
-        }
-        /// <summary>
-        /// 联系电话
-        /// </summary>
-        private string _LeaderMobile;
-        public string LeaderMobile
-        {
-            get { return _LeaderMobile; }
-            set { SetProperty(ref _LeaderMobile, value); }
-        }
-        /// <summary>
-        /// 联系邮箱
-        /// </summary>
-        private string _LeaderEmail;
-        public string LeaderEmail
-        {
-            get { return _LeaderEmail; }
-            set { SetProperty(ref _LeaderEmail, value); }
-        }
         /// <summary>
         /// 创建时间
         /// </summary>
@@ -157,14 +146,12 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
         /// <summary>
         /// 创建人
         /// </summary>
-
         private string _CreateUser;
         public string CreateUser
         {
             get { return _CreateUser; }
             set { SetProperty(ref _CreateUser, value); }
         }
-
         /// <summary>
         /// 修改时间
         /// </summary>
@@ -174,16 +161,12 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
             get { return _UpdateTime; }
             set { SetProperty(ref _UpdateTime, value); }
         }
-        /// <summary>
-        /// 修改人
-        /// </summary>
 
-        private string _UpdateUser;
-        public string UpdateUser
+        private List<SysRoleModel> _Childer;
+        public List<SysRoleModel> Childer
         {
-            get { return _UpdateUser; }
-            set { SetProperty(ref _UpdateUser, value); }
+            get { return _Childer; }
+            set { SetProperty(ref _Childer, value); }
         }
-
     }
 }

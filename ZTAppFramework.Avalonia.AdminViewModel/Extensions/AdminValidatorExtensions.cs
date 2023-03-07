@@ -25,7 +25,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.Extensions
             //services.RegisterScoped<IValidator<UserLoginModel>, UserLoginValidator>();
             //services.RegisterScoped<IValidator<UserEditPwdModel>, UserEditPwdValidator>();
             services.RegisterScoped<IValidator<SysOrganizeParm>, SysOrganizeParmValidator>();
-            //services.RegisterScoped<IValidator<SysRoleParm>, SysRoleParmValidator>();
+            services.RegisterScoped<IValidator<SysRoleParm>, SysRoleParmValidator>();
             //services.RegisterScoped<IValidator<SysPostParm>, SysPostParmValidator>();
             //services.RegisterScoped<IValidator<SysAdminModel>, SysAdminParmValidator>();
 
