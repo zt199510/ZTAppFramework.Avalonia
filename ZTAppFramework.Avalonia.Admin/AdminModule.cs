@@ -9,7 +9,7 @@ using ZTAppFramework.Avalonia.AdminViewModel.ViewModel;
 using ZTAppFramework.Avalonia.Stared;
 using ZTAppFramework.Template.Dialog;
 using ZTAppFramework.Avalonia.AdminViewModel.Extensions;
-using ZTAppFramework.Avalonia.AdminViewModel.ViewModel.Sys.Role;
+
 
 namespace ZTAppFramework.Avalonia.Admin
 {
@@ -39,7 +39,7 @@ namespace ZTAppFramework.Avalonia.Admin
             services.RegisterForNavigation<PersonalInfo, PersonalInfoViewModel>(AppPages.PersonalInfoPage);
             services.RegisterForNavigation<Organize, OrganizeViewModel>(AppPages.OrganizePage);
             services.RegisterForNavigation<Role, RoleViewModel>(AppPages.RolePage);
-            //  
+            services.RegisterForNavigation<SysPost, SysPostViewModel>(AppPages.SysPostPage);
             ///弹窗
             services.RegisterDialogWindow<DefaultWindow>("DefaultWindow");
             services.RegisterDialog<LoginView, LoginViewModel>(AppViews.LoginName);

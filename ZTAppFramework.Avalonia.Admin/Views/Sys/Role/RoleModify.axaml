@@ -23,21 +23,19 @@
                         VerticalAlignment="Center"
                         FontSize="16"
                         Text="所属角色" />
-                    <Zt:ZTComboBox
+                    <ComboBox
                         Width="590"
                         Height="40"
-                        ComboBoxType="Default"
-                        DisplayMemberPath="Name"
                         Items="{Binding RoleList}"
                         PlaceholderForeground="Gray"
                         PlaceholderText="请输入角色名称"
                         SelectedItem="{Binding SelectedItem}">
-                        <Zt:ZTComboBox.ItemTemplate>
+                        <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock FontSize="16" Text="{Binding Name}" />
                             </DataTemplate>
-                        </Zt:ZTComboBox.ItemTemplate>
-                    </Zt:ZTComboBox>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                 </StackPanel>
 
                 <StackPanel
@@ -135,9 +133,9 @@
                         Width="590"
                         Height="75"
                         Padding="10"
-                        TextWrapping="Wrap"
                         InputType="Default"
-                        Text="{Binding RoleModel.Summary}" />
+                        Text="{Binding RoleModel.Summary}"
+                        TextWrapping="Wrap" />
                 </StackPanel>
             </StackPanel>
 

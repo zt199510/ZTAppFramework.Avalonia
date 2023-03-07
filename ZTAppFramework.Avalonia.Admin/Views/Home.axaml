@@ -14,7 +14,7 @@
     mc:Ignorable="d">
 
     <Grid ColumnDefinitions="60,auto,*">
-        <Border Background="#222B44" />
+        <Border Background="#151727" />
         <TabStrip
             Padding="0"
             Items="{Binding MenuList}"
@@ -23,6 +23,8 @@
                 <Style Selector="TabStripItem:selected > Border">
                     <Setter Property="BorderBrush" Value="#17a1e6" />
                     <Setter Property="Background" Value="#4173F9" />
+                    <Setter Property="CornerRadius" Value="5" />
+                    <Setter Property="Margin" Value="5" />
                 </Style>
                 <Style Selector="TabStripItem:selected">
                     <Setter Property="Padding" Value="0" />
@@ -63,37 +65,27 @@
         </TabStrip>
         <Border
             Grid.Column="1"
-            Width="120"
-            Background="#f2f2f2"
+            Background="#232633"
             BorderBrush="#222B44"
-            BorderThickness="0.3,0,0.3,0.3" />
+            BorderThickness="0.3,0,0,0.3" />
         <ScrollViewer
             Grid.Column="1"
+            Width="70"
             Margin="0"
             Padding="0">
-            <TabStrip
-                Width="120"
-                Items="{Binding PageList}"
-                SelectedItem="{Binding SelectPage, Mode=TwoWay}">
+            <TabStrip Items="{Binding PageList}" SelectedItem="{Binding SelectPage, Mode=TwoWay}">
                 <TabStrip.Styles>
-                    <Style Selector="TabStrip:pointerover > TextBlock">
-                        <Setter Property="Foreground" Value="Red" />
-                    </Style>
-
                     <Style Selector="TabStripItem:selected > Border">
-                        <Setter Property="Background" Value="#067fd7" />
+                        <Setter Property="BorderBrush" Value="#17a1e6" />
+                        <Setter Property="Background" Value="#4173F9" />
+                        <Setter Property="CornerRadius" Value="5" />
+                        <Setter Property="Margin" Value="2" />
                     </Style>
-
-                    <Style Selector="TabStripItem:not(:selected)  > Border">
-                        <Setter Property="Background" Value="Transparent" />
-                    </Style>
-
-                    <Style Selector="TabStripItem:not(:selected)  > Path">
-                        <Setter Property="Fill" Value="Black" />
-                    </Style>
-
-                    <Style Selector="TabStripItem:selected  > Path">
-                        <Setter Property="Fill" Value="Black" />
+                    <Style Selector="TabStripItem:selected">
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="BorderBrush" Value="Transparent" />
                     </Style>
                 </TabStrip.Styles>
                 <TabStrip.ItemsPanel>
@@ -106,7 +98,7 @@
                 </TabStrip.ItemsPanel>
                 <TabStrip.ItemTemplate>
                     <DataTemplate>
-                        <Grid ColumnDefinitions="auto,*">
+                        <Grid RowDefinitions="*,auto">
                             <Path
                                 Width="25"
                                 Height="25"
@@ -115,9 +107,10 @@
                                 Fill="White"
                                 Stretch="Fill" />
                             <TextBlock
-                                Grid.Column="1"
+                                Grid.Row="1"
                                 HorizontalAlignment="Center"
-                                FontSize="18"
+                                FontSize="14"
+                                Foreground="White"
                                 Text="{Binding name}"
                                 TextWrapping="NoWrap" />
                         </Grid>
@@ -128,6 +121,7 @@
 
         <Border
             Grid.Column="2"
+            Background="#F2F2F2"
             BorderBrush="Gray"
             BorderThickness="0,1,0,0" />
         <Zt:ZTDialogHost Grid.Column="2" dialog:ZTDialog.Token="HooKDialog">

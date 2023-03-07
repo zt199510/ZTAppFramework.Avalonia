@@ -1,5 +1,5 @@
 <UserControl
-    x:Class="ZTAppFramework.Avalonia.Admin.Views.Role"
+    x:Class="ZTAppFramework.Avalonia.Admin.Views.SysPost"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Zt="using:ZTAppFramework.Template.Controls"
@@ -71,11 +71,11 @@
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.Header>
-                        <TextBlock VerticalAlignment="Center" Text="是否超管" />
+                        <TextBlock VerticalAlignment="Center" Text="岗位编号" />
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding IsSystem}" />
+                            <TextBlock Text="{Binding Number}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

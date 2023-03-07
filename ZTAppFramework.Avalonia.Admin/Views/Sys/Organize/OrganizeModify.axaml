@@ -26,21 +26,19 @@
                         VerticalAlignment="Center"
                         FontSize="16"
                         Text="所属机构" />
-                    <Zt:ZTComboBox
+                    <ComboBox
                         Width="590"
                         Height="40"
-                        ComboBoxType="Default"
-                        DisplayMemberPath="Name"
                         Items="{Binding OrganizesList}"
                         PlaceholderForeground="Gray"
                         PlaceholderText="请输入机构名称"
                         SelectedItem="{Binding SelectedItem}">
-                        <Zt:ZTComboBox.ItemTemplate>
+                        <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock FontSize="16" Text="{Binding Name}" />
                             </DataTemplate>
-                        </Zt:ZTComboBox.ItemTemplate>
-                    </Zt:ZTComboBox>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                 </StackPanel>
 
                 <StackPanel

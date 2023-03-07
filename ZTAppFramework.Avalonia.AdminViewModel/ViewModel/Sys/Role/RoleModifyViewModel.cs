@@ -10,7 +10,7 @@ using ZTAppFramework.ApplicationService.Stared;
 using ZTAppFramework.Avalonia.Stared.ViewModels;
 using ZTAppFramework.Template.Dialog;
 
-namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel.Sys.Role
+namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
 {
     public class RoleModifyViewModel : DialogViewModelBase
     {
