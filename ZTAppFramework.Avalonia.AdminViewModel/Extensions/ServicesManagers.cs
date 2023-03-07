@@ -24,23 +24,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
             //services.RegisterScoped<SysLogSerivce>();
         }
 
-        /// <summary>
-        /// 注册验证
-        /// </summary>
-        /// <param name="services"></param>
-        public static void RegisterValidator(this IContainerRegistry services)
-        {
-            //services.RegisterSingleton<GlobalValidator>();
-
-            //services.RegisterScoped<IValidator<UserLoginModel>, UserLoginValidator>();
-            //services.RegisterScoped<IValidator<UserEditPwdModel>, UserEditPwdValidator>();
-            //services.RegisterScoped<IValidator<SysOrganizeParm>, SysOrganizeParmValidator>();
-            //services.RegisterScoped<IValidator<SysRoleParm>, SysRoleParmValidator>();
-            //services.RegisterScoped<IValidator<SysPostParm>, SysPostParmValidator>();
-            //services.RegisterScoped<IValidator<SysAdminModel>, SysAdminParmValidator>();
-
-
-        }
+   
 
     }
 }

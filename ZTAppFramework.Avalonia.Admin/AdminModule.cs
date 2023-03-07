@@ -8,6 +8,7 @@ using ZTAppFramework.Avalonia.AdminViewModel;
 using ZTAppFramework.Avalonia.AdminViewModel.ViewModel;
 using ZTAppFramework.Avalonia.Stared;
 using ZTAppFramework.Template.Dialog;
+using ZTAppFramework.Avalonia.AdminViewModel.Extensions;
 
 namespace ZTAppFramework.Avalonia.Admin
 {

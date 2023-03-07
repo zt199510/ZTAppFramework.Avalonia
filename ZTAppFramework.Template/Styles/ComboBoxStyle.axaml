@@ -222,16 +222,16 @@
         <Setter Property="RenderTransform" Value="rotate(180deg)" />
     </Style>
     <!--  设定提示信息默认显示效果  -->
-    <!--
-    <Style Selector="local|ZTComboBox /template/ TextBlock#PART_PlaceholderText">
+
+    <Style Selector="local|ZTComboBox[ComboBoxType=Default] /template/ TextBlock#PART_PlaceholderText">
         <Setter Property="IsVisible" Value="false" />
     </Style>
-    -->
+
     <!--  设定提示信息默认显示效果  -->
-    <!--
-    <Style Selector="local|ZTComboBox[SelectedIndex=-1] /template/ TextBlock#PART_PlaceholderText">
+
+    <Style Selector="local|ZTComboBox[ComboBoxType=Default][SelectedIndex=-1] /template/ TextBlock#PART_PlaceholderText">
         <Setter Property="IsVisible" Value="true" />
-    </Style>-->
+    </Style>
     <!--  指定当前控件被集中状态  -->
     <Style Selector="local|ZTComboBox:focus">
         <Setter Property="BorderBrush" Value="Black" />

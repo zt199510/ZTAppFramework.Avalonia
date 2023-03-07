@@ -18,6 +18,7 @@ using Avalonia.Interactivity;
 using DynamicData.Binding;
 
 using System.Reflection;
+using Avalonia.Controls.Presenters;
 
 namespace ZTAppFramework.Template.Controls
 {
@@ -26,7 +27,7 @@ namespace ZTAppFramework.Template.Controls
         private ZTTextBox PART_PlaceholderTextbox;
         private CompositeDisposable _disposables;
 
-
+        
         /// <summary>
         /// Defines the <see cref="ComboBoxType"/> property.下拉框样式
         /// </summary>
@@ -95,9 +96,7 @@ namespace ZTAppFramework.Template.Controls
             if (ComboBoxType == ComboBoxEnums.Input)
             {
                 PART_PlaceholderTextbox = e.NameScope.Find<ZTTextBox>("PART_PlaceholderTextbox");
-            }
-
-            _disposables = new CompositeDisposable()
+                _disposables = new CompositeDisposable()
             {
                 this.WhenAnyValue(x=>x.IsDropDownOpen).Subscribe(IsDropDownOpen=>{
                    if (ComboBoxType == ComboBoxEnums.Input)
@@ -119,11 +118,17 @@ namespace ZTAppFramework.Template.Controls
                 {
                    TextContent=GetDisplayName();
                 }),
-              
-
             };
-            PART_PlaceholderTextbox.LostFocus -= PART_PlaceholderTextbox_LostFocus;
-            PART_PlaceholderTextbox.LostFocus += PART_PlaceholderTextbox_LostFocus;
+                PART_PlaceholderTextbox.LostFocus -= PART_PlaceholderTextbox_LostFocus;
+                PART_PlaceholderTextbox.LostFocus += PART_PlaceholderTextbox_LostFocus;
+            }
+            else
+            {
+               
+            }
+
+
+        
         }
 
         private void PART_PlaceholderTextbox_LostFocus(object? sender, RoutedEventArgs e)
@@ -157,8 +162,13 @@ namespace ZTAppFramework.Template.Controls
         protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
         {
             base.OnDetachedFromVisualTree(e);
-            PART_PlaceholderTextbox.LostFocus -= PART_PlaceholderTextbox_LostFocus;
-            _disposables?.Dispose();//释放
+            if (ComboBoxType == ComboBoxEnums.Input)
+            {
+
+                PART_PlaceholderTextbox.LostFocus -= PART_PlaceholderTextbox_LostFocus;
+              
+            }
+            _disposables?.Dispose();//释放 
 
         }
     }

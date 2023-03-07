@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZTAppFramework.ApplicationService.Service;
+using ZTAppFramework.ApplicationService.Stared;
 using ZTAppFramework.Avalonia.AdminViewModel.Model;
 using ZTAppFramework.Avalonia.Stared.ViewModels;
+using ZTAppFramewrok.Application.Stared;
 
 namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
 {
@@ -54,12 +56,14 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
         }
 
         #endregion
+
+        #region Command
+
+        #endregion
         #region 服务
         private readonly OrganizeService _OrganizeService;
 
         #endregion
-
-
         #region 属性
         public bool IsEdit { get; set; }
         #endregion
@@ -101,12 +105,60 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
 
             OrganizesList.Insert(0, new SysOrganizeModel() { Name = "组织", ParentId = 0, ParentIdList = new List<string>() { "0" } });
         }
+        async Task<bool> Add()
+        {
+            if (OrganizeModel.ParentIdList.Count() > 1)
+                OrganizeModel.ParentIdList.Remove("0");
+            var Version = Verify(Map<SysOrganizeParm>(OrganizeModel));
+            if (!Version.IsValid)
+            {
+                //Show("提示", string.Join('\n', Version.Errors));
+                return false;
+            }
+
+
+            var r = await _OrganizeService.Add(Map<SysOrganizeParm>(OrganizeModel));
+            if (r.Success)
+            {
+               // Show("提示", r.Message);
+                return true;
+            }
+            return false;
+        }
+        async Task<bool> Modif()
+        {
+            var r = await _OrganizeService.Modif(Map<SysOrganizeDto>(OrganizeModel));
+            if (r.Success)
+            {
+               // Show("提示", r.Message);
+                return true;
+            }
+            return false;
+        }
 
         #endregion
 
         #region Override
 
+        public override void Cancel()
+        {
+            if (IsBusy) return;
+            OnDialogClosed(ButtonResult.No);
+        }
 
+        public override async void OnSave()
+        {
+            if (IsEdit)
+            {
+                if (!await Modif())
+                    return;
+            }
+            else
+            {
+                if (!await Add())
+                    return;
+            }
+        }
 
         public override async void OnDialogOpened(IDialogParameters parameters)
         {
@@ -126,6 +178,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
             }
 
         }
+
         #endregion
     }
 }

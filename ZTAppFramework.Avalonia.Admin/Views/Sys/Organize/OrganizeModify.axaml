@@ -5,8 +5,10 @@
     xmlns:Zt="using:ZTAppFramework.Template.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
     <Zt:ZTTitleBar HeaderForeground="#323232" TitleBarType="Message">
         <Zt:ZTTitleBar.HeaderContent>
@@ -27,12 +29,19 @@
                         Text="所属机构" />
                     <Zt:ZTComboBox
                         Width="590"
+                        Height="40"
                         ComboBoxType="Default"
                         DisplayMemberPath="Name"
                         Items="{Binding OrganizesList}"
                         PlaceholderForeground="Gray"
                         PlaceholderText="请输入机构名称"
-                        SelectedItem="{Binding SelectedItem}" />
+                        SelectedItem="{Binding SelectedItem}">
+                        <Zt:ZTComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="16" Text="{Binding Name}" />
+                            </DataTemplate>
+                        </Zt:ZTComboBox.ItemTemplate>
+                    </Zt:ZTComboBox>
                 </StackPanel>
 
                 <StackPanel
@@ -87,6 +96,7 @@
                     <Zt:ZTTextBox
                         Width="280"
                         VerticalContentAlignment="Center"
+                        InputType="Phone"
                         Text="{Binding OrganizeModel.LeaderMobile}"
                         Watermark="请输入联系电话" />
                 </StackPanel>
@@ -146,7 +156,9 @@
                         TickFrequency="1"
                         Value="{Binding OrganizeModel.Sort}" />
                     <TextBox
+                        Height="40"
                         Margin="10,12,0,0"
+                        VerticalContentAlignment="Center"
                         FontSize="16"
                         Text="{Binding ElementName=SortSlider, Path=Value}" />
                 </StackPanel>
@@ -161,20 +173,22 @@
                 Orientation="Horizontal">
                 <Zt:ZTButton
                     Margin="0,0,10,0"
-                    Background="#43c6f9"
+                    Background="White"
+                    BorderBrush="Black"
                     Classes="Normal"
                     Command="{Binding CancelCommand}"
-                    Content="添加"
-                    CornerRadius="2" />
+                    Content="取消"
+                    CornerRadius="2"
+                    Foreground="Black" />
 
 
 
                 <Zt:ZTButton
                     Background="#409eff"
-                    Classes="Normal"
                     Command="{Binding SaveCommand}"
                     Content="确认"
-                    Cursor="Hand" />
+                    Cursor="Hand"
+                    Type="Normal" />
             </StackPanel>
         </Grid>
     </Zt:ZTTitleBar>

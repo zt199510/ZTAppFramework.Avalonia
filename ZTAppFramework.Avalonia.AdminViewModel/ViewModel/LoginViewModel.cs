@@ -115,5 +115,15 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                     Login.Password = mod.Password;
             }
         }
+
+        public override void Cancel()
+        {
+          
+        }
+
+        public override void OnSave()
+        {
+           
+        }
     }
 }
