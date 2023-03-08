@@ -24,8 +24,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
             services.RegisterScoped<OrganizeService>();
             services.RegisterScoped<RoleService>();
             services.RegisterScoped<SysPostService>();
-            //services.RegisterScoped<SysLogSerivce>();
-
+            services.RegisterScoped<SysLogSerivce>();
         }
     }
 }

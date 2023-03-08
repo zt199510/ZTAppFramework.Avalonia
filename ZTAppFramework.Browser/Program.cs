@@ -1,20 +1,17 @@
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Web;
-using Avalonia.Web.Blazor;
+﻿using Avalonia;
+using Avalonia.Browser;
+using Avalonia.ReactiveUI;
 using System.Runtime.Versioning;
-using ZTAppFramework.Avalonia;
+using ZTAppFramework;
 
 [assembly: SupportedOSPlatform("browser")]
 
 internal partial class Program
 {
     private static void Main(string[] args) => BuildAvaloniaApp()
-        .UsePlatformDetect()
-        .StartWithClassicDesktopLifetime(args);
+        .UseReactiveUI()
+        .SetupBrowserApp("out");
 
     public static AppBuilder BuildAvaloniaApp()
         => AppBuilder.Configure<App>();
 }
-
-

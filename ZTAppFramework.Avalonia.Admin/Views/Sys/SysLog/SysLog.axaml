@@ -23,13 +23,7 @@
         <Grid Grid.Column="1" RowDefinitions="auto,*">
             <Grid Margin="0,5,0,5" ColumnDefinitions="*,*">
                 <StackPanel Orientation="Horizontal">
-                    <Zt:ZTButton
-                        Margin="5,0,0,0"
-                        Background="#43c6f9"
-                        Command="{Binding AddCommand}"
-                        Content="添加"
-                        CornerRadius="2"
-                        Type="Normal" />
+
                     <Zt:ZTButton
                         Margin="5,0,0,0"
                         Content="删除"

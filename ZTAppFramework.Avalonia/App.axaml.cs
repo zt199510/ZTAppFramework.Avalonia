@@ -53,7 +53,6 @@ namespace ZTAppFramework.Avalonia
 
         protected override IContainerExtension CreateContainerExtension()
         {
-
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddAutoMapper(config =>
             {
@@ -86,6 +85,11 @@ namespace ZTAppFramework.Avalonia
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 desktop.ShutdownMode = ShutdownMode.OnExplicitShutdown;
+            }
+            else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
+            {
+              
+
             }
             base.OnFrameworkInitializationCompleted();
         }
