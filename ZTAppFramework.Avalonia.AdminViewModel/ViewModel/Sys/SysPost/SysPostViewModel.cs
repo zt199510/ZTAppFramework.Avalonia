@@ -41,21 +41,18 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
         #endregion
 
         #region Command
-        public DelegateCommand AddCommand { get; }
+        public DelegateCommand AddCommand => new DelegateCommand(Add);
         public DelegateCommand DeleteSelectCommand { get; }
         public DelegateCommand CheckedAllCommand { get; }
         public DelegateCommand UnCheckedAllCommand { get; }
         public DelegateCommand QueryCommand { get; }
-        public DelegateCommand<SysPostModel> ModifCommand { get; }
-        public DelegateCommand<SysPostModel> DeleteSeifCommand { get; }
+        public DelegateCommand<SysPostModel> ModifCommand => new DelegateCommand<SysPostModel>(Modif);
+        public DelegateCommand<SysPostModel> DeleteSeifCommand => new DelegateCommand<SysPostModel>(DeleteSeif);
         public DelegateCommand<SysPostModel> CheckedCommand { get; }
         public DelegateCommand<SysPostModel> UncheckedCommand { get; }
         #endregion
 
-        #region 服务
-        private readonly SysPostService _sysPostService;
-        #endregion
-
+     
         #region 服务
         private readonly SysPostService _SysPostService;
         private readonly IDialogService _DialogService;
@@ -112,7 +109,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                 if (x.Result == ButtonResult.Yes)
                 {
                     string DelIdStr = string.Join(',', SelectList.Select(X => X.Id));
-                    var r = await _sysPostService.Delete(DelIdStr);
+                    var r = await _SysPostService.Delete(DelIdStr);
                     if (r.Success)
                     {
                         Show("消息", "删除成功!");
@@ -141,7 +138,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
             {
                 if (x.Result == ButtonResult.Yes)
                 {
-                    var r = await _sysPostService.Delete(Param.Id.ToString());
+                    var r = await _SysPostService.Delete(Param.Id.ToString());
                     if (r.Success)
                     {
                         Show("消息", "删除成功!");
@@ -169,7 +166,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
 
         async Task GetListInfo(string Query = "")
         {
-            var r = await _sysPostService.GetPostList(new PageParam() { Key = Query == "" ? null : Query });
+            var r = await _SysPostService.GetPostList(new PageParam() { Key = Query == "" ? null : Query });
             if (r.Success)
             {
                 SysPostList = Map<List<SysPostModel>>(r.data.Items).OrderBy(X => X.Sort).ToList();

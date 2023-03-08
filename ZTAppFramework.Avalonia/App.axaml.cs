@@ -33,7 +33,6 @@ namespace ZTAppFramework.Avalonia
         {
             AvaloniaXamlLoader.Load(this);
             base.Initialize();
-          
         }
 
         public override void RegisterServices()
@@ -51,7 +50,6 @@ namespace ZTAppFramework.Avalonia
         {
             moduleCatalog.AddModule<AdminModule>();
         }
-
 
         protected override IContainerExtension CreateContainerExtension()
         {

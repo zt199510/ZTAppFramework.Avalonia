@@ -1,10 +1,12 @@
 <UserControl
-    x:Class="ZTAppFramework.Avalonia.Admin.Views.RoleModify"
+    x:Class="ZTAppFramework.Avalonia.Admin.Views.SysPostModify"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Zt="using:ZTAppFramework.Template.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
     mc:Ignorable="d">
     <Zt:ZTTitleBar HeaderForeground="#323232" TitleBarType="Message">
         <Zt:ZTTitleBar.HeaderContent>
@@ -16,26 +18,19 @@
             <StackPanel>
                 <StackPanel
                     Width="700"
+                    Height="40"
                     Margin="0,10,0,0"
                     Orientation="Horizontal">
                     <TextBlock
                         Width="100"
                         VerticalAlignment="Center"
                         FontSize="16"
-                        Text="所属角色" />
-                    <ComboBox
+                        Text="岗位编号" />
+                    <Zt:ZTTextBox
                         Width="590"
-                        Height="40"
-                        Items="{Binding RoleList}"
-                        PlaceholderForeground="Gray"
-                        PlaceholderText="请选择角色名称"
-                        SelectedItem="{Binding SelectedItem}">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock FontSize="16" Text="{Binding Name}" />
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
+                        VerticalContentAlignment="Center"
+                        Text="{Binding PostModel.Number}"
+                        Watermark="请输入岗位编号" />
                 </StackPanel>
 
                 <StackPanel
@@ -47,51 +42,13 @@
                         Width="100"
                         VerticalAlignment="Center"
                         FontSize="16"
-                        Text="角色名称" />
+                        Text="岗位名称" />
                     <Zt:ZTTextBox
                         Width="590"
-                        Height="40"
                         VerticalContentAlignment="Center"
-                        Text="{Binding RoleModel.Name}"
-                        Watermark="请输入角色名称" />
+                        Text="{Binding PostModel.Name}"
+                        Watermark="请输入岗位名称" />
 
-                </StackPanel>
-
-                <StackPanel
-                    Width="700"
-                    Height=" 40"
-                    Margin="0,10,0,0"
-                    Orientation="Horizontal">
-                    <TextBlock
-                        Width="100"
-                        VerticalAlignment="Center"
-                        FontSize="16"
-                        Text="是否超管" />
-                    <CheckBox
-                        VerticalAlignment="Center"
-                        Content="如果是超管不允许删除"
-                        Foreground="#409eff"
-                        IsChecked="{Binding RoleModel.IsSystem}" />
-                    <TextBlock
-                        Width="100"
-                        Margin="10,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="16"
-                        Text="状态" />
-
-                    <RadioButton
-                        VerticalAlignment="Center"
-                        Command="{Binding StatusChanageCommand}"
-                        CommandParameter="True"
-                        Content="正常"
-                        IsChecked="{Binding RoleModel.Status}" />
-                    <RadioButton
-                        Margin="20,0,0,0"
-                        VerticalAlignment="Center"
-                        Command="{Binding StatusChanageCommand}"
-                        CommandParameter="False"
-                        Content="停用"
-                        IsChecked="{Binding !RoleModel.Status}" />
                 </StackPanel>
 
 
@@ -115,7 +72,7 @@
                         Maximum="100"
                         Minimum="1"
                         TickFrequency="1"
-                        Value="{Binding RoleModel.Sort, Mode=TwoWay}" />
+                        Value="{Binding PostModel.Sort, Mode=TwoWay}" />
                     <TextBox
                         Height="40"
                         Margin="10,12,0,0"
@@ -123,19 +80,46 @@
                         FontSize="16"
                         Text="{Binding ElementName=SortSlider, Path=Value}" />
                 </StackPanel>
+                <StackPanel
+                    Width="700"
+                    Height=" 40"
+                    Margin="0,10,0,0"
+                    Orientation="Horizontal">
+
+                    <TextBlock
+                        Width="100"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="状态" />
+
+                    <RadioButton
+                        VerticalAlignment="Center"
+                        Command="{Binding StatusChanageCommand}"
+                        CommandParameter="True"
+                        Content="正常"
+                        IsChecked="{Binding PostModel.Status}" />
+                    <RadioButton
+                        Margin="20,0,0,0"
+                        VerticalAlignment="Center"
+                        Command="{Binding StatusChanageCommand}"
+                        CommandParameter="False"
+                        Content="停用"
+                        IsChecked="{Binding !PostModel.Status}" />
+                </StackPanel>
+
 
                 <StackPanel
                     Width="700"
-                    Height="40"
+                    Height=" 40"
                     Margin="0,40,0,0"
                     Orientation="Horizontal">
-                    <TextBlock Width="100" Text="多行文本" />
+                    <TextBlock Width="100" Text="备注" />
                     <Zt:ZTTextBox
                         Width="590"
                         Height="75"
                         Padding="10"
                         InputType="Default"
-                        Text="{Binding RoleModel.Summary}"
+                        Text="{Binding PostModel.Summary}"
                         TextWrapping="Wrap" />
                 </StackPanel>
             </StackPanel>

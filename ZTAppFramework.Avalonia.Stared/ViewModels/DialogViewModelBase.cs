@@ -40,7 +40,8 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
 
         public virtual void OnDialogClosed()
         {
-
+            DialogResult dialogResult = new DialogResult(ButtonResult.No);
+            RaiseRequestClose(dialogResult);
         }
 
         public virtual void OnDialogOpened(IDialogParameters parameters)

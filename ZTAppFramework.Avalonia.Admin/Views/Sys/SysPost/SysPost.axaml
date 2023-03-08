@@ -47,7 +47,7 @@
             AutoGenerateColumns="False"
             BorderBrush="Gray"
             BorderThickness="1"
-            Items="{Binding RoleList}">
+            Items="{Binding SysPostList}">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.Header>

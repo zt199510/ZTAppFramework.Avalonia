@@ -45,6 +45,7 @@ namespace ZTAppFramework.Avalonia.Admin
             services.RegisterDialog<LoginView, LoginViewModel>(AppViews.LoginName);
             services.RegisterDialog<OrganizeModify, OrganizeModifyViewModel>(AppPages.OrganizeModifyPage);
             services.RegisterDialog<RoleModify, RoleModifyViewModel>(AppPages.RoleModifyPage);
+            services.RegisterDialog<SysPostModify, SysPostModifyViewModel>(AppPages.SysPostModifyPage);
             services.RegisterDialog<Message, PrismMessageViewModel>(AppPages.MessagePage);
         }
     }
