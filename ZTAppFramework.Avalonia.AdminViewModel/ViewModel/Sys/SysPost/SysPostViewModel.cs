@@ -130,7 +130,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                 {
                     await GetListInfo();
                 }
-            });
+            }, "DefaultWindow");
         }
         void DeleteSeif(SysPostModel Param)
         {

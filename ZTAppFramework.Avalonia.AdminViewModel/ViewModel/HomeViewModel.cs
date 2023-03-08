@@ -71,11 +71,11 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                         //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysMenuName); break;
                         //case "权限设置":
                         //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysAuthorizeName); break;
-                        //case "系统日志":
-                        //    _RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.SysLogsName); break;
+                        case "系统日志":
+                            _RegionManager?.Regions[AppPages.Nav_HomeContent]?.RequestNavigate(AppPages.SysLogPage);
+                            break;
                         default:
                             //_RegionManager?.Regions[AppView.HomeName]?.RequestNavigate(AppView.UserPerferfabName); 
-                            
                             break;
 
                     }

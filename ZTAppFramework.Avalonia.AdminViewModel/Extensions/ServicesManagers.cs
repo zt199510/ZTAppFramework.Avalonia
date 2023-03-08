@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZTAppFramework.ApplicationService.Service;
 using ZTAppFramework.ApplicationService.Stared;
+using ZTAppFramework.ApplicationService.Stared.HttpManager;
 
 namespace ZTAppFramework.Avalonia.AdminViewModel
 {
@@ -13,6 +14,9 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
     {
         public static void RegisterApplicationManager(this IContainerRegistry services)
         {
+            services.RegisterSingleton<AccessTokenManager>();
+            services.RegisterSingleton<ApiClinetRepository>();
+
             services.RegisterScoped<SysAdminService>();
             services.RegisterScoped<CaptchaService>();
             services.RegisterScoped<MenuService>();
@@ -21,6 +25,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
             services.RegisterScoped<RoleService>();
             services.RegisterScoped<SysPostService>();
             //services.RegisterScoped<SysLogSerivce>();
+
         }
     }
 }

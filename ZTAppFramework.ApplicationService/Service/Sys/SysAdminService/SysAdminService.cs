@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZTAppFramework.ApplicationService.Stared;
+using ZTAppFramework.ApplicationService.Stared.Attributes;
+using ZTAppFramework.ApplicationService.Stared.Commom;
 using ZTAppFramework.ApplicationService.Stared.HttpManager;
 using ZTAppFramework.Avalonia.Sqlite.Utils;
 using ZTAppFramework.Sqlite.Implements;
@@ -29,6 +31,7 @@ namespace ZTAppFramework.ApplicationService.Service
             _userLocalSerivce=userLocalSerivce;
             _keyConfigLocalService = keyConfigLocalService;
         }
+
 
         /// <summary>
         /// 获取账号存储信息
@@ -116,6 +119,23 @@ namespace ZTAppFramework.ApplicationService.Service
             return res;
         }
 
-
+        [ApiUrl("Pages")]
+        public async Task<AppliResult<PageResult<SysAdminDto>>> GetPostList(PageParam pageParam)
+        {
+            AppliResult<PageResult<SysAdminDto>> result = new AppliResult<PageResult<SysAdminDto>>();
+            var api = await _apiClinet.GetAsync<PageResult<SysAdminDto>>(GetEndpoint(), pageParam);
+            if (api.success && api.Code == 200)
+            {
+                result.Success = true;
+                result.Message = api.message;
+                result.data = api.data;
+            }
+            else
+            {
+                result.Success = false;
+                result.Message = api.message;
+            }
+            return result;
+        }
     }
 }

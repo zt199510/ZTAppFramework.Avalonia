@@ -27,8 +27,6 @@ namespace ZTAppFramework.Avalonia.Admin
         public void RegisterTypes(IContainerRegistry services)
         {
             services.RegisterSingleton<AppStartService>();
-            services.RegisterSingleton<AccessTokenManager>();
-            services.RegisterSingleton<ApiClinetRepository>();
             services.RegisterApplicationManager();
             services.RegisterValidator();
             
@@ -41,13 +39,18 @@ namespace ZTAppFramework.Avalonia.Admin
             services.RegisterForNavigation<Role, RoleViewModel>(AppPages.RolePage);
             services.RegisterForNavigation<SysPost, SysPostViewModel>(AppPages.SysPostPage);
             services.RegisterForNavigation<SysAdmin, SysAdminViewModel>(AppPages.SysAdminPage);
+            services.RegisterForNavigation<SysLog, SysLogViewModel>(AppPages.SysLogPage);
             ///弹窗
             services.RegisterDialogWindow<DefaultWindow>("DefaultWindow");
             services.RegisterDialog<LoginView, LoginViewModel>(AppViews.LoginName);
             services.RegisterDialog<OrganizeModify, OrganizeModifyViewModel>(AppPages.OrganizeModifyPage);
             services.RegisterDialog<RoleModify, RoleModifyViewModel>(AppPages.RoleModifyPage);
             services.RegisterDialog<SysPostModify, SysPostModifyViewModel>(AppPages.SysPostModifyPage);
+            services.RegisterDialog<SysAdminModify, SysAdminModifyViewModel>(AppPages.SysAdminModifyPage);
             services.RegisterDialog<Message, PrismMessageViewModel>(AppPages.MessagePage);
+         
+
+            
         }
     }
 }

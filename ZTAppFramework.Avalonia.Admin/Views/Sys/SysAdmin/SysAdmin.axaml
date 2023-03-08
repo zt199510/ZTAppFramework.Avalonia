@@ -13,7 +13,13 @@
             Background="#f2f2f2"
             BorderBrush="Gray"
             BorderThickness="0.5,1,0.5,1" />
-        <TreeView Width="200" />
+        <TreeView Width="200" Items="{Binding SysRoles}">
+            <TreeView.ItemTemplate>
+                <TreeDataTemplate ItemsSource="{Binding Childer}">
+                    <TextBlock Text="{Binding Name}" />
+                </TreeDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
         <Grid Grid.Column="1" RowDefinitions="auto,*">
             <Grid Margin="0,5,0,5" ColumnDefinitions="*,*">
                 <StackPanel Orientation="Horizontal">
@@ -52,9 +58,9 @@
                 AutoGenerateColumns="False"
                 BorderBrush="Gray"
                 BorderThickness="0.5,1,1,1"
-                Items="{Binding SysPostList}">
+                Items="{Binding SysAdminList}">
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn Width="50">
                         <DataGridTemplateColumn.Header>
                             <CheckBox HorizontalAlignment="Center" />
                         </DataGridTemplateColumn.Header>
@@ -66,41 +72,51 @@
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.Header>
-                            <TextBlock VerticalAlignment="Center" Text="角色名称" />
+                            <TextBlock VerticalAlignment="Center" Text="姓名" />
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Name}" />
+                                <TextBlock Text="{Binding FullName}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.Header>
-                            <TextBlock VerticalAlignment="Center" Text="岗位编号" />
+                            <TextBlock VerticalAlignment="Center" Text="所属角色" />
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Number}" />
+                                <TextBlock Text="{Binding RoleGroupName}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="70">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock VerticalAlignment="Center" Text="性别" />
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Sex}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock VerticalAlignment="Center" Text="手机号" />
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Mobile}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="70">
                         <DataGridTemplateColumn.Header>
                             <TextBlock VerticalAlignment="Center" Text="状态" />
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Status}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Width="50">
-                        <DataGridTemplateColumn.Header>
-                            <TextBlock VerticalAlignment="Center" Text="排序" />
-                        </DataGridTemplateColumn.Header>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Sort}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
