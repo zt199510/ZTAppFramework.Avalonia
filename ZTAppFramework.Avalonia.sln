@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{AB26
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Admin", "Admin", "{1413DB56-00ED-454F-A200-CBB25A8E6C07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTAppFramework.Android", "ZTAppFramework.Android\ZTAppFramework.Android.csproj", "{EBADC0FC-F9B7-4E6D-AA6D-91CEEBAC86BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,12 @@ Global
 		{A8D12D07-6190-4C3C-B84E-005C360A19F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8D12D07-6190-4C3C-B84E-005C360A19F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8D12D07-6190-4C3C-B84E-005C360A19F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBADC0FC-F9B7-4E6D-AA6D-91CEEBAC86BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBADC0FC-F9B7-4E6D-AA6D-91CEEBAC86BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBADC0FC-F9B7-4E6D-AA6D-91CEEBAC86BD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EBADC0FC-F9B7-4E6D-AA6D-91CEEBAC86BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBADC0FC-F9B7-4E6D-AA6D-91CEEBAC86BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBADC0FC-F9B7-4E6D-AA6D-91CEEBAC86BD}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
