@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Admin", "Admin", "{1413DB56
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Android", "ZTAppFramework.Android\ZTAppFramework.Android.csproj", "{6821E452-E990-4596-8C1C-56C092E4626F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFarmework.Browser", "ZTAppFarmework.Browser\ZTAppFarmework.Browser.csproj", "{B89D0C6D-9B93-4F6B-BF07-8255F3EC41AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Browser", "ZTAppFarmework.Browser\ZTAppFramework.Browser.csproj", "{B89D0C6D-9B93-4F6B-BF07-8255F3EC41AA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Desktop", "ZTAppFramework.Desktop\ZTAppFramework.Desktop.csproj", "{E197C368-029F-424D-AB7E-E3C83AE441E5}"
 EndProject
