@@ -13,7 +13,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
     {
         public static void RegisterApplicationManager(this IContainerRegistry services)
         {
-            services.RegisterScoped<AdminService>();
+            services.RegisterScoped<SysAdminService>();
             services.RegisterScoped<CaptchaService>();
             services.RegisterScoped<MenuService>();
             services.RegisterScoped<WorkbenchService>();

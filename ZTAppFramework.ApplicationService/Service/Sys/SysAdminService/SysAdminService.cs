@@ -12,7 +12,7 @@ using ZTAppFramewrok.Application.Stared;
 
 namespace ZTAppFramework.ApplicationService.Service
 {
-    public class AdminService : AppServiceRepository<SysAdminDto>
+    public class SysAdminService : AppServiceRepository<SysAdminDto>
     {
         /// <summary>
         /// Url
@@ -24,7 +24,7 @@ namespace ZTAppFramework.ApplicationService.Service
         private readonly KeyConfigLocalService _keyConfigLocalService;
         #endregion
 
-        public AdminService(ApiClinetRepository apiClinet, UserLocalSerivce userLocalSerivce,KeyConfigLocalService keyConfigLocalService) : base(apiClinet)
+        public SysAdminService(ApiClinetRepository apiClinet, UserLocalSerivce userLocalSerivce,KeyConfigLocalService keyConfigLocalService) : base(apiClinet)
         {
             _userLocalSerivce=userLocalSerivce;
             _keyConfigLocalService = keyConfigLocalService;

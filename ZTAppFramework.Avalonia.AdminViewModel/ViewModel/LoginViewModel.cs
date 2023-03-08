@@ -47,11 +47,11 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
 
         #endregion
         #region 服务
-        private readonly AdminService _userLoginService;
+        private readonly SysAdminService _userLoginService;
         private readonly CaptchaService _captchaService;
         #endregion
 
-        public LoginViewModel(AdminService userLoginService, CaptchaService captchaService)
+        public LoginViewModel(SysAdminService userLoginService, CaptchaService captchaService)
         {
             _userLoginService = userLoginService;
             _captchaService = captchaService;
