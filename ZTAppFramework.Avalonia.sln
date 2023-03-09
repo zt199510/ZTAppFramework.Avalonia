@@ -29,8 +29,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppFramework.Desktop", "Z
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop", "Desktop", "{383DAF4B-640B-4F2E-BDBF-F6178CD60E89}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "app.Browser", "..\app\app.Browser\app.Browser.csproj", "{01CD25C5-E065-4323-AA2B-97D1B2945405}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,10 +71,6 @@ Global
 		{E197C368-029F-424D-AB7E-E3C83AE441E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E197C368-029F-424D-AB7E-E3C83AE441E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E197C368-029F-424D-AB7E-E3C83AE441E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01CD25C5-E065-4323-AA2B-97D1B2945405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01CD25C5-E065-4323-AA2B-97D1B2945405}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01CD25C5-E065-4323-AA2B-97D1B2945405}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01CD25C5-E065-4323-AA2B-97D1B2945405}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,7 +83,6 @@ Global
 		{A8D12D07-6190-4C3C-B84E-005C360A19F5} = {06D6BE78-74F4-4A8C-8577-097290A2161B}
 		{1413DB56-00ED-454F-A200-CBB25A8E6C07} = {AB26899D-C0BB-4D38-B7F3-BDBE52F5043B}
 		{E197C368-029F-424D-AB7E-E3C83AE441E5} = {383DAF4B-640B-4F2E-BDBF-F6178CD60E89}
-		{01CD25C5-E065-4323-AA2B-97D1B2945405} = {383DAF4B-640B-4F2E-BDBF-F6178CD60E89}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {67A2D57F-4350-4A3B-9E91-59C7F6BA519B}
