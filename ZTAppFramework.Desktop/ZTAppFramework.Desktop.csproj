@@ -13,6 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ZTAppFramework.Avalonia.Admin\ZTAppFramework.Avalonia.Admin.csproj" />
     <ProjectReference Include="..\ZTAppFramework.Avalonia\ZTAppFramework.Avalonia.csproj" />
+    <ProjectReference Include="..\ZTAppFramework.Template\ZTAppFramework.Template.csproj" />
   </ItemGroup>
 </Project>

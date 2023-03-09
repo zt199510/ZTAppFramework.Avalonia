@@ -21,6 +21,7 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.Extensions
         public static void RegisterValidator(this IContainerRegistry services)
         {
             services.RegisterSingleton<GlobalValidator>();
+            services.RegisterScoped<IValidator<LoginModel>, LoginValidator>();
             services.RegisterScoped<IValidator<SysOrganizeParm>, SysOrganizeParmValidator>();
             services.RegisterScoped<IValidator<SysRoleParm>, SysRoleParmValidator>();
             services.RegisterScoped<IValidator<SysPostParm>, SysPostParmValidator>();

@@ -79,14 +79,14 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
                     Login.Code = res.data;
                 else
                 {
-                   // ShowDialog("消息", res.Message);
+                   Show("消息", res.Message);
                     return;
                 }
-             //   if (!Verify(Login).IsValid) return;
+               if (!Verify(Login).IsValid) return;
                 res = await _userLoginService.LoginServer(Map<LoginParam>(Login));
                 if (!res.Success)
                 {
-                  //  ShowDialog("消息", res.Message);
+                    Show("消息", res.Message);
                     return;
                 }
                 await _userLoginService.SaveLocalAccountInfo(IsSavePwd, Map<LoginParam>(Login));

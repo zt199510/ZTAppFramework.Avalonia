@@ -13,7 +13,7 @@
             Background="#f2f2f2"
             BorderBrush="Gray"
             BorderThickness="0.5,1,0.5,1" />
-        <TreeView Width="200" Items="{Binding SysRoles}">
+        <TreeView Width="200" Items="{Binding MenuList}">
             <TreeView.ItemTemplate>
                 <TreeDataTemplate ItemsSource="{Binding Childer}">
                     <TextBlock Text="{Binding Name}" />
@@ -52,7 +52,7 @@
                 AutoGenerateColumns="False"
                 BorderBrush="Gray"
                 BorderThickness="0.5,1,1,1"
-                Items="{Binding SysAdminList}">
+                Items="{Binding SysLogList}">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Width="50">
                         <DataGridTemplateColumn.Header>
@@ -66,61 +66,81 @@
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.Header>
-                            <TextBlock VerticalAlignment="Center" Text="姓名" />
+                            <TextBlock VerticalAlignment="Center" Text="级别" />
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding FullName}" />
+                                <TextBlock Text="{Binding Level}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.Header>
-                            <TextBlock VerticalAlignment="Center" Text="所属角色" />
+                            <TextBlock VerticalAlignment="Center" Text="用户" />
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding RoleGroupName}" />
+                                <TextBlock Text="{Binding OperateUser}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Width="70">
                         <DataGridTemplateColumn.Header>
-                            <TextBlock VerticalAlignment="Center" Text="性别" />
+                            <TextBlock VerticalAlignment="Center" Text="操作地址" />
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Sex}" />
+                                <TextBlock Text="{Binding Address}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.Header>
-                            <TextBlock VerticalAlignment="Center" Text="手机号" />
+                            <TextBlock VerticalAlignment="Center" Text="提交类型" />
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Mobile}" />
+                                <TextBlock Text="{Binding Method}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Width="70">
                         <DataGridTemplateColumn.Header>
-                            <TextBlock VerticalAlignment="Center" Text="状态" />
+                            <TextBlock VerticalAlignment="Center" Text="IP" />
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Status}" />
+                                <TextBlock Text="{Binding IP}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.Header>
-                            <TextBlock VerticalAlignment="Center" Text="创建时间" />
+                            <TextBlock VerticalAlignment="Center" Text="浏览器信息" />
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding CreateTime, StringFormat=\{0:yyyy-MM-dd HH:mm:ss\}}" />
+                                <TextBlock Text="{Binding Browser}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock VerticalAlignment="Center" Text="执行时长（毫秒）" />
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ExecutionDuration}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock VerticalAlignment="Center" Text="操作时间" />
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding OperateTime, StringFormat=\{0:yyyy-MM-dd HH:mm:ss\}}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

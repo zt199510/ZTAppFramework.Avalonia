@@ -17,6 +17,14 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
     /// </summary>
     public class SysLogModel : BindableBase
     {
+        private bool _IsSelected;
+
+        public bool IsSelected
+        {
+            get { return _IsSelected; }
+            set { SetProperty(ref _IsSelected, value); }
+        }
+
         /// <summary>
         /// 唯一编号
         /// </summary>

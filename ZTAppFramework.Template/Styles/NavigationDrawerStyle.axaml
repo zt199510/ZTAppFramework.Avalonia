@@ -1,0 +1,154 @@
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:assists="clr-namespace:ZTAppFramework.Template.Assists;assembly=ZTAppFramework.Template"
+    xmlns:converters="clr-namespace:ZTAppFramework.Template.Converters;assembly=ZTAppFramework.Template"
+    xmlns:local="clr-namespace:ZTAppFramework.Template.Controls;assembly=ZTAppFramework.Template">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!--  Add Controls for Previewer Here  -->
+
+            <local:ZTNavigationDrawer
+                Width="400"
+                Height="200"
+                Background="White"
+                LeftDrawerOpened="{Binding ElementName=toggler, Path=IsChecked}">
+                <local:ZTNavigationDrawer.LeftDrawerContent>
+                    <StackPanel Background="Red">
+                        <Button Content="Test 1" />
+                        <Button Content="Test 2" />
+                    </StackPanel>
+                </local:ZTNavigationDrawer.LeftDrawerContent>
+
+                <local:ZTCard Margin="8">
+                    <ToggleSwitch Name="toggler" />
+                </local:ZTCard>
+            </local:ZTNavigationDrawer>
+        </Border>
+    </Design.PreviewWith>
+
+    <Styles.Resources>
+        <SineEaseInOut x:Key="EasingConstant" />
+        <converters:MarginMultiplyParameter x:Key="LeftMarginCreatorParam" LeftMultiplier="-1" />
+        <converters:MarginMultiplyParameter x:Key="RightMarginCreatorParam" RightMultiplier="-1" />
+        <converters:MarginMultiplyConverter x:Key="MarginCreator" />
+    </Styles.Resources>
+    <Style Selector="local|ZTNavigationDrawer">
+        <Setter Property="LeftDrawerWidth" Value="320" />
+        <Setter Property="RightDrawerWidth" Value="320" />
+        <Setter Property="Background" Value="#FFE0E5EC" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel
+                    Name="PART_RootPanel"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="Transparent"
+                    ClipToBounds="False">
+                    <ContentPresenter
+                        Name="ContentPresenter"
+                        Margin="{TemplateBinding Padding}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    <Border
+                        Name="PART_Scrim"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="Black" />
+                    <Border
+                        Name="PART_LeftDrawerBorder"
+                        Width="{TemplateBinding LeftDrawerWidth}"
+                        HorizontalAlignment="Left">
+                        <Border.Styles>
+                            <Style Selector="local|ZTNavigationDrawer /template/ Border#PART_LeftDrawerBorder">
+                                <Setter Property="Margin" Value="{Binding $self.Width, Converter={StaticResource MarginCreator}, ConverterParameter={StaticResource LeftMarginCreatorParam}}" />
+                            </Style>
+                        </Border.Styles>
+
+                        <ContentPresenter
+                            Content="{TemplateBinding LeftDrawerContent}"
+                            ContentTemplate="{TemplateBinding LeftDrawerContentTemplate}"
+                            IsEnabled="{TemplateBinding LeftDrawerOpened}" />
+                    </Border>
+
+                    <Border
+                        Name="PART_RightDrawerBorder"
+                        Width="{TemplateBinding RightDrawerWidth}"
+                        HorizontalAlignment="Right">
+                        <Border.Styles>
+                            <Style Selector="local|ZTNavigationDrawer /template/ Border#PART_RightDrawerBorder">
+                                <Setter Property="Margin" Value="{Binding $self.Width, Converter={StaticResource MarginCreator}, ConverterParameter={StaticResource RightMarginCreatorParam}}" />
+                            </Style>
+                        </Border.Styles>
+
+                        <ContentPresenter
+                            Content="{TemplateBinding RightDrawerContent}"
+                            ContentTemplate="{TemplateBinding RightDrawerContentTemplate}"
+                            IsEnabled="{TemplateBinding RightDrawerOpened}" />
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <!--  Transitions  -->
+    <Style Selector="local|ZTNavigationDrawer:not(.notransitions) /template/ Border#PART_Scrim">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition
+                    Easing="{StaticResource EasingConstant}"
+                    Property="Opacity"
+                    Duration="0:0:0.3" />
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <Style Selector="local|ZTNavigationDrawer:not(.notransitions) /template/ Border#PART_LeftDrawerBorder">
+        <Setter Property="Transitions">
+            <Transitions>
+                <ThicknessTransition
+                    Easing="{StaticResource EasingConstant}"
+                    Property="Margin"
+                    Duration="0:0:0.3" />
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="local|ZTNavigationDrawer:not(.notransitions) /template/ Border#PART_RightDrawerBorder">
+        <Setter Property="Transitions">
+            <Transitions>
+                <ThicknessTransition
+                    Easing="{StaticResource EasingConstant}"
+                    Property="Margin"
+                    Duration="0:0:0.3" />
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <Style Selector="local|ZTNavigationDrawer /template/ Border#PART_LeftDrawerBorder">
+        <Setter Property="Background" Value="Red" />
+    </Style>
+
+    <Style Selector="local|ZTNavigationDrawer /template/ Border#PART_RightDrawerBorder">
+        <Setter Property="Background" Value="Wheat" />
+    </Style>
+
+    <Style Selector="local|ZTNavigationDrawer /template/ Border#PART_Scrim">
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="IsHitTestVisible" Value="False" />
+    </Style>
+
+    <Style Selector="local|ZTNavigationDrawer:open /template/ Border#PART_Scrim">
+        <Setter Property="Opacity" Value="0.32" />
+        <Setter Property="IsHitTestVisible" Value="True" />
+    </Style>
+    <Style Selector="local|ZTNavigationDrawer:left /template/ Border#PART_LeftDrawerBorder">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="CenterDepth3" />
+    </Style>
+
+    <Style Selector="local|ZTNavigationDrawer:right /template/ Border#PART_RightDrawerBorder">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="CenterDepth3" />
+    </Style>
+
+
+</Styles>

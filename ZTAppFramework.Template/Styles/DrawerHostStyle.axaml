@@ -1,0 +1,93 @@
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:ZTAppFramework.Template.Converters"
+    xmlns:local="clr-namespace:ZTAppFramework.Template.Controls;assembly=ZTAppFramework.Template"
+    xmlns:system="clr-namespace:System;assembly=netstandard">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!--  Add Controls for Previewer Here  -->
+            <local:ZTDrawerHost>
+                <TextBlock Text="123123" />
+            </local:ZTDrawerHost>
+        </Border>
+    </Design.PreviewWith>
+
+
+    <Styles.Resources>
+        <converters:MarginCreator x:Key="StartMarginCreator" />
+
+    </Styles.Resources>
+
+    <Style Selector="local|ZTDrawerHost">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    <ItemsControl
+                        Name="PART_ZTDrawerHostItemsContainer"
+                        HorizontalAlignment="{TemplateBinding ZTDrawerHorizontalAlignment}"
+                        VerticalAlignment="{TemplateBinding ZTDrawerVerticalAlignment}"
+                        Items="{CompiledBinding $parent[local:ZTDrawerHost].ZTDrawerModels}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ReversibleStackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="local:ZTDrawerModel">
+                                <local:ZTCard
+                                    Width="344"
+                                    Height="58"
+                                    Margin="8"
+                                    Padding="0">
+                                    <Grid
+                                        Margin="0"
+                                        VerticalAlignment="Stretch"
+                                        ColumnDefinitions="16,*,8,Auto,8"
+                                        RowDefinitions="6,Auto,6">
+                                        <ContentPresenter
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            Height="46"
+                                            Margin="0"
+                                            VerticalAlignment="Center"
+                                            Content="{CompiledBinding Content,
+                                                                      Converter={x:Static converters:WrapContentIntoContentPresenterConverter.Instance}}">
+                                            <ContentPresenter.DataTemplates>
+                                                <DataTemplate DataType="system:String">
+                                                    <TextBlock
+                                                        Name="PART_ZTDrawerSupportingText"
+                                                        Margin="0"
+                                                        Padding="0"
+                                                        VerticalAlignment="Center"
+                                                        Text="{CompiledBinding}"
+                                                        TextAlignment="Center" />
+                                                </DataTemplate>
+                                            </ContentPresenter.DataTemplates>
+                                        </ContentPresenter>
+
+                                        <ContentPresenter
+                                            Grid.Row="1"
+                                            Grid.Column="3"
+                                            Content="{CompiledBinding Button}"
+                                            IsVisible="{CompiledBinding !!Button}" />
+                                    </Grid>
+                                </local:ZTCard>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <!--  Add Styles Here  -->
+
+    <Style Selector="local|ZTDrawerHost /template/ ItemsControl#PART_ZTDrawerHostItemsContainer TextBlock#PART_ZTDrawerSupportingText">
+        <Setter Property="TextAlignment" Value="Left" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="MaxLines" Value="2" />
+    </Style>
+</Styles>

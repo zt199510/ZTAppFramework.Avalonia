@@ -32,6 +32,9 @@ namespace ZTAppFramework.Avalonia.AdminViewModel
             CreateMap<SysPostModel, SysPostDto>().ReverseMap();
             CreateMap<SysPostModel, SysPostParm>().ReverseMap();
             CreateMap<SysAdminModel, SysAdminDto>().ReverseMap();
+            //CreateMap<SysMenuModel, SysMenuDto>().ReverseMap();
+            CreateMap<SysLogModel, SysLogDto>().ReverseMap();
+
         }
     }
 }

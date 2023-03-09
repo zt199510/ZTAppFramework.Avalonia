@@ -52,8 +52,18 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
             DialogParameters Param = new DialogParameters();
             Param.Add("Title", Title);
             Param.Add("Message", Message);
+            _DialogService.Show(AppPages.MessagePage, Param, r => { }, "DefaultWindow");
+        }
+
+        public void ShowDialog(string Title, string Message)
+        {
+            DialogParameters Param = new DialogParameters();
+            Param.Add("Title", Title);
+            Param.Add("Message", Message);
             _DialogService.ShowDialog(AppPages.MessagePage, Param, r => { }, "DefaultWindow");
         }
+
+
         public void ShowDialog(string Title, string Message,Action<IDialogResult> callback, MessageEnums enums=MessageEnums.Yes)
         {
             DialogParameters Param = new DialogParameters();
