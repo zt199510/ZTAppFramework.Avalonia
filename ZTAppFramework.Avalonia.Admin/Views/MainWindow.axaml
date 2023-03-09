@@ -68,6 +68,5 @@
                 <ContentControl x:Name="RegionPage" />
             </Zt:ZTDialogHost>
         </Zt:ZTNavigationDrawer>
-
     </Zt:ZTTitleBar>
 </Window>

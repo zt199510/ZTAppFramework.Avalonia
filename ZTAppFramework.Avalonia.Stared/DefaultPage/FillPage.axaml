@@ -10,8 +10,7 @@
     BorderThickness="1"
     mc:Ignorable="d">
     <Grid Background="#F2F2F2">
-        <TextBlock Text="占个位置先" />
+     <TextBlock Text="占个位置先" />
       <DatePicker  />
-     
     </Grid>
 </UserControl>
