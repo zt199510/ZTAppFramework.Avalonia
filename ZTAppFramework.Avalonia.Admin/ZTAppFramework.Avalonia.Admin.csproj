@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ZTAppFramework.Avalonia.AdminViewModel\ZTAppFramework.Avalonia.AdminViewModel.csproj" />
-    <ProjectReference Include="..\ZTAppFramework.Template\ZTAppFramework.Template.csproj" />
   </ItemGroup>
 
 </Project>
