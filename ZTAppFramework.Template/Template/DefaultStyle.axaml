@@ -11,6 +11,6 @@
     <StyleInclude Source="avares://ZTAppFramework.Template/Styles/ProgressBar/CircularProgressStyle.axaml" />
     <StyleInclude Source="avares://ZTAppFramework.Template/Styles/ProgressBar/ProgressBarStyle.axaml" />
     <StyleInclude Source="avares://ZTAppFramework.Template/Styles/DataGridStyle.axaml" />
-    <StyleInclude Source="avares://ZTAppFramework.Template/Styles/DrawerHostStyle.axaml" />
+    <!--<StyleInclude Source="avares://ZTAppFramework.Template/Styles/MessageHostStyle.axaml" />-->
     <StyleInclude Source="avares://ZTAppFramework.Template/Styles/NavigationDrawerStyle.axaml" />
 </Styles>

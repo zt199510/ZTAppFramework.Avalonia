@@ -25,7 +25,6 @@
             <Grid ColumnDefinitions="60,auto,*" IsHitTestVisible="false">
                 <Border Background="#151727" />
                 <Image />
-
                 <TextBlock
                     Grid.Column="1"
                     HorizontalAlignment="Center"
@@ -33,7 +32,6 @@
                     FontSize="18"
                     Text="" />
                 <StackPanel Grid.Column="2" Orientation="Horizontal">
-
                     <TextBlock
                         Margin="10,0,0,0"
                         VerticalAlignment="Center"
@@ -47,10 +45,17 @@
                     BorderBrush="#222B44"
                     BorderThickness="0.5,0,0,0" />
             </Grid>
-
         </Zt:ZTTitleBar.HeaderContent>
-        <Zt:ZTDialogHost dialog:ZTDialog.Token="RootDialog">
-            <ContentControl x:Name="RegionPage" />
-        </Zt:ZTDialogHost>
+        <Zt:ZTNavigationDrawer>
+            <Zt:ZTNavigationDrawer.RightDrawerContent>
+                <Zt:ZTCard>
+                    <ContentControl x:Name="RightRegionPage" />
+                </Zt:ZTCard>
+            </Zt:ZTNavigationDrawer.RightDrawerContent>
+            <Zt:ZTDialogHost dialog:ZTDialog.Token="RootDialog">
+                <ContentControl x:Name="RegionPage" />
+            </Zt:ZTDialogHost>
+        </Zt:ZTNavigationDrawer>
+
     </Zt:ZTTitleBar>
 </Window>

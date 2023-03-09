@@ -26,7 +26,9 @@ namespace ZTAppFramework.Avalonia.Admin
             {
                 IRegionManager? regionManager = container.Resolve<IRegionManager>();
                 RegionManager.SetRegionName(view.RegionPage, AppPages.Nav_MainContent);
+                RegionManager.SetRegionName(view.RightRegionPage, AppPages.Nav_RightDrawerContent);
                 RegionManager.SetRegionManager(view.RegionPage, regionManager);
+                RegionManager.SetRegionManager(view.RightRegionPage, regionManager);
                 RegionManager.UpdateRegions();
                 regionManager.Regions[AppPages.Nav_MainContent].RequestNavigate(AppPages.HomePage);
                 if (view.DataContext is INavigationAware navigationAware)

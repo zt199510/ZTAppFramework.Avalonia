@@ -17,7 +17,7 @@ namespace ZTAppFramework.Avalonia.Stared
         /// </summary>
         public const string Nav_MainContent = "Nav_MainContent";
         public const string Nav_HomeContent = "Nav_HomeContent";
-
+        public const string Nav_RightDrawerContent = "Nav_RightDrawerContent";
         public const string HomePage = "HomePage";
         public const string WorkbenchPage = "WorkbenchPage";//工作台页面
         public const string PersonalInfoPage = "PersonalInfoPage";//个人信息页面
