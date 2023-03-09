@@ -13,8 +13,4 @@
   <ItemGroup>
     <PackageReference Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ZTAppframework\ZTAppframework.csproj" />
-  </ItemGroup>
 </Project>

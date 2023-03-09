@@ -5,6 +5,8 @@ using Application = Android.App.Application;
 using Avalonia;
 using Avalonia.Android;
 using Avalonia.ReactiveUI;
+using Avalonia.Controls;
+using ZTAppFramework.Avalonia;
 
 namespace ZTAppframework.Android;
 
