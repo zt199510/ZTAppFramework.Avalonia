@@ -1,4 +1,5 @@
 ﻿using Avalonia.FreeDesktop.DBusIme;
+using Prism.Commands;
 using Prism.Events;
 using Prism.Ioc;
 using Prism.Regions;
@@ -22,6 +23,14 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
             get { return _OpenDrawer; }
             set { SetProperty(ref _OpenDrawer, value); }
         }
+
+        public DelegateCommand OpenUserInfoCommand => new DelegateCommand(OpenUserInfo);
+
+        private void OpenUserInfo()
+        {
+            OpenDrawer(AppPages.FillPage, new NavigationParameters());
+        }
+
         public MainWindowViewModel(IEventAggregator aggregator)
         {
             _aggregator = aggregator;

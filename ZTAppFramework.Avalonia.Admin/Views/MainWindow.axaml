@@ -54,6 +54,7 @@
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
                     Classes="Icon"
+                    Command="{Binding OpenUserInfoCommand}"
                     Content="Z" />
             </Grid>
         </Zt:ZTTitleBar.HeaderContent>

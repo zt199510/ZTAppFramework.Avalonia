@@ -31,5 +31,8 @@ namespace ZTAppFramework.Avalonia.Stared
         public const string SysAdminPage = "SysAdminPage";
         public const string SysAdminModifyPage = "SysAdminModifyPage";
         public const string SysLogPage = "SysLogPage";
+
+        //填充页面
+        public const string FillPage = "FillPage";
     }
 }
