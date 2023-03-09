@@ -1,6 +1,7 @@
 ﻿<Styles
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:ZTAppFramework.Template.Converters;assembly=ZTAppFramework.Template"
     xmlns:zt="clr-namespace:ZTAppFramework.Template.Controls;assembly=ZTAppFramework.Template">
     <Design.PreviewWith>
         <StackPanel>
@@ -22,6 +23,11 @@
                     Margin="2"
                     Content="警告按钮"
                     Type="Danger" />
+
+                <zt:ZTButton
+                    Margin="2"
+                    Content="警告按钮"
+                    Type="Link" />
                 <zt:ZTButton
                     Margin="2"
                     Content="禁用按钮"
@@ -50,10 +56,23 @@
                     Classes="Link"
                     Content="超链接"
                     Uri="https://space.bilibili.com/48808444" />
+
+                <zt:ZTButton Classes="Icon" Content="超" />
             </StackPanel>
         </StackPanel>
 
     </Design.PreviewWith>
+
+    <Styles.Resources>
+
+        <converters:ControlWidthToBoxShadowConverter x:Key="ControlWidthToBoxShadowConverter" />
+        <LinearGradientBrush x:Key="BackgroundGradient">
+            <GradientStop Offset="0" Color="#FF00FF00" />
+            <GradientStop Offset="1" Color="#FFFF0000" />
+        </LinearGradientBrush>
+    </Styles.Resources>
+
+
     <Style Selector="zt|ZTButton">
         <Setter Property="CornerRadius" Value="2" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -183,4 +202,73 @@
     <Style Selector="zt|ZTButton[Type=Link]:disabled /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="TextBlock.Foreground" Value="Gray" />
     </Style>
+
+    <Style Selector="zt|ZTButton.Icon">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="TextBlock.Foreground" Value="#4007a2" />
+        <Setter Property="Padding" Value="16 16 16 16" />
+        <Setter Property="Height" Value="48" />
+        <Setter Property="Width" Value="48" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Name="PART_ButtonRootBorder"
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Margin="{TemplateBinding Margin}"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="100"
+                    Cursor="{TemplateBinding Cursor}">
+
+                    <Panel>
+                        <!--  Outline  -->
+                        <Border
+                            Name="PART_HoverIndicator"
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BoxShadow="{TemplateBinding Height,
+                                                        Converter={StaticResource ControlWidthToBoxShadowConverter},
+                                                        ConverterParameter=1}"
+                            CornerRadius="100" />
+
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            TextBlock.Foreground="{TemplateBinding Foreground}" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="zt|ZTButton.Icon:not(.notransitions) /template/ Ellipse#PART_HoverIndicator">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition
+                    Easing="LinearEasing"
+                    Property="Opacity"
+                    Duration="0:0:0.25" />
+            </Transitions>
+        </Setter>
+
+    </Style>
+
+
 </Styles>

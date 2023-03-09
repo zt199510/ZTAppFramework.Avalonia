@@ -19,7 +19,6 @@ namespace ZTAppFramework.Avalonia.Admin
         public Window CreateShell(Application app)
         {
             App = app;
-         
             var container = ContainerLocator.Container;
             var shell = container.Resolve<object>(AppViews.MainName);
             if (shell is MainWindow view)

@@ -35,7 +35,11 @@ namespace ZTAppFramework.Template.Enums
         /// <summary>
         /// 超链接
         /// </summary>
-        Link
+        Link,
+        /// <summary>
+        /// Iocn按钮
+        /// </summary>
+        Icon
 
     }
 }

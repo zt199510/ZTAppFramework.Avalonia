@@ -37,6 +37,7 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
             this.Region = ContainerLocator.Container.Resolve<IRegionManager>();
             this.Dialog = ContainerLocator.Container.Resolve<IDialogService>();
             this.Event = ContainerLocator.Container.Resolve<IEventAggregator>();
+           
         }
         private DelegateCommand _LoadedCommand;
         public DelegateCommand LoadedCommand =>
@@ -48,6 +49,13 @@ namespace ZTAppFramework.Avalonia.Stared.ViewModels
         {
 
         }
+
+        public void OpenDrawer(string Page,NavigationParameters Param=null)
+        {
+            Event.GetEvent<NavPageMessage>().Publish(true);
+            Region.Regions[AppPages.Nav_RightDrawerContent]?.RequestNavigate(Page, Param);
+        }
+
         /// <summary>
         /// 标记上一个视图时候被销毁
         /// </summary>

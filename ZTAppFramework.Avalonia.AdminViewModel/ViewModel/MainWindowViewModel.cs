@@ -1,4 +1,6 @@
-﻿using Prism.Ioc;
+﻿using Avalonia.FreeDesktop.DBusIme;
+using Prism.Events;
+using Prism.Ioc;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -12,10 +14,18 @@ namespace ZTAppFramework.Avalonia.AdminViewModel.ViewModel
 {
     public class MainWindowViewModel : NavigaViewModelBase
     {
+        private bool _OpenDrawer;
+        private readonly IEventAggregator _aggregator;
 
-        public MainWindowViewModel()
+        public bool IsDrawer
         {
-          
+            get { return _OpenDrawer; }
+            set { SetProperty(ref _OpenDrawer, value); }
+        }
+        public MainWindowViewModel(IEventAggregator aggregator)
+        {
+            _aggregator = aggregator;
+            _aggregator.GetEvent<NavPageMessage>().Subscribe(x=> IsDrawer = x);
         }
     }
 }

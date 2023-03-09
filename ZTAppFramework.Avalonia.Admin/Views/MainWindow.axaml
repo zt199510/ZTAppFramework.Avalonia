@@ -22,7 +22,7 @@
         HeaderForeground="#323232"
         HeaderHeight="50">
         <Zt:ZTTitleBar.HeaderContent>
-            <Grid ColumnDefinitions="60,auto,*" IsHitTestVisible="false">
+            <Grid ColumnDefinitions="60,auto,*">
                 <Border Background="#151727" />
                 <Image />
                 <TextBlock
@@ -44,9 +44,20 @@
                     Background="#232633"
                     BorderBrush="#222B44"
                     BorderThickness="0.5,0,0,0" />
+                <Zt:ZTButton
+                    Grid.Column="3"
+                    Width="38"
+                    Height="38"
+                    Margin="0"
+                    Padding="0"
+                    HorizontalAlignment="Right"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Classes="Icon"
+                    Content="Z" />
             </Grid>
         </Zt:ZTTitleBar.HeaderContent>
-        <Zt:ZTNavigationDrawer>
+        <Zt:ZTNavigationDrawer RightDrawerOpened="{Binding IsDrawer, Mode=TwoWay}">
             <Zt:ZTNavigationDrawer.RightDrawerContent>
                 <Zt:ZTCard>
                     <ContentControl x:Name="RightRegionPage" />
