@@ -28,7 +28,7 @@ namespace ZTAppFramework.Avalonia
     public partial class App : PrismApplication
     {
 
-        protected override IAvaloniaObject CreateShell() => null;
+      //  protected override IAvaloniaObject CreateShell() => null;
         public override void Initialize()
         {
             AvaloniaXamlLoader.Load(this);
@@ -93,5 +93,8 @@ namespace ZTAppFramework.Avalonia
             }
             base.OnFrameworkInitializationCompleted();
         }
+
+        protected override AvaloniaObject CreateShell() => null;
+
     }
 }

@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Prism.DryIoc.Avalonia" Version="8.1.97.2" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ZTAppFramework.Avalonia.AdminViewModel\ZTAppFramework.Avalonia.AdminViewModel.csproj" />
     <ProjectReference Include="..\ZTAppFramework.Template\ZTAppFramework.Template.csproj" />
   </ItemGroup>
