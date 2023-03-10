@@ -243,15 +243,15 @@ namespace ZTAppFramework.Template.Controls
         /// <summary> 当Scale变化时获取更新前水平和垂直位移 </summary>
         public void GetOffSetRate()
         {
-            if (_svDefault.Extent.Width > 0)
+            if (_svDefault.Bounds.Width > 0)
             {
                 if (_svDefault.Offset.X != 0)
-                    hOffSetRate = _svDefault.Offset.X / _svDefault.Extent.Width;
+                    hOffSetRate = _svDefault.Offset.X / _svDefault.Bounds.Width;
             }
-            if (_svDefault.Extent.Height > 0)
+            if (_svDefault.Bounds.Height > 0)
             {
                 if (_svDefault.Offset.Y != 0)
-                    vOffSetRate = _svDefault.Offset.Y / _svDefault.Extent.Height;
+                    vOffSetRate = _svDefault.Offset.Y / _svDefault.Bounds.Height;
             }
         }
 
@@ -259,14 +259,14 @@ namespace ZTAppFramework.Template.Controls
         internal void SetOffSetByRate()
         {
             InvalidateMeasure();
-            if (_svDefault.Extent.Width > 0)
+            if (_svDefault.Bounds.Width > 0)
             {
-                double hOffSet = hOffSetRate * _svDefault.Extent.Width;
+                double hOffSet = hOffSetRate * _svDefault.Bounds.Width;
                 _svDefault.Offset = new Vector(hOffSet, _svDefault.Offset.Y);
             }
-            if (_svDefault.Extent.Height > 0)
+            if (_svDefault.Bounds.Height > 0)
             {
-                double vOffSet = vOffSetRate * _svDefault.Extent.Height;
+                double vOffSet = vOffSetRate * _svDefault.Bounds.Height;
                 _svDefault.Offset = new Vector(_svDefault.Offset.X, vOffSet);
             }
         }
@@ -274,9 +274,9 @@ namespace ZTAppFramework.Template.Controls
         /// <summary> 获取适应屏幕大小的范围 </summary>
         public double GetFullScale()
         {
-            double result = _svDefault.Extent.Width / imgWidth;
+            double result = _svDefault.Bounds.Width / imgWidth;
 
-            result = Math.Min(result, _svDefault.Extent.Height / imgHeight);
+            result = Math.Min(result, _svDefault.Bounds.Height / imgHeight);
 
             return result - 0.01;
         }

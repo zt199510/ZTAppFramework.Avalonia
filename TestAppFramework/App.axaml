@@ -1,0 +1,10 @@
+<Application
+    x:Class="TestAppFramework.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Styles>
+        <FluentTheme Mode="Light" />
+        <StyleInclude Source="avares://ZTAppFramework.Template/Template/DefaultStyle.axaml" />
+
+    </Application.Styles>
+</Application>

@@ -28,27 +28,32 @@
                                 <Grid>
                                     <ScrollViewer
                                         x:Name="PART_ScrollView_Default"
-                                        HorizontalScrollBarVisibility="Hidden"
+                                        HorizontalScrollBarVisibility="Auto"
                                         IsEnabled="True"
-                                        VerticalScrollBarVisibility="Hidden">
+                                        VerticalScrollBarVisibility="Auto">
                                         <Grid x:Name="PART_Grid_Root">
-                                            <Viewbox
-                                                x:Name="PART_ViewBox_Default"
+                                            <ContentControl
+                                                x:Name="control"
                                                 HorizontalAlignment="Center"
-                                                VerticalAlignment="Center"
-                                                Stretch="Uniform">
-                                                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                    <Canvas
-                                                        x:Name="PART_CenterCanvas"
-                                                        Width="{Binding #PART_ImageCenter.Bounds.Width}"
-                                                        Height="{Binding #PART_ImageCenter.Bounds.Height}"
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        Background="{TemplateBinding Background}">
-                                                        <Image x:Name="PART_ImageCenter" Stretch="Uniform" />
-                                                    </Canvas>
-                                                </Grid>
-                                            </Viewbox>
+                                                VerticalAlignment="Center">
+                                                <Viewbox
+                                                    x:Name="PART_ViewBox_Default"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Stretch="Uniform">
+                                                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                        <Canvas
+                                                            x:Name="PART_CenterCanvas"
+                                                            Width="{Binding #PART_ImageCenter.Bounds.Width}"
+                                                            Height="{Binding #PART_ImageCenter.Bounds.Height}"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Background="{TemplateBinding Background}">
+                                                            <Image x:Name="PART_ImageCenter" Stretch="Uniform" />
+                                                        </Canvas>
+                                                    </Grid>
+                                                </Viewbox>
+                                            </ContentControl>
                                         </Grid>
                                     </ScrollViewer>
                                 </Grid>

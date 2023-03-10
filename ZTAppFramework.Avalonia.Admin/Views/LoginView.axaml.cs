@@ -12,9 +12,7 @@ namespace ZTAppFramework.Avalonia.Admin.Views
             InitializeComponent();
             // PART_ImageCenter.Source = new Bitmap(@"C:\Users\10335\Desktop\3af11f8f631e48ddb0eba5d23534e578.jpg");
 
-            ddd.ImageSource = new Bitmap(@"C:\Users\10335\Desktop\3af11f8f631e48ddb0eba5d23534e578.jpg");
-
-            ddd.AddBehaviors(new ImgeMouseWheelBehavior(ddd));
+         
 
         }
 
