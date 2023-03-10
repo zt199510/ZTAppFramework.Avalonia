@@ -24,10 +24,9 @@
             </StackPanel>
         </Zt:ZTTitleBar.HeaderContent>
         <Grid ColumnDefinitions="*,*">
-            <Image
-                Height="260"
-                ext:ImageHelper.Source="assembly://Assets/Background_login2.png"
-                Stretch="Uniform" />
+            <Zt:ImageCore x:Name="ddd" />
+
+            <!--<Image ext:ImageHelper.Source="assembly://Assets/Background_login2.png" Stretch="Uniform" />-->
             <Grid
                 Grid.Column="1"
                 Width="350"

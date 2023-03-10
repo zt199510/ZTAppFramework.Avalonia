@@ -13,4 +13,5 @@
     <StyleInclude Source="avares://ZTAppFramework.Template/Styles/DataGridStyle.axaml" />
     <!--<StyleInclude Source="avares://ZTAppFramework.Template/Styles/MessageHostStyle.axaml" />-->
     <StyleInclude Source="avares://ZTAppFramework.Template/Styles/NavigationDrawerStyle.axaml" />
+    <StyleInclude Source="avares://ZTAppFramework.Template/Styles/ImageCore.axaml" />
 </Styles>
