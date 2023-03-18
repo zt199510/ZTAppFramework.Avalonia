@@ -44,15 +44,8 @@
             <TabStrip.ItemTemplate>
                 <DataTemplate>
                     <Border>
-                        <Grid RowDefinitions="*,auto">
-                            <Path
-                                Width="20"
-                                Height="20"
-                                Data="M170.666667 938.666667a341.333333 341.333333 0 0 1 682.666666 0H170.666667z m341.333333-384c-141.44 0-256-114.56-256-256s114.56-256 256-256 256 114.56 256 256-114.56 256-256 256z"
-                                Fill="White"
-                                Stretch="Fill" />
+                        <Grid>
                             <TextBlock
-                                Grid.Row="1"
                                 HorizontalAlignment="Center"
                                 FontSize="14"
                                 Foreground="White"

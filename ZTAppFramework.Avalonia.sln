@@ -30,10 +30,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop", "Desktop", "{383DAF4B-640B-4F2E-BDBF-F6178CD60E89}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pictures", "Pictures", "{13589E8B-0451-40CD-96FB-0E73C8E01DE3}"
-EndProjeProject("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{3DE5467D-4AEF-494B-8961-DCF04C62822F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAppFramework", "TestAppFramework\TestAppFramework.csproj", "{3A547D98-3B80-4717-BF7F-1092929BFAF6}"
-EndProjectct
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestAppFramework", "TestAppFramework\TestAppFramework.csproj", "{3A547D98-3B80-4717-BF7F-1092929BFAF6}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppframework.Android", "ZTAppframework.Android\ZTAppframework.Android.csproj", "{5310CEB7-2E96-4844-880D-6B055DC99D5E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZTAppframework.Browser", "ZTAppframework.Browser\ZTAppframework.Browser.csproj", "{41B16EF0-9DF5-4D8A-A9F9-35F5FEE1A8E2}"
@@ -80,6 +79,10 @@ Global
 		{E197C368-029F-424D-AB7E-E3C83AE441E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E197C368-029F-424D-AB7E-E3C83AE441E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E197C368-029F-424D-AB7E-E3C83AE441E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A547D98-3B80-4717-BF7F-1092929BFAF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A547D98-3B80-4717-BF7F-1092929BFAF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A547D98-3B80-4717-BF7F-1092929BFAF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A547D98-3B80-4717-BF7F-1092929BFAF6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5310CEB7-2E96-4844-880D-6B055DC99D5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5310CEB7-2E96-4844-880D-6B055DC99D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5310CEB7-2E96-4844-880D-6B055DC99D5E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU

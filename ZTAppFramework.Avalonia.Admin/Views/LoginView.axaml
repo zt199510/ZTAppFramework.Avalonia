@@ -76,7 +76,8 @@
                         Command="{Binding ExecuteCommand}"
                         CommandParameter="Login"
                         Content="登录"
-                        Foreground="White" />
+                        Foreground="White"
+                        IsEnabled="{Binding !IsBusy}" />
 
                     <CheckBox
                         Content="记住密码"

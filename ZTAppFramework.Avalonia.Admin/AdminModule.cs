@@ -40,6 +40,7 @@ namespace ZTAppFramework.Avalonia.Admin
             services.RegisterForNavigation<SysPost, SysPostViewModel>(AppPages.SysPostPage);
             services.RegisterForNavigation<SysAdmin, SysAdminViewModel>(AppPages.SysAdminPage);
             services.RegisterForNavigation<SysLog, SysLogViewModel>(AppPages.SysLogPage);
+            services.RegisterForNavigation<SysMenu, SysMenuViewModel>(AppPages.SysMenuPage);
             services.RegisterForNavigation<FillPage>(AppPages.FillPage);
 
             ///弹窗

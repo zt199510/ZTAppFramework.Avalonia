@@ -31,6 +31,7 @@
     <PackageReference Include="XamlNameReferenceGenerator" Version="1.6.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ZTAppFramework.ApplicationService\ZTAppFramework.ApplicationService.csproj" />
     <ProjectReference Include="..\ZTAppFramework.Avalonia.Admin\ZTAppFramework.Avalonia.Admin.csproj" />
   </ItemGroup>
   <ItemGroup>

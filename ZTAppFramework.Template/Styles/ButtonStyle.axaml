@@ -157,13 +157,15 @@
     </Style>
 
     <Style Selector="zt|ZTButton:disabled /template/ Border#PART_Border">
-        <Setter Property="Background" Value="Gray" />
+
         <Setter Property="BorderBrush" Value="#33ABA0" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Opacity" Value="0.5" />
     </Style>
     <Style Selector="zt|ZTButton:disabled /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="TextBlock.Foreground" Value="Gray" />
     </Style>
+
     <Style Selector="zt|ZTButton[Type=Link]">
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Padding" Value="0" />
@@ -190,6 +192,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+
     <Style Selector="zt|ZTButton[Type=Link]:not(:pointerover) /template/ Grid#PART_Line">
         <Setter Property="Opacity" Value="0" />
     </Style>
