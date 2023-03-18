@@ -10,8 +10,4 @@
     <ProjectReference Include="..\ZTAppFramework.Avalonia.AdminViewModel\ZTAppFramework.Avalonia.AdminViewModel.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Sys\SysMenu\" />
-  </ItemGroup>
-
 </Project>
